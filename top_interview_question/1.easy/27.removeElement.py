@@ -7,6 +7,7 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 
 
 Problem solving：
+why use nums[:] here, please take a look: top_interview_question/1.esay/26.26.removeDuplicatesFromSortedArrary.py
 class Solution:
     def removeElement(self, nums, val) -> int:
         print(hex(id(nums)))
