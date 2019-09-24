@@ -11,8 +11,10 @@ The integer division should truncate toward zero.
 For the purpose of this problem, assume that your function returns 231 − 1 when the division result overflows.
 
 Problem solving：
-1. make sure the range: [−2**31,  2**31 − 1], and test them at the edge of them, eg: 2147483648, -2147483648, 2147483647, -2147483647, -1, 1.
-2. when the dividend reach to 2147483647, the maximum.
+this problem divides to two parts:
+1. take care of the edge cases, make sure the range: [−2**31,  2**31 − 1], and test them at the edge of them,
+eg: 2147483648, -2147483648, 2147483647, -2147483647, -1, 1. when the dividend reach to 2147483647, the maximum.
+2. take care of the basic logic, but make sure the large number brings the performance issue.
 """
 
 import math
