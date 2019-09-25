@@ -27,14 +27,14 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        N = len(nums)
-        for i in range(N - 1, 0, -1):
-            if nums[i] > nums[i - 1]:
-                for j in range(N - 1, i - 1, -1):
-                    if nums[j] > nums[i - 1]:
-                        nums[j], nums[i - 1] = nums[i - 1], nums[j]
-                        nums[i:] = sorted(nums[i:])
-                        return  # No need to return values. Changed in-place.
+        length = len(nums)
+        for index in range(length - 1, 0, -1):
+            if nums[index] > nums[index - 1]:
+                for new_index in range(length - 1, index - 1, -1):
+                    if nums[new_index] > nums[index - 1]:
+                        nums[new_index], nums[index - 1] = nums[index - 1], nums[new_index]
+                        nums[index:] = sorted(nums[index:])
+                        return  # get the value, break from the loop.
         nums.sort()
 
 
