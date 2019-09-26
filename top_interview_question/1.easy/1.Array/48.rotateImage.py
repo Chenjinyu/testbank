@@ -44,6 +44,10 @@ Problem solving：
 1. have to deepCopy the matrix, because in-place replacement will re-write item which we will use later.
 
 Note: List[~i] = List[length - 1 - i]
+
+[::-1] vs list.reverse()
+[::-1] gives a new list in reversed.
+list.reverse() reverses the list in-place, no return.
 """
 from typing import List
 from copy import deepcopy
@@ -70,6 +74,7 @@ class Solution:
             for j in range(n - n / 2):
                 matrix3[i][j], matrix3[~j][i], matrix3[~i][~j], matrix3[j][~i] = \
                     matrix3[~j][i], matrix3[~i][~j], matrix3[j][~i], matrix3[i][j]
+
 
 if __name__ == "__main__":
     matrix = [[1,2,3],[4,5,6],[7,8,9]]
