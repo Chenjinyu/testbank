@@ -44,6 +44,7 @@ class Solution:
 
         return prev_node
 
+
 if __name__ == "__main__":
     a = ListNode(1)
     b = ListNode(2)
