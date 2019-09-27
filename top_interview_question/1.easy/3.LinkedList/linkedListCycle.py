@@ -57,7 +57,7 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
-
+        pass
 
 if __name__ == "__main__":
     a = ListNode(1)
