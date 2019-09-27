@@ -24,7 +24,6 @@ Note:
         sorted(strs, key=str.lower)
 """
 from typing import List
-# from
 
 class Solution:
     def longestCommon(self, strs: List[str]) -> str:
