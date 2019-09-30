@@ -28,6 +28,7 @@ because:
 
 sum for any sub_list can be written as quotient * k + remainder.
 Thus,
+    prefixSum[x] = (quotient1 * k + remainder)
     sum of sub_list[i, j] = (quotient1 * k + remainder1) - (quotient2 * k + remainder2)
     --> sum of sub_list[i, j] =  (quotient1 - quotient2) * k + (remainder1 - remainder2)
 so, if remainder1 equals remainder2, we can say the sub_list[i, j] can be divided by K.
