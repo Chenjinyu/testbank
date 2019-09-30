@@ -15,8 +15,8 @@ resolve this problem, like get the sum of nums[i:j], would like to use prefix su
 prefixSum[x] = sum of sub_list[0, x] = nums[0] + nums[1] + ... + nums[x]
 so, prefixSum[x] = prefixSum[x-1] + sums[x]
 
-sum of sub_list[i:j] = prefixSum[j] - prefixSum[i - 1]
-prefixSum[j] = nums[0] + nums[1] + ... + nums[i - 1]    + num[i] + ... + nums[x]
+sum of sub_list[i:j] = prefixSum[j] - prefixSum[i - 1]. (because index i included in the sub_list)
+prefixSum[j]    = nums[0] + nums[1] + ... + nums[i - 1]  + num[i] + ... + nums[j]
 prefixSum[i- 1] = nums[0] + nums[1] + ... + nums[i - 1]
 eg:
 sum of sub_list[2:4] = prefixSum[4] - prefixSum[1], because prefixSum[4] = prefixSum[1] + sum(sub_list[1:4])
@@ -33,7 +33,10 @@ using a hashMap(dict or defaultdict) to store <prefixSum_value, #_of_occurrence_
 so: hash_map = defaultdict(int); hash_map[0] = 1  => {[0, 1]}.
 
 in a loop, check how many [prefixSum_value - k] in the hash_map, and count += hash_map[prefixSum_value-k]
+if can find the sum(sub_list) of [prefix_sums - k] in hash_map, add the _of_occurrence_of_the_prefixSum_value
+because prefix_sums - k is sum of a certian interval.
 
+for detail explanation: https://www.youtube.com/watch?v=aYfwus5T3Bs
 """
 from typing import List
 from itertools import accumulate
@@ -72,12 +75,8 @@ class Solution:
         d_dict = defaultdict(int)
         count = 0
         for i in range(length):
-            print(d_dict)
             d_dict[accumulate_prefix[i]] += 1
-            print(accumulate_prefix[i])
-            print(accumulate_prefix[i + 1])
             count += d_dict[accumulate_prefix[i + 1] - k]
-            print("count += " + str(d_dict[accumulate_prefix[i + 1] - k]))
         return count
 
     def subAarryPrefixSums(self, nums: List[int], k: int) -> int:
@@ -105,4 +104,4 @@ if __name__ == "__main__":
     # k = 1
     nums = [3, 4, 7, 2, -3, 1, 4, 2]
     k = 7
-    print(Solution().subarraySumBetter(nums, k))
+    print(Solution().subAarryPrefixSums(nums, k))
