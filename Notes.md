@@ -68,3 +68,7 @@ test = [1,3,-1,-3,5,3,6,7]
 print(test[5:len(test)]) # the slice end of before len(test), not including the len(test)
 print(test[0:3]) # starts from 0, the 3 means index of 3, not including the index 3.
 ```
+
+
+### xrange vs range
+[Python 3's range is more powerful than Python 2's xrange](https://treyhunner.com/2018/02/python-3-s-range-better-than-python-2-s-xrange/)
