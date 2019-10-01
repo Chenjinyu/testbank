@@ -48,7 +48,7 @@ Can you solve it using O(1) (i.e. constant) memory?
 
 """
 
-
+from typing import List
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):
@@ -57,16 +57,22 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
-        pass
+        walked_node_ip_list = []
+        while head:
+            if id(head) in walked_node_ip_list:
+                return True
+            walked_node_ip_list.append(id(head))
+            head = head.next
+        return False
 
 if __name__ == "__main__":
-    a = ListNode(1)
-    b = ListNode(0)
-    c = ListNode(1)
-    d = ListNode(1)
+    a = ListNode(3)
+    b = ListNode(2)
+    c = ListNode(0)
+    d = ListNode(4)
 
     a.next = b
     b.next = c
     c.next = d
-    d.next = e
+    d.next = b
     print(Solution().hasCycle(a))
