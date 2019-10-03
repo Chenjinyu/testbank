@@ -4,7 +4,7 @@
 
 leetcode: https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solution/
 """
-
+from typing import List
 
 # Definition for singly-linked list.
 class ListNode:
@@ -89,3 +89,30 @@ class Solution:
             prev_ptr.next = None
 
         return one_step_ptr
+
+    def mapListToValues(self, head: ListNode) -> List:
+        vals = []
+        while head:
+            vals.append(head.val)
+            head = head.next
+        return vals
+
+    def sortedListToBSTRecursion(self, head: ListNode) -> TreeNode:
+        values = self.mapListToValues(head)
+
+        def convertListToBST(left, right):
+            if left > right:
+                return None
+
+            mid = (left + right) // 2
+            node = TreeNode(values[mid])
+
+            if left == right:
+                return node
+
+            node.left = convertListToBST(left, mid - 1)
+            node.left = convertListToBST(mid + 1, right)
+
+            return node
+
+        return convertListToBST(0,len(values) - 1)
