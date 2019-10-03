@@ -44,6 +44,8 @@ class Solution:
         unless you are using a language that does not overflow such as Python.
         Left + Right could overflow. one way to fix this is to use left + (right - left) / 2 instead.
         for detail: https://en.wikipedia.org/wiki/Binary_search_algorithm#Implementation_issues
+        Binary Search is a search algorithm that finds the position of a TARGET value within a sorted array.
+        In our case, the left position is the firstBadVersion position. So return left rather than right. Coz, right is the second bad version 
         :param n:
         :return:
         """
