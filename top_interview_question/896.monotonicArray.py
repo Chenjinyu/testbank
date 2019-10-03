@@ -68,6 +68,7 @@ class Solution:
         return False
 
     def isMonotonicImprove(self, A: List[int]) -> bool:
+        # all: return True if all values are True, return False if all values are False, or at least one is False
         return (all(A[i] <= A[i + 1] for i in range(len(A) - 1)) or
                 all(A[i] >= A[i + 1] for i in range(len(A) - 1)))
 
