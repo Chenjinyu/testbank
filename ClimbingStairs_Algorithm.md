@@ -86,7 +86,7 @@ Let dp[i] denotes the number of ways to reach on i^th step:
 **dp[i] = dp[i-1] + dp[i−2]**
 
 
-```
+```java
 public class Solution {
     public int climbStairs(int n) {
         if (n == 1) {
@@ -118,7 +118,7 @@ it can be easily analysed that dp[i] is nothing but i^th fibonacci number.
 Now we just have to find n^th number of the fibonacci series having 1 and 2 their first and second term respectively.
 i.e. Fib(1) = 1 and Fib(2) = 2.
 
-```
+```java
 public class Solution {
     public int climbStairs(int n) {
         if (n == 1) {
@@ -146,7 +146,7 @@ public class Solution {
 
 ![BinetsMethod](./img/BinetsMethod.png)
 
-```
+```java
  public class Solution {
     public int climbStairs(int n) {
         int[][] q = {{1, 1}, {1, 0}};
@@ -180,7 +180,9 @@ public class Solution {
 * Space complexity : O(1). Constant space is used.
 
 Proof of Time Complexity:
+
 ![prooftimecomplexity](./img/prooftimecomplexity.png)
+
 This is the method we've used in our implementation. Again, the complexity remains O(log2 ^ n) as we have limited the number of multiplications to O(log 2 ^ n).
 
 
@@ -188,7 +190,7 @@ This is the method we've used in our implementation. Again, the complexity remai
 ##### Algorithm
 ![fibonacci](./img/fibonacci.png)
 
-```
+```java
 public class Solution {
     public int climbStairs(int n) {
         double sqrt5=Math.sqrt(5);
