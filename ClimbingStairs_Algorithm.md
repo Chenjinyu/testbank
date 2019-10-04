@@ -30,6 +30,7 @@ public class Solution {
 
 ##### Complexity Analysis
 * Time complexity: O(2 ^ n). Size of recursion tree will be 2 ^ n.
+
 Recursion tree for n=5 would be like this:
 
 ![70_Climbing_Stairs_rt](./img/70_Climbing_Stairs_rt.jpg)
