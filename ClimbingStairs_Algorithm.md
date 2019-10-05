@@ -4,8 +4,8 @@ You are climbing a stair case. It takes n steps to reach to the top.
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
 #### References
-[[LeetCode] Fibonacci Number 斐波那契数字](https://www.cnblogs.com/grandyang/p/10306787.html)
-[斐波那契数列的N种解法](https://zhuanlan.zhihu.com/p/74751385)
+* [[LeetCode] Fibonacci Number 斐波那契数字](https://www.cnblogs.com/grandyang/p/10306787.html)
+* [斐波那契数列的N种解法](https://zhuanlan.zhihu.com/p/74751385)
 
 
 ### Solution
