@@ -26,8 +26,6 @@ def compressString(sub_str):
     return compress_str
 
 
-
-
 if __name__ == "__main__":
     sub_str = "abcccddeeeeea"
     print(compressString(sub_str))
