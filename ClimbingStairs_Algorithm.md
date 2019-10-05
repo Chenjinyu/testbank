@@ -207,5 +207,5 @@ public class Solution {
 ```
 
 ##### Complexity Analysis
-* Time complexity : O(logn). powpow method takes **log n** time.
+* Time complexity : O(logn). Pow method takes **log n** time.
 * Space complexity : O(1). Constant space is used.
