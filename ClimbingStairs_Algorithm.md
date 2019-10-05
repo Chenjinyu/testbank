@@ -110,8 +110,8 @@ public class Solution {
 ```
 ##### Complexity Analysis
 
-* Time complexity : O(n). Single loop upto nn.
-* Space complexity : O(n). **dp** array of size nn is used.
+* Time complexity : O(n). Single loop upto n.
+* Space complexity : O(n). **dp** array of size n is used.
 
 #### Approach 4: Fibonacci Number
 ##### Algorithm
@@ -207,5 +207,5 @@ public class Solution {
 ```
 
 ##### Complexity Analysis
-* Time complexity : O(logn). powpow method takes **log n** time.
+* Time complexity : O(logn). Pow method takes **log n** time.
 * Space complexity : O(1). Constant space is used.
