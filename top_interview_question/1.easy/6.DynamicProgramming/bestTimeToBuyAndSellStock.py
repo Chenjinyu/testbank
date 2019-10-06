@@ -3,7 +3,8 @@ Best Time to Buy and Sell Stock
 
 Say you have an array for which the ith element is the price of a given stock on day i.
 
-If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock),
+design an algorithm to find the maximum profit.
 
 Note that you cannot sell a stock before you buy one.
 
@@ -25,9 +26,17 @@ compare with: 1.easy/1.Array/122.bestTimetoBuyandSellStockII.py
 
 class Solution:
     def maxProfit(self, prices: list):
-        pass
+        max_profix = 0
+        min_price = float('inf')
+        for i in range(len(prices)):
+            if prices[i] < min_price:
+                min_price = prices[i]
+            elif prices[i] - min_price > max_profix:
+                max_profix = prices[i] - min_price
+
+        return max_profix
 
 
 if __name__ == "__main__":
-    input_list = [3, 2, 5, 8, 1, 9]
+    input_list = [1,2]
     print(Solution().maxProfit(input_list))
