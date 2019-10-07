@@ -22,7 +22,6 @@ minStack.getMin();   --> Returns -2.
 
 
 class MinStack:
-
     def __init__(self):
         """
         initialize your data structure here.
@@ -30,17 +29,14 @@ class MinStack:
         self.stack = []
 
     def push(self, x: int) -> None:
-        # push: 把项压入堆栈顶部 ，并作为此函数的值返回该对象
-        self.stack = [x] + self.stack
-
+        self.stack.append(x)
     def pop(self) -> None:
-        # pop : 移除堆栈顶部的对象，并作为此函数的值返回该对象
         if len(self.stack) > 0:
             self.stack.pop()
 
     def top(self) -> int:
         if len(self.stack) > 0:
-            return self.stack.pop()
+            return self.stack[-1]
         else:
             return -1
 
@@ -54,8 +50,12 @@ class MinStack:
 minStack = MinStack()
 minStack.push(1)
 minStack.push(2)
+print(minStack.stack)
 print(minStack.top())
+print(minStack.stack)
 print(minStack.getMin())
+print(minStack.stack)
 minStack.pop()
+print(minStack.stack)
 print(minStack.getMin())
 print(minStack.top())
