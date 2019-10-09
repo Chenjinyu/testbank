@@ -52,5 +52,6 @@ class Solution:
             num /= 3
         return num == 3
 
+
 if __name__ == "__main__":
     print(Solution().isPowerOfThreeLoopLoop2(45))
