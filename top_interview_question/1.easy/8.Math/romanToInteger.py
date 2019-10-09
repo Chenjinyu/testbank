@@ -45,7 +45,24 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
 class Solution:
     def romanToInt(self, s: str) -> int:
-        pass
+        i = 0
+        s = s + 'S'
+        romanInt = 0
+        roman_to_int_dict = {'S': 0, 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        while i < len(s) - 1:
+            vals = roman_to_int_dict.get(s[i])
+            vals2 = roman_to_int_dict.get(s[i + 1])
+            if vals > vals2:
+                romanInt += vals
+                i += 1
+            elif vals == vals2:
+                romanInt += vals
+                i += 1
+            else:
+                romanInt += (vals2 - vals)
+                i += 2
+        return romanInt
+
 
 if __name__ == "__main__":
     print(Solution().romanToInt(45))
