@@ -24,6 +24,17 @@ The above arrows point to positions where the corresponding bits are different.
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
         return bin(x^y).count('1')
+       
+    def hammingDistanceIDid(self, x: int, y: int) ->:
+        x1 = bin(x)[2:]
+        x2 = x1.zfill(32)
+        y1 = bin(y)[2:]
+        y2 = y1.zfill(32)
+        h = 0
+        for i in range(32):
+            if x2[i] != y2[i]:
+                h += 1
+        return h
 
 if __name__ == "__main__":
     print(Solution().hammingDistance(3,2))
