@@ -23,11 +23,14 @@ The above arrows point to positions where the corresponding bits are different.
 """
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
+        # bin(n) convert integer to binary string. which starts with '0b'
+        # which idenfied it is binary.
         return bin(x^y).count('1')
        
     def hammingDistanceIDid(self, x: int, y: int) ->:
+        # bin() return string, and treat them as a string to compare.
         x1 = bin(x)[2:]
-        x2 = x1.zfill(32)
+        x2 = x1.zfill(32) # zfill with 32 bits.
         y1 = bin(y)[2:]
         y2 = y1.zfill(32)
         h = 0
