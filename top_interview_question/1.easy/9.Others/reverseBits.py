@@ -25,12 +25,26 @@ In Java, the compiler represents the signed integers using 2's complement notati
 Follow up:
 
 If this function is called many times, how would you optimize it?
+
+Note:
+after I search, although '0b' starts at the begin of binary number.
+eg.
+print(bin(2**32 - 1)) .                 --> 0b11111111111111111111111111111111
+print(bin(1)) --> 0b1 if zfill it, could be 0b000000000000000000000000000001
+you will realized the 0b is not include in the 32 binary string. add 0b, the string length is 34.
+remove the '0b' and use int(binary_number, 2). 2 mean binary to int. 
+
+'0b' signs it is a binary string. but in the int(binary_number, 2), it will convert the binary to int. the 0b is not necessary.
+0b only a sign for it's a binary string, for this question, we want to reverse, so have to keep 32 bits.
+
+did you really understand why there is no need to add '0d' at the begin of binary string?
 """
 class Solution:
     # @param n, an integer
     # @return an integer
     def reverseBits(self, n):
-        return int('0b' + (bin(n)[2:]).zfill(32)[::-1], 2)
+        # return int('0b' + (bin(n)[2:]).zfill(30)[::-1], 2)
+        return int((bin(n)[2:]).zfill(32)[::-1], 2)
 
 if __name__ == "__main__":
     n = 45
