@@ -20,6 +20,10 @@ Explanation:
 
 The above arrows point to positions where the corresponding bits are different.
 
+^: 按位异或运算符：当两对应的二进位相异时，结果为1
+|: 按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1
+&: 按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0
+
 """
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
