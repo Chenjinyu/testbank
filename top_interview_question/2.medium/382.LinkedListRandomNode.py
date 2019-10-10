@@ -17,27 +17,39 @@ Solution solution = new Solution(head);
 // getRandom() should return either 1, 2, or 3 randomly. Each element should have equal probability of returning.
 solution.getRandom();
 """
+import random
+
 
 # Definition for singly-linked list.
- class ListNode:
-     def __init__(self, x):
-         self.val = x
-         self.next = None
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
+        
 class Solution:
-
+    dummy = ListNode(0)
+    
     def __init__(self, head: ListNode):
         """
         @param head The linked list's head.
         Note that the head is guaranteed to be not null, so it contains at least one node.
         """
-        
+        dummy.next = head
 
     def getRandom(self) -> int:
         """
         Returns a random node's value.
         """
-        
+        curr_node = dummy.next
+        count = result = 0
+        while curr_node:
+            count += 1
+            if random.random() < (1.0/count):
+                result = curr_node.val
+                
+            curr_node = curr_node.next
+        return result
 
 
 # Your Solution object will be instantiated and called as such:
