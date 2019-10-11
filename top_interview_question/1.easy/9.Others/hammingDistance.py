@@ -31,7 +31,7 @@ class Solution:
         # which idenfied it is binary.
         return bin(x^y).count('1')
        
-    def hammingDistanceIDid(self, x: int, y: int) ->:
+    def hammingDistanceIDid(self, x: int, y: int) ->int:
         # bin() return string, and treat them as a string to compare.
         x1 = bin(x)[2:]
         x2 = x1.zfill(32) # zfill with 32 bits.

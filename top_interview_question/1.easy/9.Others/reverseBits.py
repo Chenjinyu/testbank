@@ -45,6 +45,9 @@ class Solution:
     def reverseBits(self, n):
         # return int('0b' + (bin(n)[2:]).zfill(30)[::-1], 2)
         return int((bin(n)[2:]).zfill(32)[::-1], 2)
+        # compare with
+        # print('{:<08d}'.format(190))
+        # print('{:>08d}'.format(190))
 
 if __name__ == "__main__":
     n = 45
