@@ -52,7 +52,23 @@ class Solution:
             return True
         else:
             return False
-            
+
+    def isValidIDIDBetterOne(self, s):
+        if not s: return True
+        if len(s) % 2 != 0: return False
+        stack = []
+        parentheses_dict = {'{': '}', '[': ']', '(': ')', '<': '>'}
+        for char in s:
+            if char in parentheses_dict.keys():
+                stack.append(char)
+            else:
+                if stack and char == parentheses_dict[stack.pop()]:
+                    continue
+                else:
+                    return False
+
+        return len(stack) == 0
+
     def isValidEfficient(self, s: str) -> bool:
         stack = []
         for c in s:
@@ -71,7 +87,6 @@ class Solution:
                     return False
         return False if len(stack) > 0 else True
 
-
     def isValidEfficientMore(self, s: str) -> bool:
         # very good solution. 
         mapping = {')': '(', '}': '{', ']': '['}
@@ -87,10 +102,11 @@ class Solution:
                 stack.append(char)
         return len(stack) == 0
         
-        
+
 if __name__ == "__main__":
-    s = "{{{[()]}}}"
+    # s = "{{{[()]}}}"
     # s = "{[[]()]}"
     # s = "[{(})]"
-    print(Solution().isValidEfficientMore(s))
-            
+    s = "){"
+    print(Solution().selfTest(s))
+

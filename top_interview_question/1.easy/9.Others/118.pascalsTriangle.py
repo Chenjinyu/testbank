@@ -36,12 +36,11 @@ class Solution:
             if i < 1:
                 result = [[1]]
             else:
-                result.append([0] * (i + 1))
+                result.append([None] * (i + 1))  # [None] is better than [0]
                 result[i][0], result[i][-1] = 1, 1
                 for j in range(1, i):
                     result[i][j] = result[i - 1][j - 1] + result[i - 1][j]
         return result
-    
     
     def generateMyIdeaFirstInMind(self, numRows: int):
         # this is what I want to implement at the beginning of thinking.
@@ -53,7 +52,6 @@ class Solution:
                 result.append(
                     [1] + [result[i - 1][j - 1] + result[i - 1][j] for j in range(1, len(result[i - 1]))] + [1])
         return result
-    
     
     def generateFirstAccpeted(self, numRows: int):
         # test = 5 * [0] ==> [0, 0, 0, 0, 0] vs test = 5 * [[0]] ==> [[0], [0], [0], [0], [0]]
@@ -80,7 +78,6 @@ class Solution:
 
         return triangle_list
 
-
     def generateLogicImprove(self, numRows):
         triangle = []
 
@@ -98,7 +95,7 @@ class Solution:
 
         return triangle
 
-    
+
 if __file__ == "__main__":
     n = 30
-    print(Solution().generate(n))
+    print(Solution().test(n))

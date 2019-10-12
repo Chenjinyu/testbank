@@ -26,6 +26,7 @@ one of my solutions is:
 could we use the algorithm [A]? I think it will be more efficience. 
 
 """
+from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -36,11 +37,11 @@ class Solution:
         as nums consists of the first nn natural numbers minus some number.
         """
         # // aims to return integer not float. coz it could not be a float. eg 1.23
-        expected_sum = len(nums) * (len(nums) + 1) // 2   
+        # the algorithm of len(nums) * (len(nums) + 1) // 2, only uses for the number starts from 0.
+        expected_sum = len(nums) * (len(nums) + 1) // 2
         actual_sum = sum(nums)
         return expected_sum - actual_sum
-    
-    
+
     def missingNumberBySet(self, nums):
         num_set = set(nums)
         n = len(nums) + 1
@@ -74,4 +75,6 @@ class Solution:
             missing ^= i ^ num
         return missing
         
-        
+if __name__ == "__main__":
+    nums = [9,6,4,2,3,5,7,0,1]
+    print(Solution().missingNumber(nums))
