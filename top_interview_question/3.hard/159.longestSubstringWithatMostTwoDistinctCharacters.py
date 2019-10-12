@@ -1,5 +1,5 @@
 """
-Given a string s , find the length of the longest substring t  that contains at most 2 distinct characters.
+Given a string s, find the length of the longest substring t that contains at most 2 distinct characters.
 
 Example 1:
 
@@ -36,6 +36,7 @@ print(d["k"])
 """
 from collections import defaultdict
 
+
 class Solution:
     def lengthOfLongestSubstringTwoDistinct(self, s: 'str') -> 'int':
         n = len(s)
@@ -69,6 +70,7 @@ class Solution:
             max_len = max(max_len, right - left)
 
         return max_len
+
 
 if __name__ == "__main__":
     s = "leeeeeeeeeeeeeeeetcoooooooooooooode"
