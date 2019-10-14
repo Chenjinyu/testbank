@@ -23,55 +23,9 @@ from collections import defaultdict
 
 
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-        # Time Limit Exceeded
-        threeSum_list = defaultdict()
-        index = 0
-        if not len(nums): return threeSum_list
-        while index < len(nums):
-            index_j = index + 1
-            first = nums[index]
-            while index_j < len(nums):
-                second = nums[index_j]
-                sum_two = first + second
-                if -sum_two in nums[index_j + 1:]:
-                    hash_key = "-".join([str(x) for x in sorted([first, second, -sum_two])])
-                    threeSum_list[hash_key] = sorted([first, second, -sum_two])
-                index_j += 1
-            index += 1
-
-        return list(threeSum_list.values())
-
-    def threeSumImprove(self, nums: List[int]) -> List[List[int]]:
-        # Time Limit Exceeded
-        length = len(nums)
-        if not length: return []
-        nums.sort()
-        three_sum_list = defaultdict()
-        index = 0
-        while index < length:
-            left = index + 1
-            right = length - 1
-            first = nums[index]
-            while left < right:
-                second = nums[left]
-                if first > 0:
-                    break
-                third = nums[right]
-                if second + third == -first:
-                    hash_key = ".".join([str(x) for x in [first, second, third]])
-                    three_sum_list[hash_key] = [first, second, third]
-                    left += 1
-                    right = length - 1
-                elif second + third > -first:
-                    right -= 1
-                elif second + third < -first:
-                    left += 1
-
-            index += 1
-        return list(three_sum_list.values())
 
     def threeSumImproveSolution(self, nums: List[int]) -> List[List[int]]:
+        # this function accepted by me
         length = len(nums)
         if not nums or length < 3: return []
         nums.sort()
@@ -117,7 +71,7 @@ class Solution:
         return three_sum_list
 
     def threeSumMostEfficient(self, nums):
-        # this function can beat 93.88% of python3 submissions.
+        # this function can beat 93.88% of python3 submissions. [accepted]
         answers = []
         if len(nums) < 3:
             return []
@@ -149,6 +103,56 @@ class Solution:
                     while low < high and nums[high] == nums[high + 1]:
                         high -= 1
         return answers
+
+
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # Time Limit Exceeded [Not Accepted]
+        threeSum_list = defaultdict()
+        index = 0
+        if not len(nums): return threeSum_list
+        while index < len(nums):
+            index_j = index + 1
+            first = nums[index]
+            while index_j < len(nums):
+                second = nums[index_j]
+                sum_two = first + second
+                if -sum_two in nums[index_j + 1:]:
+                    hash_key = "-".join([str(x) for x in sorted([first, second, -sum_two])])
+                    threeSum_list[hash_key] = sorted([first, second, -sum_two])
+                index_j += 1
+            index += 1
+
+        return list(threeSum_list.values())
+
+    def threeSumImprove(self, nums: List[int]) -> List[List[int]]:
+        # Time Limit Exceeded [Not Accepted]
+        length = len(nums)
+        if not length: return []
+        nums.sort()
+        three_sum_list = defaultdict()
+        index = 0
+        while index < length:
+            left = index + 1
+            right = length - 1
+            first = nums[index]
+            while left < right:
+                second = nums[left]
+                if first > 0:
+                    break
+                third = nums[right]
+                if second + third == -first:
+                    # use the dict{} to avoid the duplicate list.
+                    hash_key = ".".join([str(x) for x in [first, second, third]])
+                    three_sum_list[hash_key] = [first, second, third]
+                    left += 1
+                    right = length - 1
+                elif second + third > -first:
+                    right -= 1
+                elif second + third < -first:
+                    left += 1
+
+            index += 1
+        return list(three_sum_list.values())
 
 if __name__ == "__main__":
     # nums = [-5, -5, -4, -4, -4, -2, -2, -2, 0, 0, 0, 1, 1, 3, 4, 4]
