@@ -33,7 +33,7 @@
 
 
 #### 2. String
-* `s.reverse()`
+* string reverse. eg: `int_str="123"; int_str=int_str[::-1]"`, does not work for integer.
 * `string.ascii_lowercase`, return lowercase of accii chars.
 * `s.isalnum()`, boolean, is number or character.
 * `s.find(sub_str)` returns from 0 to n. if not find, returns -1. 
