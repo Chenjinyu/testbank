@@ -26,7 +26,7 @@ class Solution:
         if length == 0: return 0
         if len(s.strip()) in [0, 1]: return 1
         max_length_chars = ""
-        left, right = 0, 1
+        left, right = 0, 0
         while right < length:
             chars = s[left:right]
             ptr = s[right]
@@ -37,6 +37,11 @@ class Solution:
                 right += 1
             else:
                 left += 1
+            """
+            the error is here, the new char does not count in below. 
+            so that the right has to back to next loop.
+            it is out of length.
+            """
             if len(max_length_chars) < len(chars):
                 max_length_chars = chars
 
@@ -75,5 +80,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = "azbzcefz"
-    print(Solution().lengthOfLongestSubstringSolved(s))
+    s = "au"
+    print(Solution().lengthOfLongestSubstring(s))

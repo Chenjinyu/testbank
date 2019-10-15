@@ -51,6 +51,10 @@ class Solution:
                 print("2. matrix[{}][{}]:{}".format(ptr, col2, matrix[ptr][col2]))
                 spiral_order_list.append(matrix[ptr][col2])
             col2 -= 1
+            """
+            why here need to set if row1 <= row2 and col1 <= col2:?
+            if not, has an issue.
+            """
             if row1 <= row2 and col1 <= col2:
                 for ptr in range(col2, col1 - 1, -1):  # last row
                     print("3. matrix[{}][{}]:{}".format(col2, col1 - 1, row2, ptr, matrix[row2][ptr]))
