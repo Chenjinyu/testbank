@@ -17,6 +17,8 @@ class Solution:
         print(hex(id(nums)))
         return len(nums)
 """
+
+
 class Solution:
     def removeElement(self, nums, val) -> int:
         """

@@ -30,7 +30,45 @@
   - append the list to matrix one by one
   - because, python will search the address of index points to, and delete the connection between of them, and assign new space for it.
   - it consumes a lot of time and also the space. in the memory the dis-connected list still in memory.
-
+* Filter, Lambda, Reduce and Map
+  - Lambda:
+    - `x = lambda y: y * y` for map, reduce. `lambda y: y > 0` for filter.
+  - Map:
+    - `map(function_to_apply, list_of_inputs)`: applies a function to all the items in an input_list.
+    - function_to_apply could be a lambda or def func. list_of_inputs is a list.
+    - `squared = list(map(lambda x: x**2, [1,2,3]))` 
+    - ```python
+        def multiply(x):
+            return (x*x)
+        def add(x):
+            return (x+x)
+        
+        funcs = [multiply, add]
+        for i in range(5):
+            value = list(map(lambda x: x(i), funcs))
+            print(value)
+        
+        # Output:
+        # [0, 0]
+        # [1, 2]
+        # [4, 4]
+        # [9, 6]
+        # [16, 8]
+        ```
+    - list_of_inputs in map, which could be a list o function. the value will loop in the list of func. 
+    - if want to loop value(i in above), should in another loop.
+  - Filter:
+    - filter creates a list of elements for which a function returns true.
+    - `less_than_zero = list(filter(lambda x: x < 0, [-1,-2,2,1]))`
+  - Reduce:
+    - is a really useful function for performing some computation on a list and returning the result. It applies a rolling computation to sequential pairs of values in a list
+    - ```python
+        from functools import reduce
+        product = reduce((lambda x, y: x * y), [1, 2, 3, 4])
+        
+        # output:
+        # product = 24
+      ```
 
 #### 2. String
 * string reverse. eg: `int_str="123"; int_str=int_str[::-1]"`, does not work for integer.
