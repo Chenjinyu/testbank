@@ -36,6 +36,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums1 = [3,2,4]
-    target = 6
+    nums1 = [2, 11, 15, 7]
+    target = 9
     print(Solution().twoSum(nums1, target))

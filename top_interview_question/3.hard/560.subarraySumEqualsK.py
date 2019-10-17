@@ -79,7 +79,7 @@ class Solution:
             count += d_dict[accumulate_prefix[i + 1] - k]
         return count
 
-    def subAarryPrefixSums(self, nums: List[int], k: int) -> int:
+    def subarryPrefixSums(self, nums: List[int], k: int) -> int:
         count = prefix_sums = 0
         length = len(nums)
         hash_map = defaultdict(int)
@@ -104,4 +104,4 @@ if __name__ == "__main__":
     # k = 1
     nums = [3, 4, 7, 2, -3, 1, 4, 2]
     k = 7
-    print(Solution().subAarryPrefixSums(nums, k))
+    print(Solution().subarryPrefixSums(nums, k))

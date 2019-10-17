@@ -69,6 +69,7 @@
         # output:
         # product = 24
       ```
+* accumulate() get prefix sums. `accumulate_prefix = [0] + list(accumulate(nums))` the `[0]` to keep the length of sum is the same.
 
 #### 2. String
 * string reverse. eg: `int_str="123"; int_str=int_str[::-1]"`, does not work for integer.
