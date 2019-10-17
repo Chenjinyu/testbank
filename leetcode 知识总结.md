@@ -36,3 +36,6 @@ from other website:
 12. Sorting   
 13. Multiple pointers   
 14. Trie etc.
+
+
+[Amazon Online Assessment Questions](https://leetcode.com/discuss/interview-question/344650/Amazon-Online-Assessment-Questions)

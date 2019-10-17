@@ -24,10 +24,13 @@ Constraints:
 """
 from typing import List
 import heapq
+
+
 class Solution:
     def connectSticks(self, sticks: List[int]) -> int:
+        # Space complexity: O(1)
         res = 0
-        heapq.heapify(sticks)
+        heapq.heapify(sticks)  # time: O(n)
         while len(sticks) > 1:
             c = heapq.heappop(sticks) + heapq.heappop(sticks)
             res += c
@@ -36,5 +39,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    sticks = [2,4,3]
+    sticks = [8, 4, 6, 12]
     print(Solution().connectSticks(sticks))
