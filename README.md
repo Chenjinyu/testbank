@@ -97,6 +97,13 @@ def reverseList(self, head: ListNode) -> ListNode:
 ```
 
 #### 4. Trees
+#### 5. HashMap vs HashTable
+the key of HashMap and HashTable has been hashed. 
+the difference:
+1. the value of hashMap could be None, and it's **NOT** thread-safe.
+2. the value of hashTbale could **NOT** be None, and it's thread-safe.
+When we talk about **hashTable**, we're actually talking about dictionary in Python.
+**Dictionaries** in Python are implemented using hashTable. It is an array whose indexes are obtained using a hash function on the keys
 #### 6. Dynamic Programming
 * 动态规划算法的两种形式 - 核心是记住已经求过的解
   - 自顶向下的备忘录法
