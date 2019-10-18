@@ -13,8 +13,10 @@
  
 ### Algorithms:
 * Depth First Search
-  - 
-* Breadth First Search(广度优先搜索):
+  - use a stack
+  - depth first search will **go all the way down one leg** before moving one.
+* Breadth First Search(广度优先搜索): use a queue.
+  - breadth first search go all the way **across each level** before going down.
   - 广度优先搜索可回答两类问题。
   - 第一类问题：从节点A出发，有前往节点B的路径吗？（在你的人际关系网中，有芒果销 售商吗？）
   - 第二类问题：从节点A出发，前往节点B的哪条路径最短？（哪个芒果销售商与你的关系 最近？）因为一层层去找，就会找到最短的。 
