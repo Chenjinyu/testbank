@@ -78,7 +78,7 @@ class Solution:
     so opti_dist_stack.clear() in the if (forward_dist + return_dist) > tmp_max_dist:
     """
     def getPairs(self, maxTravelDist:int, forwardRouteList:List[List], retumRouteList:List[List]) -> List[List]:
-        # time O(n^2). space: O(2n)
+        # time O(N^2). space: O(N)
         forward_route_dict = dict(forwardRouteList)
         return_route_dict = dict(retumRouteList)
         opti_dist_stack = []

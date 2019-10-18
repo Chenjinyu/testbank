@@ -78,7 +78,7 @@ print(test[0:3]) # starts from 0, the 3 means index of 3, not including the inde
 2. Breadth-First Search (BFS) strategy
 
 ### heapq 
-* `import heapq`
+* `import heapq`. heapq is a binary heap, with O(logn) push and pop.
   - `heapq.heapify()` transform list x into a heap, in-place, in liner time. Time complexity: O(N).
   - `eapq.heappop(heap)`, pop and return the smallest item from the heap, maintaining the heap invariant. if the heap is empty, IndexError is raised.
   - `heapq.heappush(heap, item)`, push the value item onto the heap, maintaining the heap invariant.

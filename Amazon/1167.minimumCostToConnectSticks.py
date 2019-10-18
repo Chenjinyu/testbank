@@ -28,11 +28,20 @@ import heapq
 
 class Solution:
     def connectSticks(self, sticks: List[int]) -> int:
-        # Space complexity: O(1)
+        """
+        Space complexity: O(n)
+        the time complexity:
+        for the liner order, the time complexity should be:
+        the heapq.heapify(sticks) is O(N)
+        in the while loop: the time complexity is: N * 2 * LogN = NLogN
+        max(O(N), O(NlogN)) = O(NlogN)
+        :param sticks:
+        :return:
+        """
         res = 0
-        heapq.heapify(sticks)  # time: O(n)
-        while len(sticks) > 1:
-            c = heapq.heappop(sticks) + heapq.heappop(sticks)
+        heapq.heapify(sticks)  # time: O(N)
+        while len(sticks) > 1:  # O(N)
+            c = heapq.heappop(sticks) + heapq.heappop(sticks)  # 2 * O(logN)
             res += c
             heapq.heappush(sticks, c)
         return res
