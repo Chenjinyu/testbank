@@ -1,3 +1,5 @@
+[Good to start to know different data structure of Python](https://www.tutorialspoint.com/python_data_structure/python_binary_tree.htm)
+
 ### Sorted
 
 func: sorted(iterable, *, key=func, reverse=False)
