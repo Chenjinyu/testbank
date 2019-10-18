@@ -34,7 +34,7 @@ from other website:
 4. LinkedList     
 5. Graph/tree     
 6. Queue/Stack/Heap     
-7. DP   
+7. DP (Dynamic Programming)
 8. Array/String     
 9. Set/HashMap 
 10. Bit
