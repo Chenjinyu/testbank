@@ -1,5 +1,6 @@
 """
-Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors.
+Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. 
+Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors.
 
  
 
@@ -9,7 +10,8 @@ Example:
 〇4 ---- 〇3
 
 Input:
-{"$id":"1","neighbors":[{"$id":"2","neighbors":[{"$ref":"1"},{"$id":"3","neighbors":[{"$ref":"2"},{"$id":"4","neighbors":[{"$ref":"3"},{"$ref":"1"}],"val":4}],"val":3}],"val":2},{"$ref":"4"}],"val":1}
+{"$id":"1","neighbors":[{"$id":"2","neighbors":[{"$ref":"1"},{"$id":"3","neighbors":[{"$ref":"2"},
+{"$id":"4","neighbors":[{"$ref":"3"},{"$ref":"1"}],"val":4}],"val":3}],"val":2},{"$ref":"4"}],"val":1}
 
 Explanation:
 Node 1's value is 1, and it has two neighbors: Node 2 and 4.
@@ -53,6 +55,13 @@ class Solution:
         return hmap[node]
     
 if __name__ == "__main__":
-    node = {"$id":"1","neighbors":[{"$id":"2","neighbors":[{"$ref":"1"},{"$id":"3","neighbors":[{"$ref":"2"},{"$id":"4","neighbors":[{"$ref":"3"},{"$ref":"1"}],"val":4}],"val":3}],"val":2},{"$ref":"4"}],"val":1}
+    node = {"$id": "1", "neighbors": [{"$id": "2", "neighbors": [{"$ref": "1"}, {"$id": "3",
+                                                                                 "neighbors": [{"$ref": "2"},
+                                                                                               {"$id": "4",
+                                                                                                "neighbors": [
+                                                                                                    {"$ref": "3"},
+                                                                                                    {"$ref": "1"}],
+                                                                                                "val": 4}], "val": 3}],
+                                       "val": 2}, {"$ref": "4"}], "val": 1}
     print(Solution().cloneGraph(node))
     
