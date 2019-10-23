@@ -40,20 +40,20 @@ class Solution:
         hmap = {}
         q = collections.deque()
         q.append(node)
-        hmap[node] = Node(node.val,[])
+        hmap[node] = Node(node.val, [])
         
         while q:
             current = q.popleft()
             for neighbor in current.neighbors:
                 if neighbor not in hmap:
-                    newnode = Node(neighbor.val,[])
+                    newnode = Node(neighbor.val, [])
                     hmap[neighbor] = newnode
                     q.append(neighbor)
                 hmap[current].neighbors.append(hmap[neighbor])
-                    
-                    
+
         return hmap[node]
-    
+
+
 if __name__ == "__main__":
     node = {"$id": "1", "neighbors": [{"$id": "2", "neighbors": [{"$ref": "1"}, {"$id": "3",
                                                                                  "neighbors": [{"$ref": "2"},
@@ -64,4 +64,4 @@ if __name__ == "__main__":
                                                                                                 "val": 4}], "val": 3}],
                                        "val": 2}, {"$ref": "4"}], "val": 1}
     print(Solution().cloneGraph(node))
-    
+
