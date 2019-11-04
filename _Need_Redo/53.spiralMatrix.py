@@ -192,7 +192,7 @@ p and q are different and both values will exist in the binary tree.
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        if (!root || p == root || q == root): return root
+        if (not root or p == root or q == root): return root
         # in the recursion, p or q finally will euqal root(root's child)
         # and return the `root`(p or q) to left_node or right_node. 
         # also we can understand the self.lowestCommonAncestor here is to find the node which equals p or q.
