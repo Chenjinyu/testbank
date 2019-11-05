@@ -54,6 +54,10 @@ Output: [5,3,8,null,2,6,7]
 Follow up:
 A solution using O(n) space is pretty straight forward.
 Could you devise a constant space solution?
+
+Morris InOrder/PreOrder Traversal: 
+https://github.com/mission-peace/interview/blob/master/src/com/interview/tree/MorrisTraversal.java
+good explanation: https://www.youtube.com/watch?v=wGXB9OWhPTg
 """
 
 class TreeNode:
