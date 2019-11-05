@@ -39,6 +39,11 @@ from collections import defaultdict
 
 class Solution:
     def lengthOfLongestSubstringTwoDistinct(self, s: 'str') -> 'int':
+        """
+        time complexity: O(n). space complexity: O(n)
+        :param s:
+        :return:
+        """
         n = len(s)
         if n < 3:
             return n

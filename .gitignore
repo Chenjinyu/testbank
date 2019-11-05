@@ -1,3 +1,4 @@
 .idea/
 testbank_env/
 test.py
+.DS_Store
