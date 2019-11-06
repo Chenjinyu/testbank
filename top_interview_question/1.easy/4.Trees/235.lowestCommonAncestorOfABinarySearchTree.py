@@ -35,14 +35,16 @@ p and q are different and both values will exist in the BST.
 
 Complexity Analysis
 
-Time Complexity: O(N)O(N), where NN is the number of nodes in the BST. In the worst case we might be visiting all the nodes of the BST.
-Space Complexity: O(N)O(N). This is because the maximum amount of space utilized by the recursion stack would be NN since the height of a skewed BST could be NN.
+Time Complexity: O(N), where NN is the number of nodes in the BST.
+In the worst case we might be visiting all the nodes of the BST.
+Space Complexity: O(N). This is because the maximum amount of space utilized by
+the recursion stack would be N since the height of a skewed BST could be N.
 
 """
 
 
 class Solution:
-    
+
     def lowestCommonAncestorRecursion(self, root, p, q):
         """
         :type root: TreeNode
@@ -71,7 +73,7 @@ class Solution:
             # basic logic is if the p < root, and q > root, the curent node is the lowest common ancestor.
             return root
 
-    # the second function is more straightful to understand.
+    # the second function is more straightforward to understand.
     def lowestCommonAncestorLoop(self, root, p, q):
         """
         :type root: TreeNode

@@ -5,6 +5,7 @@ abcccddeeeeea => abc3d2e5a
 
 """
 
+
 def compressString(sub_str):
     compress_str = ""
     sub_len = len(sub_str)

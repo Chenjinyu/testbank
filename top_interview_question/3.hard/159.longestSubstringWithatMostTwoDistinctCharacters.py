@@ -78,5 +78,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = "leeeeeeeeeeeeeeeetcoooooooooooooode"
+    s = "aabccc"
     print(Solution().lengthOfLongestSubstringTwoDistinct(s))
