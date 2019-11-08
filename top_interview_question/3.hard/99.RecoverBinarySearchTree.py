@@ -93,10 +93,44 @@ class Solution:
                 second = node
                 if first is None:
                     first = prev  # which needs to swap
-                else:
-                    break
             prev = node  # prev node move to next node.
             node = node.right
+        print(first.val, second.val)
+        first.val, second.val = second.val, first.val
+
+
+    def recoverTreeWithMorris(self, root: TreeNode):
+        first = second = pred = None
+        predecessor = None
+        node = root
+        while node:
+            if node.left:
+                predecessor = node.left
+                while predecessor.right and predecessor.right != node:
+                    predecessor = predecessor.right
+
+                if predecessor.right is None:
+                    predecessor.right = node
+                    node = node.left
+                else:
+                    predecessor.right = None
+                    if pred and node.val < pred.val:
+                        second = node
+                        if first is None:
+                            first = pred
+
+                    pred = node
+                    node = node.right
+            else:
+                if pred and node.val < pred.val:
+                    second = node
+                    if first is None:
+                        first = pred
+
+                pred = node
+
+                node = node.right
+
         print(first.val, second.val)
         first.val, second.val = second.val, first.val
 
@@ -115,6 +149,6 @@ if __name__ == "__main__":
     root.right = right_node_1
     right_node_1.left = right_node_2
     right_node_1.right = right_node_3
-
     Solution().recoverTreeWithStack(root)
+    Solution().recoverTreeWithMorris(root)
 

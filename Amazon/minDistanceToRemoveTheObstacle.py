@@ -33,7 +33,7 @@ Explanation: Starting from the top-left corner, the demolition robot traversed t
 The robot moves 3 times to remove the obstacle “9”
 """
 from collections import deque
-import queue
+
 
 class Solution:
     def minDistanceToRemoveObstacle(self, num_rows, num_cols, lot) -> int:
