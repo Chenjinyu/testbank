@@ -25,6 +25,7 @@ Explanation: There are three ways to climb to the top.
 
 
 class Solution:
+    #
     def climbStairsFib(self, n: int) -> int:
         if n <= 1:
             return n
@@ -34,6 +35,16 @@ class Solution:
             a = b
             b = sums
         return b
+
+    # dynamic programming, the big problem is how can i find
+    # a solution and how to use dp.
+    def climbStairsDP(self, n: int) -> int:
+        if n <= 1:
+            return n
+        dp = [1, 2]
+        for i in range(3, n + 1):
+            dp[0], dp[1] = dp[1], dp[0] + dp[1]
+        return dp[1]
 
     def climbStairsIteration(self, n: int) -> int:
         # has Time Limit Execeeded issue
