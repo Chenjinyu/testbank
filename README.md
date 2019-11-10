@@ -134,17 +134,17 @@ sometimes, it has **time Limit Execeeded issue**. its not always accepted..
 #### sliding window
 this means it has left and right point to the beginning of a list. the right will slide to right, 
 also the left will slide to the right as long as some requirement meets.
-[pexampe](./top_interview_question/3.hard/159.longestSubstringWithatMostTwoDistinctCharacters.py)
+[pexampe](159.longestSubstringWithatMostTwoDistinctCharacters.py)
 
 
 #### Reservoir Sampling.
-* this is not high frequency question, read the detail [here](./top_interview_question/2.medium/398.randomPickIndex.py)
+* this is not high frequency question, read the detail [here](398.randomPickIndex.py)
 
 
 Must to understand:
 #### Prefix Sums
-1. [SubArrary Sum Equals K](./top_interview_question/3.hard/560.subarraySumEqualsK.py) 
-2. [SubArray Sum Divisible By K](./top_interview_question/2.medium/974.subarraySumsDivisibleByK.py)
+1. [SubArrary Sum Equals K](560.subarraySumEqualsK.py) 
+2. [SubArray Sum Divisible By K](974.subarraySumsDivisibleByK.py)
 
 #### Greedy
 **Intuition**
@@ -162,4 +162,4 @@ for such problems**:
 
 ![greedy](./img/greedy.png)
 
-1. [Maximum Subarray](./top_interview_question/1.easy/1.Array/53.maximumSubarray.py)
+1. [Maximum Subarray](53.maximumSubarray.py)

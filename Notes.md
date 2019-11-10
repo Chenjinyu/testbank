@@ -76,7 +76,7 @@ print(test[0:3]) # starts from 0, the 3 means index of 3, not including the inde
 [Python 3's range is more powerful than Python 2's xrange](https://treyhunner.com/2018/02/python-3-s-range-better-than-python-2-s-xrange/)
 
 ### Tree
-1. Depth-First Search (DFS) strategy. example: [easy 1](./top_interview_question/1.easy/4.Trees/maximumDepthOfBinaryTree.py)
+1. Depth-First Search (DFS) strategy. example: [easy 1](maximumDepthOfBinaryTree.py)
 2. Breadth-First Search (BFS) strategy
 
 ### heapq 

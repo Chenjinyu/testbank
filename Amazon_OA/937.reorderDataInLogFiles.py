@@ -17,7 +17,7 @@ Return the final order of the logs.
 
 
 Example 1:
-Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
+Input: logs = ["dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero"]
 Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
 
 
@@ -46,7 +46,7 @@ class Solution:
         # Space complexity: O(n)
         def helper(log):
             identifier, rest = log.split(" ", 1)
-            res = (0, rest, identifier) if rest[0].isalpha() else (1, )  # here is the loop. O(n
+            res = (0, rest, identifier) if rest[0].isalpha() else (1, )  # here is the loop. O(n)
             return res
 
         return sorted(logs, key=helper)
