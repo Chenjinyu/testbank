@@ -8,7 +8,7 @@
 - [find most common](#find-most-common)
 - [maximum size of ribbon](#maximum-size-of-ribbon)
 
-[product sum](#product-sum)
+#### product sum
 ```python
 """
 Product Sum
@@ -35,7 +35,7 @@ print(product_sum(num))
 
 [Go Top](#Quora-and-Ebay-OA)
 
-[valid word](#valid-word)
+#### valid word
 ```python
 """
 Valid Word
@@ -67,7 +67,7 @@ print(valid_word(words, letters))
 
 [Go Top](#Quora-and-Ebay-OA)
 
-[compare string](#compare-string)
+#### compare string
 ```python
 """
 Compare the String with Frequency
@@ -101,7 +101,7 @@ print(compare_string(S1, S2))
 
 [Go Top](#Quora-and-Ebay-OA)
 
-[cool feature](#cool-feature)
+#### cool feature
 ```python
 """
 Cool Feature
@@ -151,7 +151,7 @@ print(cool_features(a, b, querys))
 
 [Go Top](#Quora-and-Ebay-OA)
 
-[find even digit](#find-even-digit)
+#### find even digit
 ```python
 """
 Find Even Digit
@@ -169,7 +169,7 @@ print(find_even_digit(A))
 
 [Go Top](#Quora-and-Ebay-OA)
 
-[find most common](#find-most-common)
+#### find most common
 ```python
 """
 Find Most Common
@@ -195,6 +195,7 @@ print(find_most_common(A))
 [Go Top](#Quora-and-Ebay-OA)
 
 #### maximum size of ribbon
+```python
 """
 Given an int array wood representing the length of n pieces of wood and an int k.
 It is required to cut these pieces of wood such that more or equal to k pieces of the same length len are cut.
