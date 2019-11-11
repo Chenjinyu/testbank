@@ -195,7 +195,6 @@ print(find_most_common(A))
 [Go Top](#Quora-and-Ebay-OA)
 
 #### maximum size of ribbon
-```python
 """
 Given an int array wood representing the length of n pieces of wood and an int k.
 It is required to cut these pieces of wood such that more or equal to k pieces of the same length len are cut.
