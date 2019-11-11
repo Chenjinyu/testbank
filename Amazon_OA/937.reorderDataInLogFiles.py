@@ -2,7 +2,7 @@
 937. Reorder Data in Log Files
 You have an array of logs.  Each log is a space delimited string of words.
 
-For each log, the first word in each log is an alphanumeric identifier.  Then, either:
+For each log, the first word in each log is an alphanumeric identifier. Then, either:
 
 Each word after the identifier will consist only of lowercase letters, or;
 Each word after the identifier will consist only of digits.
@@ -46,7 +46,8 @@ class Solution:
         # Space complexity: O(n)
         def helper(log):
             identifier, rest = log.split(" ", 1)
-            res = (0, rest, identifier) if rest[0].isalpha() else (1, )  # here is the loop. O(n)
+            # "let1 art can", so the rest[0] = a = (a)rt
+            res = (0, rest, identifier) if rest[0].isalpha() else (1, rest, identifier)  # here is the loop. O(n)
             return res
 
         return sorted(logs, key=helper)
@@ -55,5 +56,5 @@ class Solution:
 if __name__ == "__main__":
     logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
     # logs = ["g1 act","a8 act aoo"]
-    print(Solution().reorderLogFiles(logs))
+    print(Solution().reorderLogFilesBestExample(logs))
     # ['let1 art can', 'let3 art zero', 'let2 own kit dig', 'dig1 8 1 5 1', 'dig2 3 6']
