@@ -194,7 +194,7 @@ print(find_most_common(A))
 
 [Go Top](#Quora-and-Ebay-OA)
 
-#maximum-size-of-ribbon
+#### maximum size of ribbon
 ```python
 """
 Given an int array wood representing the length of n pieces of wood and an int k.
