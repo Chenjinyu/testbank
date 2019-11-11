@@ -6,7 +6,7 @@
 - [cool feature](#cool-feature)
 - [find even digit](#find-even-digit)
 - [find most common](#find-most-common)
-- [maximum size of ribbon](#maximum-size-of-ribbon)
+- [click maximum size of ribbon](#maximum-size-of-ribbon)
 
 [product sum](#product-sum)
 ```python
@@ -14,7 +14,7 @@
 Product Sum
 Input: 230
 Output: -6
-Explaination: 2 * 3 * 0 - (2 + 3 + 0) = -5
+Explanation: 2 * 3 * 0 - (2 + 3 + 0) = -5
 """
 
 
@@ -43,7 +43,7 @@ Input:
 words = ["hEllo##", "This^^"]
 letters = ["h", "e", "l", "o", "t", "h", "s"]
 Output: 1
-Explaination: hEllo## is a valid word, This^^ is not a valid word (ignore symbol)
+Explanation: hEllo## is a valid word, This^^ is not a valid word (ignore symbol)
 """
 
 
@@ -72,7 +72,7 @@ print(valid_word(words, letters))
 """
 Compare the String with Frequency
 Input: S1 = "babzccc", S2 = "abbzczz" Output: True
-Explaination:
+Explanation:
 Count_S1 = {"a":1, "z":1, "b":2, "c":3}
 Count_S2 = {"a":1, "c":1, "b":2, "z":3}
 """
@@ -256,7 +256,6 @@ k = 3
 print(cut_wood(wood, k))
 
 ```
-
 
 
 [Go Top](#Quora-and-Ebay-OA)
