@@ -1,12 +1,12 @@
 ### [Quora and Ebay OA](#Quora-and-Ebay-OA)
 
-- [product sum](#product-sum)
-- [valid word](#valid-word)
-- [compare string](#compare-string)
-- [cool feature](#cool-feature)
-- [find even digit](#find-even-digit)
-- [find most common](#find-most-common)
-- [click maximum size of ribbon](#maximum-size-of-ribbon)
+[product sum](#product-sum)
+[valid word](#valid-word)
+[compare string](#compare-string)
+[cool feature](#cool-feature)
+[find even digit](#find-even-digit)
+[find most common](#find-most-common)
+[maximum size of ribbon](#maximum-size-of-ribbon)
 
 [product sum](#product-sum)
 ```python
