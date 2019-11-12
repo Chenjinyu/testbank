@@ -66,6 +66,7 @@ class Solution:
                 col_index += 1
 
     def rotate2(self, matrix2: List[List[int]]) -> None:
+        # zip(*a) is equal to zip(a[0], a[1], a[2]..., a[n])
         matrix2[:] = map(list, zip(*matrix2[::-1]))
 
     def rotate3(self, matrix3: List[List[int]]) -> None:
