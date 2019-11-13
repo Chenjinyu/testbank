@@ -1,12 +1,30 @@
 ### [Quora and Ebay OA](#Quora-and-Ebay-OA)
 
-- [product sum](#product-sum)
-- [valid word](#valid-word)
-- [compare string](#compare-string)
-- [cool feature](#cool-feature)
-- [find even digit](#find-even-digit)
-- [find most common](#find-most-common)
-- [maximum size of ribbon](#maximum-size-of-ribbon)
+- [1. product sum](#product-sum)
+- [2. valid word](#valid-word)
+- [3. compare string](#compare-string)
+- [4. cool feature](#cool-feature)
+- [5. find even digit](#find-even-digit)
+- [6. find most common](#find-most-common)
+- [7. maximum size of ribbon](#maximum-size-of-ribbon)
+- [8. good tuple](#good-tuple)
+- [9. rotate matrix among diagonal](#rotate-matrix-among-diagonal)
+- [10. is prefix](#is-prefix)
+- [11. max arithmetic length](#max-arithmetic-length)
+- [12. divide substring](#divide-substring)
+- [13. sum of substring](#sum-of-substring)
+- [14. query interval count](#query-interval-count)
+- [15. find min of matrix](#find-min-of-matrix)
+- [16. reverse digits in pairs](#reverse-digits-in-pairs)
+- [17. longest equal subarray](#longest-equal-subarray)
+- [18. frame window](#frame-winodw)
+- [19. remove exactly one digit](remove-exactly-one-digit)
+- [20. covering segments by points](#covering-segments-by-points)
+- [21. counting out rhymes](#counting-out-rhymes)
+- [22. max sum square submatrix](#max-sum-square-submatrix)
+- [23. sort diagonal](#sort-diagonal)
+- [24. binary pattern matching](#binary-pattern-matching)
+- [25. find target in window](#find-target-in-window)
 
 #### product sum
 ```python
@@ -257,5 +275,93 @@ print(cut_wood(wood, k))
 
 ```
 
+[Go Top](#Quora-and-Ebay-OA)
+
+#### good tuple
+```python
+"""
+Good Tuples
+Give an array and find the count of a pair number and a single number combination in a row of this array.
+Target array is: a[i - 1], a, a[i + 1]
+Input: a = [1, 1, 2, 1, 5, 3, 2, 3]
+Output: 3
+Explain:
+[1, 1, 2] -> two 1 and one 2(O)
+[1, 2, 1] -> two 1 and one 2(O)
+[2, 1, 5] -> one 2, one 1 and one 5(X)
+[1, 5, 3] -> (X)
+[5, 3, 2] -> (X)
+[3, 2, 3] -> (O)
+different characters
+intput: a = "aabdcreff"
+output: 5
+"""
+
+def good_tuples(a):
+    res = 0
+    def checker(a, b, c):
+        return len(set([a, b, c])) == len([a, b, c])
+
+    for i in range(len(a) - 2):
+        if checker(a[i], a[i + 1], a[i + 2]):
+            res += 1
+    return res
+
+a = "aabdcreff"
+print(good_tuples(a))
+```
+
+[Go Top](#Quora-and-Ebay-OA)
+
+#### rotate matrix among diagonal
+
+[Go Top](#Quora-and-Ebay-OA)
+
+#### is prefix
+
+[Go Top](#Quora-and-Ebay-OA)
+#### max arithmetic length
+
+[Go Top](#Quora-and-Ebay-OA)
+#### divide substring
+
+[Go Top](#Quora-and-Ebay-OA)
+#### sum of substring
+
+[Go Top](#Quora-and-Ebay-OA)
+#### query interval count
+
+[Go Top](#Quora-and-Ebay-OA)
+#### find min of matrix
+
+[Go Top](#Quora-and-Ebay-OA)
+#### reverse digits in pairs
+
+[Go Top](#Quora-and-Ebay-OA)
+#### longest equal subarray
+
+[Go Top](#Quora-and-Ebay-OA)
+#### frame window
+
+[Go Top](#Quora-and-Ebay-OA)
+#### remove exactly one digit
+
+[Go Top](#Quora-and-Ebay-OA)
+#### covering segments by points
+
+[Go Top](#Quora-and-Ebay-OA)
+#### counting out rhymes
+
+[Go Top](#Quora-and-Ebay-OA)
+#### max sum square submatrix
+
+[Go Top](#Quora-and-Ebay-OA)
+#### sort diagonal
+
+[Go Top](#Quora-and-Ebay-OA)
+#### binary pattern matching
+
+[Go Top](#Quora-and-Ebay-OA)
+#### find target in window
 
 [Go Top](#Quora-and-Ebay-OA)

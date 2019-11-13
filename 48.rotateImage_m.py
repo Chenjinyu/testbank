@@ -1,5 +1,6 @@
 """
-48. Rotate Image
+Microsoft, Amazon, Lyft, Quora, Groupon, Cisco
+48. Rotate Image [Medium]
 You are given an n x n 2D matrix representing an image.
 
 Rotate the image by 90 degrees (clockwise).
@@ -70,14 +71,20 @@ class Solution:
 
     def rotate3(self, matrix3: List[List[int]]) -> None:
         n = len(matrix3)
-        for i in range(n / 2):
-            for j in range(n - n / 2):
+        for i in range(n // 2):
+            for j in range(n - n // 2):
                 matrix3[i][j], matrix3[~j][i], matrix3[~i][~j], matrix3[j][~i] = \
                     matrix3[~j][i], matrix3[~i][~j], matrix3[j][~i], matrix3[i][j]
 
 
 if __name__ == "__main__":
-    matrix = [[1,2,3],[4,5,6],[7,8,9]]
-    Solution().rotate2(matrix)
+    matrix = [
+      [5, 1, 9,11],
+      [2, 4, 8,10],
+      [13, 3, 6, 7],
+      [15,14,12,16]
+    ]
+    Solution().rotate3(matrix)
     print(matrix)
-    print([[7, 4, 1], [8, 5, 2], [9, 6, 3]])
+    # print([[7, 4, 1], [8, 5, 2], [9, 6, 3]])
+    print([[15,13, 2, 5],[14, 3, 4, 1],[12, 6, 8, 9],[16, 7,10,11]])
