@@ -67,6 +67,10 @@ class Solution:
                 col_index += 1
 
     def rotate2(self, matrix2: List[List[int]]) -> None:
+        # zip(*a) is equal to zip(a[0], a[1], a[2]..., a[n])
+        # 1. matrix[::-1] to reversa matrix to [7,8,9], [4,5,6], [1,2,3]
+        # 2. zip below rows to [(7,4,1), (8,5,2), (9,6,3)]
+        # 3. map(list, zip) to list all tuple to list: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
         matrix2[:] = map(list, zip(*matrix2[::-1]))
 
     def rotate3(self, matrix3: List[List[int]]) -> None:
