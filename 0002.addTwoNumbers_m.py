@@ -49,16 +49,21 @@ class Solution:
 
         return head
 
+    """
+    Amazon OA Problem.
+    """
     def addTwoNumbersEfficient(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
         the two list, the decimal will set to next value.
         # faster than 79.93%. the percentage is not always correct.
         """
         result = ListNode(None)
+        # normal, we call dummy.
         dummy = result
         dicimal_mark = 0
 
         while l1 or l2 or dicimal_mark:
+            # the () must be there. and check if l1 or l2 None, coz, two ListNode has different length
             sum_val = (l1.val if l1 else 0) + (l2.val if l2 else 0) + dicimal_mark
             dicimal_mark, sum_val = divmod(sum_val, 10)
 
@@ -66,10 +71,11 @@ class Solution:
                 # the condition is used for the first node get the value.
                 dummy.val = sum_val
             else:
-                # from the second node, dummy.next.val = sum_val, and dummy = dummy.next
+                # dummy's next should be a node need to be created with the sum_val.
                 dummy.next = ListNode(sum_val)
                 dummy = dummy.next
-
+               
+            #check if l1 or l2 None, coz, two ListNode has different length
             if l1: l1 = l1.next
             if l2: l2 = l2.next
 
