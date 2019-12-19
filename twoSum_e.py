@@ -33,6 +33,17 @@ class Solution:
             else:
                 start += 1
         return pos_list
+    
+    """
+    Amazon OA Problem.
+    """
+    def twoSumRedo(self, nums: List[int], target: int) -> List[int]:
+        for idx in range(len(nums)):
+            result = target - nums[idx]
+            if result in nums:
+                result_idx = nums.index(result)
+                if result_idx != idx:
+                    return [idx, result_idx]
 
 
 if __name__ == "__main__":
