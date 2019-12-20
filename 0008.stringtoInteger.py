@@ -84,15 +84,22 @@ class Solution:
 
 
 if __name__ == "__main__":
-    # s = " 0-1 "
-    # s = "  0000001 "
-    # s = "  ---  "
-    # s = "  +++  "
-    # s = "  +-2  "
-    # s = '-5-'
-    # s = "-3.134"
-    # s = "43"
-    # s = "-91283472332"
-    # s = "+1"
-    s = "010"
-    print(Solution().myAtoi(s))
+    testcases = [
+        {'s': " 0-1 ", 'e': '0'},
+        {'s': "  0000001 ", 'e': '1'},
+        {'s': "  ---  ", 'e': '0'},
+        {'s': "  +++  ", 'e': '0'},
+        {'s': "  +-2  ", 'e': '26'},
+        {'s': "-5-", 'e': '0'},
+        {'s': "-3.134", 'e': '3'},
+        {'s': "43", 'e': '43'},
+        {'s': "-91283472332", 'e': '-2147483648'},
+        {'s': "+1", 'e': '1'},
+        {'s': "010", 'e': '10'},
+    ]
+    for case in testcases:
+        actual_result = str(Solution().myAtoi(case['s']))
+        print("Input: {}\nExpected: {}\nAcutal: {}\nis_Passed: {}".format(case['s'],
+                                                                          case['e'],
+                                                                          actual_result,
+                                                                          actual_result == case['e']))
