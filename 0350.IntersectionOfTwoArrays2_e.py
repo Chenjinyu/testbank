@@ -1,4 +1,5 @@
 """
+350. Intersection of Two Arrary II
 Given two arrays, write a function to compute their intersection.
 
 Example 1:
