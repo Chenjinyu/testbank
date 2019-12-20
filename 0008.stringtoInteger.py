@@ -54,7 +54,13 @@ Problem Solving:
 
 
 class Solution:
+    """
+    Amazon OA Problem
+    """
     def myAtoi(self, str: str) -> int:
+        """
+        Time Complexity: O(len(str))
+        """
         str = str.strip()
         if not str:
             return 0
@@ -84,6 +90,10 @@ class Solution:
 
 
 if __name__ == "__main__":
+    """
+    before doing, think about all the extreme case, eg. --- or ++++ ++--, 00--112, etc.
+    so that the solution will be more clear.
+    """
     testcases = [
         {'s': " 0-1 ", 'e': '0'},
         {'s': "  0000001 ", 'e': '1'},
@@ -92,14 +102,22 @@ if __name__ == "__main__":
         {'s': "  +-2  ", 'e': '0'},
         {'s': "-5-", 'e': '-5'},
         {'s': "-3.134", 'e': '-3'},
-        {'s': "43", 'e': '43'},
+        {'s': "  43", 'e': '43'},
+        {'s': "words and 987", 'e': '0'},
+        {'s': "4193 with words", 'e': '4193'},
         {'s': "-91283472332", 'e': '-2147483648'},
         {'s': "+1", 'e': '1'},
         {'s': "010", 'e': '10'},
     ]
+    is_pass = True
     for case in testcases:
         actual_result = str(Solution().myAtoi(case['s']))
         print("Input: {}\nExpected: {}\nAcutal: {}\nis_Passed: {}".format(case['s'],
                                                                           case['e'],
                                                                           actual_result,
                                                                           actual_result == case['e']))
+        if actual_result != case['e']:
+            is_pass = False
+
+    if not is_pass:
+        print("!!!!-----FAILED------!!!!")
