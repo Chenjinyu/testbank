@@ -48,6 +48,9 @@ class Solution:
         return len(max_length_chars)
 
     def lengthOfLongestSubstringSolved(self, s: str) -> int:
+        """
+        Time Complexity: O(len(s))
+        """
         length = len(s)
         left, right = 0, 0
         charset = set()
@@ -64,6 +67,9 @@ class Solution:
         return max_len
 
     def lengthOfLongestSubstringImprove(self, s: str) -> int:
+        """
+        Time Complexity: O(len(s))
+        """
         max_len = 0
         max_length_chars = ''
         for x in s:
@@ -78,7 +84,44 @@ class Solution:
                 max_len = max(max_len, len(max_length_chars))
         return max_len
 
+    """
+    Amazon OA Problem.
+    """
+    def lengthOfLongestSubstringRound2(self, s: str) -> int:
+        """
+        Time Complexity: O(len(s)^2), the lengthOfLongestSubstringImprove and lengthOfLongestSubstringSolved 
+        are the good solutions.
+        """
+        if not s: return 0
+        l, r = 0, 0
+        sliding_window = {}
+        max_len = float("-inf")
+        while r < len(s):
+            sliding_window[s[r]] = sliding_window.get(s[r], 0) + 1
+            # the second while here for moving left pos.
+            # while must has two conditions. 
+            while l < r and sliding_window[s[r]] == 2:
+                sliding_window[s[l]] = sliding_window.get(s[l], 0) - 1
+                l += 1
+            max_len = max(max_len, r - l + 1)
+            r += 1
+        return len(s) if max_len == float("-inf") else max_len
+    
 
 if __name__ == "__main__":
-    s = "au"
-    print(Solution().lengthOfLongestSubstring(s))
+    testcases = [
+        {'s': "abcabcbb", 'e': '3'},
+        {'s': "bbbbb", 'e': '1'},
+        {'s': "pwwkew", 'e': '3'},
+        {'s': "pweeewkew", 'e': '3'},
+        {'s': "abcdefghijklmnopqrstuvwxyz", 'e': '26'},
+        {'s': "", 'e': '0'},
+        {'s': "dvdf", 'e': '3'},
+        {'s': "tmmzuxt", 'e': '5'},
+    ]
+    for case in testcases:
+        actual_result = str(Solution().lengthOfLongestSubstring(case['s']))
+        print("Input: {}\nExpected: {}\nAcutal: {}\nis_Passed: {}".format(case['s'],
+                                                                          case['e'],
+                                                                          actual_result,
+                                                                          actual_result == case['e']))
