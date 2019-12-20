@@ -162,4 +162,4 @@ for such problems**:
 
 ![greedy](./img/greedy.png)
 
-1. [Maximum Subarray](53.maximumSubarray.py)
+1. [Maximum Subarray](0053.maximumSubarray.py)

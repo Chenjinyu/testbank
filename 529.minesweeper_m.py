@@ -15,6 +15,10 @@ and all of its adjacent unrevealed squares should be revealed recursively.
 If an empty square ('E') with at least one adjacent mine is revealed, then change it to a digit ('1' to '8')
 representing the number of adjacent mines.
 Return the board when no more squares will be revealed.
+1. if click M, change to X and return the board.
+2. check current square (eight directions) if has mines, and how many. if return num > 0, so the current square
+should change to the num. and return board
+3. if current square is not M, or the squares around the M, it will revert in a queue loop.
 """
 from collections import deque
 
@@ -32,13 +36,17 @@ class Solution(object):
         seen = set(tuple(click))
         while queue:
             i, j = queue.popleft()
+            # if current square is Mines, change to X and return the board
             if board[i][j] == "M":
                 board[i][j] = "X"
                 return board
+            # check current square if has M in eight directions,
+            # if yes, count the M. set the current square and return board
             num = check_mine(i, j)
             if num > 0:
                 board[i][j] = str(num)
                 continue
+            # if current square is not Mines, or beside Mines, should revert all the empty square.
             board[i][j] = "B"
             for ni, nj in [(i - 1, j - 1), (i - 1, j), (i - 1, j + 1), (i, j - 1), (i, j + 1), (i + 1, j - 1), (i + 1, j), (i + 1, j + 1)]:
                 if 0 <= ni < len(board) and 0 <= nj < len(board[0]) and (ni, nj) not in seen:

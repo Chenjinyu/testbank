@@ -15,7 +15,7 @@ import sys, math
 from collections import Counter, defaultdict
 
 class Solution:
-        def min_window_final_solution(self, s, t):
+    def min_window_final_solution(self, s, t):
         """
         this is not my solution, but the logic is very good to learn
         """
