@@ -102,6 +102,16 @@ class Solution:
 
         return ans
 
+
+    """
+    Amazon OA Problem
+    Microsoft OA Problem
+    Facebook QA Problem
+    Google QA Problem
+    Apple QA Problem
+    Uber QA Problem
+    Oracle QA Problem
+    """
     def trapSolutionOne(self, height: List[int]) -> int:
         """
         bascially, if height of right > left, take left max
