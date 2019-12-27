@@ -83,7 +83,7 @@ class Solution:
         nums.sort()
         if nums[0] > 0:
             return []
-        for idx in range(len(nums) - 2):
+        for idx in range(len(nums) - 1):
             if idx > 0 and nums[idx] == nums[idx - 1]:
                 continue
 
@@ -155,6 +155,7 @@ class Solution:
 
             index += 1
         return list(three_sum_list.values())
+
 
 if __name__ == "__main__":
     # nums = [-5, -5, -4, -4, -4, -2, -2, -2, 0, 0, 0, 1, 1, 3, 4, 4]
