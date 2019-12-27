@@ -54,16 +54,30 @@ class Solution:
     Apple OA Problem
     """
     def intToRoman(self, num: int) -> str:
-        roman_dict = {1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C',
-                    400: 'CD', 500: 'D', 900: 'CM', 1000: 'M'}
+        roman_dict = {
+            1: 'I',
+            4: 'IV',
+            5: 'V',
+            9: 'IX',
+            10: 'X',
+            40: 'XL',
+            50: 'L',
+            90: 'XC',
+            100: 'C',
+            400: 'CD',
+            500: 'D',
+            900: 'CM',
+            1000: 'M'
+        }
         res = ""
         num_list = list(roman_dict.keys())
         while num:
-            for idx in range(len(num_list) - 1, -1, -1):
+            for idx in range(len(roman_dict) - 1, -1, -1):
                 if num - num_list[idx] >= 0:
-                    num -= num_list[idx]
+                    num = num - num_list[idx]
                     res += roman_dict[num_list[idx]]
                     break
+
         return res
 
 
