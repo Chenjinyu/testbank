@@ -37,7 +37,6 @@ class Solution:
         return max_water
 
 
-    
 if __name__ == "__main__":
     """
     before doing, think about all the extreme case, eg. --- or ++++ ++--, 00--112, etc.
