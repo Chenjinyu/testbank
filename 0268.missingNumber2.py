@@ -21,12 +21,12 @@ Example 2:
 Input: [9, 6, 4, 5, 7, 10, 11, 12, 13]
 Output: 8
 Note:
-Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
+Your algorithm should run in linear runtime complexity.
+Could you implement it using only constant extra space complexity?
 
 Algorithm: [A]
 ∑ n    i = n (n + 1) / 2
   i=0
-
 
 
 """
@@ -34,8 +34,12 @@ from typing import List
 
 
 class Solution:
+    """
+    Amazon OA Problem
+    Microsoft OA Problem
+    """
     def missingNumber(self, nums: List[int]) -> int:
-        # // aims to return integer not float. coz it could not be a float. eg 1.23
+        # aims to return integer not float. coz it could not be a float. eg 1.23
         min_num = min(nums)
         supplement_nums = [x for x in range(min_num)]
         nums = supplement_nums + nums

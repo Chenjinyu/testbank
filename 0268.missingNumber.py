@@ -25,10 +25,19 @@ one of my solutions is:
 
 could we use the algorithm [A]? I think it will be more efficience. 
 
+Algorithm: [A]
+∑ n    i = n (n + 1) / 2
+  i=0
+
 """
 from typing import List
 
+
 class Solution:
+    """
+    Amazon OA Problem
+    Microsoft OA Problem
+    """
     def missingNumber(self, nums: List[int]) -> int:
         """
         We can compute the sum of nums in linear time, and by Gauss' formula, 
@@ -36,7 +45,7 @@ class Solution:
         Therefore, the number that is missing is simply the result of Gauss' formula minus the sum of nums, 
         as nums consists of the first nn natural numbers minus some number.
         """
-        # // aims to return integer not float. coz it could not be a float. eg 1.23
+        # aims to return integer not float. coz it could not be a float. eg 1.23
         # the algorithm of len(nums) * (len(nums) + 1) // 2, only uses for the number starts from 0.
         expected_sum = len(nums) * (len(nums) + 1) // 2
         actual_sum = sum(nums)
@@ -49,23 +58,7 @@ class Solution:
             if number not in num_set:
                 return number
                 
-                
-    def missingNumberBySort(self, nums):
-        nums.sort()
 
-        # Ensure that n is at the last index
-        if nums[-1] != len(nums):
-            return len(nums)
-        # Ensure that 0 is at the first index
-        elif nums[0] != 0:
-            return 0
-
-        # If we get here, then the missing number is on the range (0, n)
-        for i in range(1, len(nums)):
-            expected_num = nums[i-1] + 1
-            if nums[i] != expected_num:
-                return expected_num
-                
     def missingNumberByBit(self, nums):
         """
         Approach #3 Bit Manipulation [Accepted]

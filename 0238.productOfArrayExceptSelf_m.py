@@ -34,7 +34,8 @@ class Solution:
     def productExceptSelfImprove(self, nums: List[int]) -> List[int]:
         """
         time complexity: O(num_len)
-        space complxity: O(num_len)
+        space complexity: O(1), cox problem description mentioned:
+        (The output array does not count as extra space for the purpose of space complexity analysis.)
         dynamic programming.
         """
         if not nums: return []
