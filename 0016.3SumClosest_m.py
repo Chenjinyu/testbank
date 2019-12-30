@@ -32,6 +32,7 @@ class Solution:
             left, right = idx + 1, len(nums) - 1
             while left < right:
                 three_sum = nums[idx] + nums[left] + nums[right]
+                # this compare is key
                 if abs(target - closest_num) > abs(target - three_sum):
                     closest_num = three_sum
                 if three_sum < target:

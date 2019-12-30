@@ -24,7 +24,7 @@ class Solution:
     LinkedIn OA Problem
     Oracle OA Problem
     """
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def mergeCouldNotPass(self, intervals: List[List[int]]) -> List[List[int]]:
         """
         drop, could not pass testcases
         """
@@ -52,7 +52,6 @@ class Solution:
             right += 1
         return result[:result_idx + 1]
 
-
     def mergeSolution(self, intervals):
         intervals.sort(key=lambda x: x[0])
 
@@ -69,12 +68,13 @@ class Solution:
 
         return merged
 
+
 if __name__ == "__main__":
     testcases = [
-        {'s': [[1,3],[2,6],[8,10],[15,18]], 'e': [[1,6],[8,10],[15,18]]},
-        {'s': [[1,4],[4,5]], 'e': [[1,5]]},
-        {'s': [[1,4],[0,4]], 'e': [[0,4]]},
-        {'s': [[1,4],[0,1]], 'e': [[0,4]]},
+        {'s': [[1, 3], [2, 6], [8, 10], [15, 18]], 'e': [[1, 6], [8, 10], [15, 18]]},
+        {'s': [[1, 4], [4, 5]], 'e': [[1, 5]]},
+        {'s': [[1, 4], [0, 4]], 'e': [[0, 4]]},
+        {'s': [[1, 4], [0, 1]], 'e': [[0, 4]]},
     ]
     is_pass = True
     for case in testcases:
