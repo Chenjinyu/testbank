@@ -1,4 +1,5 @@
 """
+0489. Robot Room Cleaner
 Given a robot cleaner in a room modeled as a grid.
 
 Each cell in the grid can be empty or blocked.
@@ -102,6 +103,12 @@ class Solution:
             robot.turnRight()
 
         def back_track_dfs(cell=(0, 0), d=0):
+            """
+            Time Complexity: O (4 ^ (N - M))
+            where N is a number of cells in the room and M is a number of obstacles,
+            because for each cell the algorithm checks 4 directions.
+            Space Complexity: O (N - M)
+            """
             visited.add(cell)
             robot.clean()
 
