@@ -111,7 +111,8 @@ class Solution:
 
                 if new_cell not in visited and robot.move():
                     back_track_dfs(new_cell, new_d)
-                    # go back to last cell.
+                    # go back to last cell and the robot is the same direction.
+                    # so that can keep always turn right.
                     go_back()
 
                 robot.turnRight()
