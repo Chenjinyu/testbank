@@ -41,6 +41,7 @@ class Solution:
 
         return longest_len
 
+
 if __name__ == "__main__":
     s = "leeeeeeeeeeeeeeeetcoooooooooooooode"
     print(Solution().lengthOfLongestSubstringKDistinct(s, 2))

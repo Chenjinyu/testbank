@@ -5,9 +5,11 @@ Examples:
 
 s = "leetcode"
 return 0.
+explain: the first non-repeating character is l
 
 s = "loveleetcode",
-return 2.
+return 2. explain: the first non-repeating character is v.
+
 Note: You may assume the string contain only lowercase letters.
 
 memory test:  python -m memory_profiler 387.firstUniqueCharacterInaString.py
@@ -35,6 +37,11 @@ Line #    Mem usage    Increment   Line Contents
 from collections import Counter
 
 class Solution:
+    """
+    Amazon OA Problem
+    Apple OA Problem
+    Microsoft OA Problem
+    """
     @profile
     def firstUniqChar(self, s: str) -> int:
         s_counter = Counter(s)

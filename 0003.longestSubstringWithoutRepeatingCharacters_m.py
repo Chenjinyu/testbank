@@ -20,34 +20,10 @@ Explanation: The answer is "wke", with the length of 3.
 """
 
 class Solution:
+    """
+    Amazon OA Problem.
+    """
     def lengthOfLongestSubstring(self, s: str) -> int:
-        # sliding window, not fixed
-        length = len(s)
-        if length == 0: return 0
-        if len(s.strip()) in [0, 1]: return 1
-        max_length_chars = ""
-        left, right = 0, 0
-        while right < length:
-            chars = s[left:right]
-            ptr = s[right]
-            prev_char = s[right - 1]
-            if prev_char == ptr:
-                left += 1
-            if ptr not in chars:
-                right += 1
-            else:
-                left += 1
-            """
-            the error is here, the new char does not count in below. 
-            so that the right has to back to next loop.
-            it is out of length.
-            """
-            if len(max_length_chars) < len(chars):
-                max_length_chars = chars
-
-        return len(max_length_chars)
-
-    def lengthOfLongestSubstringSolved(self, s: str) -> int:
         """
         Time Complexity: O(len(s))
         """
@@ -84,9 +60,6 @@ class Solution:
                 max_len = max(max_len, len(max_length_chars))
         return max_len
 
-    """
-    Amazon OA Problem.
-    """
     def lengthOfLongestSubstringRound2(self, s: str) -> int:
         """
         Time Complexity: O(len(s)^2), the lengthOfLongestSubstringImprove and lengthOfLongestSubstringSolved 
