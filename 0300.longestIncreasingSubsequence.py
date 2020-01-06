@@ -16,21 +16,21 @@ Follow up: Could you improve it to O(n log n) time complexity?
 """
 class Solution:
     def longestIncreaseSubsequenceDP(nums):
-    """
-    Time Complexity: O(N^2)
-    Space Complexity: O(N)
-    """
-    if not nums: return 0
-    # set dp list default as 1. coz, only has it self will return 1.
-    dp = [1] * len(nums)
-    # 这道题无法避免的需要两次loop。从nums的第一个开始，查看它之前是否有小于它的数
-    # 如果有，就求出 dp[i] = max(dp[i], dp[j] + 1)
-    # 比如：当i 为3时，dp[i] = max(dp[i], dp[1]的值 + 1) 和 dp[i] = max(dp[i], dp[2]的值 + 1), 取其最大值。
-    for i in range(len(nums)):
-        for j in range(i):
-            if nums[i] > nums[j]:
-                dp[i] = max(dp[i], dp[j] + 1)
-    return max(dp)
+        """
+        Time Complexity: O(N^2)
+        Space Complexity: O(N)
+        """
+        if not nums: return 0
+        # set dp list default as 1. coz, only has it self will return 1.
+        dp = [1] * len(nums)
+        # 这道题无法避免的需要两次loop。从nums的第一个开始，查看它之前是否有小于它的数
+        # 如果有，就求出 dp[i] = max(dp[i], dp[j] + 1)
+        # 比如：当i 为3时，dp[i] = max(dp[i], dp[1]的值 + 1) 和 dp[i] = max(dp[i], dp[2]的值 + 1), 取其最大值。
+        for i in range(len(nums)):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        return max(dp)
 
 if __name__ == "__main__":
     testcases = [
