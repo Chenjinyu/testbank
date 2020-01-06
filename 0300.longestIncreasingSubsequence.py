@@ -26,6 +26,7 @@ class Solution:
         # 这道题无法避免的需要两次loop。从nums的第一个开始，查看它之前是否有小于它的数
         # 如果有，就求出 dp[i] = max(dp[i], dp[j] + 1)
         # 比如：当i 为3时，dp[i] = max(dp[i], dp[1]的值 + 1) 和 dp[i] = max(dp[i], dp[2]的值 + 1), 取其最大值。
+        # for better understanding: https://www.youtube.com/watch?v=7DKFpWnaxLI
         for i in range(len(nums)):
             for j in range(i):
                 if nums[i] > nums[j]:
