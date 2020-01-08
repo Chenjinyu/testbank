@@ -15,7 +15,7 @@ Your algorithm should run in O(n2) complexity.
 Follow up: Could you improve it to O(n log n) time complexity?
 """
 class Solution:
-    def longestIncreaseSubsequenceDP(nums):
+    def longestIncreaseSubsequenceDP(self, nums):
         """
         Time Complexity: O(N^2)
         Space Complexity: O(N)
@@ -33,11 +33,12 @@ class Solution:
                     dp[i] = max(dp[i], dp[j] + 1)
         return max(dp)
 
+
 if __name__ == "__main__":
     testcases = [
         {'nums': [1, 5, 3, 4, 6, 9, 7, 8], 'e': 6},
         {'nums': [6, 5, 3, 4, 6, 9, 7, 8], 'e': 5},
     ]
     for case in testcases:
-        actual_result = longestIncreaseSubsequenceDP(case['nums'])
+        actual_result = Solution().longestIncreaseSubsequenceDP(case['nums'])
         print("Input: {}\nExpected: {}\nAcutal: {}\nis_Passed: {}".format(case['nums'],case['e'], actual_result, actual_result== case['e']))
