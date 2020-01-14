@@ -29,8 +29,25 @@ cache.get(4);       // returns 4
 
 from collections import OrderedDict
 
+"""
+Amazon OA Problem
+Microsoft OA Problem
+Facebook OA Problem
+Apple OA Problem
+Oracle OA Problem
+Google OA Problem
+VMware OA Problem
+Uber OA Problem
+Expeida OA Problem
+Sanpchat OA Problem
+"""
+
 
 class LRUCache(OrderedDict):
+    """
+    Time Complexity: O(1)
+    Space Complexity: O(N)
+    """
 
     def __init__(self, capacity: int):
         self.capacity = capacity
@@ -58,6 +75,10 @@ class DoubleLinkedNode:
 
 
 class LRUCache:
+    """
+    Time Complexity: O(1)
+    Space Complexity: O(N)
+    """
     def __init__(self, capacity):
         self.capacity = capacity
         # cache store the key: node object
