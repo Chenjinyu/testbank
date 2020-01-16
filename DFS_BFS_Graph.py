@@ -39,7 +39,6 @@ def BFS(graph, start):
                 queue.append(w)
                 parent[w] = vertex
                 seen.add(w)
-        print(vertex)
     return parent
 
 

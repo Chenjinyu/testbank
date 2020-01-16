@@ -75,9 +75,7 @@ def dijkastra(graph, start):
     # distance = init_distance(graph, start)
 
     while pqueue:
-        pair = heapq.heappop(pqueue)
-        dist = pair[0]
-        vertex = pair[1]
+        dist, vertex = heapq.heappop(pqueue)
         # base on finding the smallest path, each node will appear many times with differ dist.
         # so the seen should add the parent node, not in the for loop.
         # detail: https://www.youtube.com/watch?v=9wV1VxlfBlI
