@@ -80,7 +80,7 @@ class Solution:
 
         return True
 
-    def isValidBSTInorderTraversal(self, root: TreeNode) -> bool:
+    def isValidBSTInOrderTraversal(self, root: TreeNode) -> bool:
         """
         Let's use the order of nodes in the inorder traversal Left -> Node -> Right.
         :param root:

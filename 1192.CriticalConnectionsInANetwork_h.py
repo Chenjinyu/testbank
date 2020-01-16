@@ -34,6 +34,9 @@ There are no repeated connections.
 from typing import List
 
 class Solution:
+    """
+    Amazon OA Problem
+    """
     def criticalConnections(self, n: int, connections: List[List[int]]) -> List[List[int]]:
         pass
 

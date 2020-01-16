@@ -29,7 +29,9 @@ logs[i] is guaranteed to have an identifier, and a word after the identifier.
 """
 from typing import List
 
-
+"""
+Amazon OA Problem
+"""
 class Solution:
     """
     Instead of sorting in the default order, we'll sort in a custom order we specify.

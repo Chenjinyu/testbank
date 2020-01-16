@@ -27,6 +27,9 @@ import heapq
 
 
 class Solution:
+    """
+    Amazon OA Problem
+    """
     def connectSticks(self, sticks: List[int]) -> int:
         """
         Space complexity: O(n)

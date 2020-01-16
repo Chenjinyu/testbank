@@ -68,9 +68,10 @@ class TreeNode:
 
 
 class Solution:
-    def recoverTreeWithStack(self, node: TreeNode):
+    # InOrder traversal
+    def recoverTreeWithDFS(self, node: TreeNode):
         """
-        basically, in the if pred and node.val < pred.val, this logic
+        basically, in the if prev and node.val < pred.val, this logic
         only uses for finding the two elements.
         """
         stack = []
@@ -95,13 +96,10 @@ class Solution:
                     first = prev  # which needs to swap
             prev = node  # prev node move to next node.
             node = node.right
-        print(first.val, second.val)
         first.val, second.val = second.val, first.val
-
 
     def recoverTreeWithMorris(self, root: TreeNode):
         first = second = pred = None
-        predecessor = None
         node = root
         while node:
             if node.left:
@@ -131,7 +129,6 @@ class Solution:
 
                 node = node.right
 
-        print(first.val, second.val)
         first.val, second.val = second.val, first.val
 
 
@@ -149,6 +146,6 @@ if __name__ == "__main__":
     root.right = right_node_1
     right_node_1.left = right_node_2
     right_node_1.right = right_node_3
-    Solution().recoverTreeWithStack(root)
+    Solution().recoverTreeWithDFS(root)
     Solution().recoverTreeWithMorris(root)
 
