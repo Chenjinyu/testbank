@@ -63,7 +63,7 @@ class Trie:
             else:
                 cur = cur[c]
 
-        if "*" in cur and cur["*"] == True:
+        if "*" in cur and cur["*"] is True:
             return True
 
         return False
