@@ -3,7 +3,7 @@ Solution
 Approach 1: Two pass algorithm
 Intuition
 
-We notice that the problem could be simply reduced to another one : Remove the (L - n + 1)(L−n+1) th node from the beginning in the list , where LL is the list length. This problem is easy to solve once we found list length LL.
+We notice that the problem could be simply reduced to another one : Remove the (L - n + 1) th node from the beginning in the list , where LL is the list length. This problem is easy to solve once we found list length LL.
 
 Algorithm
 

@@ -34,6 +34,7 @@ import heapq
 
 class LFUCache:
     """
+    Not Solved
     Amazon OA Problem
     Apple OA Problem
     Microsoft OA Problem
@@ -43,15 +44,17 @@ class LFUCache:
         self.capacity = capacity
         self.cache_dict = {}
         self.cache_list = []
+        self.freq = 1
 
     def get(self, key: int) -> int:
         cache = self.cache_dict.get(key, None)
-        if not cache:
+        if cache == None:
             return -1
 
         for item in self.cache_list:
             if item[1] == key:
                 item[0] += 1
+                self.freq = min(item[0], self.freq)
                 break
 
         heapq.heapify(self.cache_list)
@@ -60,18 +63,20 @@ class LFUCache:
     def put(self, key: int, value: int) -> None:
         cache = self.cache_dict.get(key, None)
 
-        if not cache:
-            heapq.heappush(self.cache_list, [0, key])
+        if cache == None:
+            heapq.heappush(self.cache_list, [self.freq, key])
             self.cache_dict[key] = value
 
-            if len(self.cache_dict) > self.capacity:
+            if len(self.cache_list) > self.capacity:
                 freq, key = heapq.heappop(self.cache_list)
                 del self.cache_dict[key]
+                self.freq += 1
         else:
             self.cache_dict[key] = value
             for item in self.cache_list:
                 if item[1] == key:
                     item[0] += 1
+                    self.freq = min(item[0], self.freq)
                     break
             heapq.heapify(self.cache_list)
 
@@ -82,17 +87,15 @@ class LFUCache:
 
 if __name__ == "__main__":
     """
-    ["LFUCache","put","put","get","put","get","get","put","get","get","get"]
-    [[2],[1,1],[2,2],[1],[3,3],[2],[3],[4,4],[1],[3],[4]]
+    ["LFUCache","put","get","put","get","get"]
+    [[1],[2,1],[2],[3,2],[2],[3]]
     """
-    l = LFUCache(2)
-    l.put(1, 1)
-    l.put(2, 2)
-    l.get(1)
-    l.put(3, 3)
+    l = LFUCache(1)
+    l.put(2, 1)
+    l.get(2)
+    l.put(3, 2)
     l.get(2)
     l.get(3)
-    l.put(4, 4)
-    l.get(1)
-    l.get(3)
-    l.get(4)
+
+# output: [null,null,null,1,null,-1,3,null,1,3,-1]
+# expect: [null,null,null,1,null,-1,3,null,-1,3,4]
