@@ -51,7 +51,7 @@ class Solution:
         for x in s:
             if x in max_length_chars:
                 max_length_chars += x
-                # remove the old one.
+                # remove the old one. string.find() find the first index of matched char.
                 max_length_chars = max_length_chars[max_length_chars.find(x) + 1:]
             else:
                 max_length_chars += x
