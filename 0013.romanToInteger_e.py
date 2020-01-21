@@ -58,10 +58,7 @@ class Solution:
         while i < len(s) - 1:
             vals = roman_to_int_dict.get(s[i])
             vals2 = roman_to_int_dict.get(s[i + 1])
-            if vals > vals2:
-                romanInt += vals
-                i += 1
-            elif vals == vals2:
+            if vals >= vals2:
                 romanInt += vals
                 i += 1
             else:
@@ -71,4 +68,4 @@ class Solution:
 
 
 if __name__ == "__main__":
-    print(Solution().romanToInt(45))
+    print(Solution().romanToInt('MCMXCIV'))
