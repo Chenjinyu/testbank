@@ -11,16 +11,16 @@ Explanation:
 5 -> 5
 9 -> 5 + 4
 7 -> 5 + 2
-Example 2:
 
+Example 2:
 Input: wood = [5, 9, 7], k = 4
 Output: 4
 Explanation:
 5 -> 4 + 1
 9 -> 4 * 2 + 1
 7 -> 4 + 3
-Example 3:
 
+Example 3:
 Input: wood = [1, 2, 3], k = 7
 Output: 0
 Explanation: We cannot make it.
@@ -36,15 +36,17 @@ def cut_wood(wood, k):
     res = 0
     left, right = 0, max(wood)
 
-    def cut_helper(A, k, num):
+    def cut_helper(wood, k, num):
         count = 0
-        for a in A:
-            count += a // num
+        for w in wood:
+            count += w // num
         return count >= k
 
     while left <= right:
+        # left + right // 2 might cause the integer overflow.
+        # when left + right > 2147483647
         mid = left + (right - left) // 2
-        if cut_helper(wood,k, mid):
+        if cut_helper(wood, k, mid):
             res = max(mid, res)
             left = mid + 1
         else:
@@ -53,6 +55,6 @@ def cut_wood(wood, k):
     return res
 
 
-wood = [5, 46, 7]
+wood = [5, 9, 7]
 k = 3
 print(cut_wood(wood, k))

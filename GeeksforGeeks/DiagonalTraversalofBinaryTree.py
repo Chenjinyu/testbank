@@ -1,5 +1,6 @@
 """
-Consider lines of slope -1 passing between nodes. Given a Binary Tree, print all diagonal elements in a binary tree belonging to same line.
+Consider lines of slope -1 passing between nodes.
+Given a Binary Tree, print all diagonal elements in a binary tree belonging to same line.
 
 Input : Root of below tree
 
