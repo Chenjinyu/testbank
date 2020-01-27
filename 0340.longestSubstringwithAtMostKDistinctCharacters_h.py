@@ -43,5 +43,14 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = "leeeeeeeeeeeeeeeetcoooooooooooooode"
-    print(Solution().lengthOfLongestSubstringKDistinct(s, 2))
+    testcases = [
+        # {'s': "eceba", 'k': 2, 'e': '3'},
+        # {'s': "aa", 'k': 1, 'e': '2'},
+        {'s': "leeeeeeeeeeeeeeeetcoooooooooooooode", 'k': 2, 'e': '17'},
+    ]
+    for case in testcases:
+        actual_result = str(Solution().lengthOfLongestSubstringKDistinct(case['s'], case['k']))
+        print("Input: {}\nExpected: {}\nAcutal: {}\nis_Passed: {}".format(case['s'],
+                                                                          case['e'],
+                                                                          actual_result,
+                                                                          actual_result == case['e']))

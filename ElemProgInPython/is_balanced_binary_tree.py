@@ -5,7 +5,7 @@ For this problem, a height-balanced binary tree is defined as:
 a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
 Example 1:
 Given the following tree [3,9,20,null,null,15,7]:
-   3
+    3
    / \
   9  20
     /  \
@@ -72,8 +72,6 @@ class Solution:
            3   3
           / \
          4   4
-        :param root:
-        :return:
         """
         is_balance, _ = self.dfs(root)
         return is_balance
@@ -113,6 +111,5 @@ if __name__ == "__main__":
 
     root.left.left.left.left = left_node_4
     root.left.left.left.right = left_node_4
-
 
     print(Solution().isBalanced(root))

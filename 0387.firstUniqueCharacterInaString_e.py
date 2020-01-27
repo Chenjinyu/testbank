@@ -42,7 +42,7 @@ class Solution:
     Apple OA Problem
     Microsoft OA Problem
     """
-    @profile
+    # @profile
     def firstUniqChar(self, s: str) -> int:
         s_counter = Counter(s)
         print(s_counter)

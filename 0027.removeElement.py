@@ -25,8 +25,8 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        nums[:] = [v for v in nums if v != val]
-        # nums[:] = filter(lambda x: x != val, nums)
+        # nums[:] = [v for v in nums if v != val]
+        nums[:] = filter(lambda x: x != val, nums)
         return len(nums)
 
 

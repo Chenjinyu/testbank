@@ -1,7 +1,8 @@
 """
 Merge Two Sorted Lists
 
-Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+Merge two sorted linked lists and return it as a new list.
+The new list should be made by splicing together the nodes of the first two lists.
 
 Example:
 
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     d1.next = e1
     e1.next = f1
 
-    resultNode = Solution().mergeTwoListRecur(a, a1)
+    resultNode = Solution().mergeTwoLists(a, a1)
     while resultNode:
         print(resultNode.val)
         resultNode = resultNode.next

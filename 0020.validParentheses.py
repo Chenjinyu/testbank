@@ -104,9 +104,9 @@ class Solution:
         
 
 if __name__ == "__main__":
-    # s = "{{{[()]}}}"
+    s = "{{{[()]}}}"
     # s = "{[[]()]}"
     # s = "[{(})]"
-    s = "){"
-    print(Solution().selfTest(s))
+    # s = "){"
+    print(Solution().isValidEfficientMore(s))
 

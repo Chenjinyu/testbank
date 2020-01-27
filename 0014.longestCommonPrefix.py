@@ -74,6 +74,7 @@ class Solution:
         :param strs:
         :return:
         """
+        # strs.sort(key=len)
         strs = sorted(strs, key=len)
         if len(strs) == 0: return ""
         if len(strs) == 1: return strs[0]

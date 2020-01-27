@@ -1,0 +1,13 @@
+"""
+Longest Substring Without 2 Contiguous Occurrences of Letter
+
+Given a string s containing only a and b, find longest substring of s such that s does not contain more than two contiguous occurrences of a and b.
+
+Example 1:
+Input: "aabbaaaaabb"
+Output: "aabbaa"
+
+Example 2:
+Input: "aabbaabbaabbaa"
+Output: "aabbaabbaabbaa"
+"""

@@ -67,8 +67,7 @@ class Solution:
 
     def num_islands_bfs(self, grid: List[List[str]]) -> int:
         if not grid: return 0
-        grid_row = len(grid)
-        grid_col = len(grid[0])
+        grid_row, grid_col = len(grid), len(grid[0])
         num_islands = 0
         neighbor = deque()
         direction = [[0, 1], [0, -1], [1, 0], [-1, 0]]
@@ -88,6 +87,8 @@ class Solution:
                         # neighbor.append((dr, dc))
                         if 0 <= dr < grid_row and 0 <= dc < grid_col and grid[dr][dc] is not '0':
                             neighbor.append((dr, dc))
+                            # let the 4 directions to 0, so that when neighbor does not have 1, it will
+                            # jump out the while, and search next not neighbor cell and count += 1
                             grid[dr][dc] = "0"
 
         return num_islands

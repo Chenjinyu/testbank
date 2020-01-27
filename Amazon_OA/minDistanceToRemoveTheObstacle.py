@@ -7,7 +7,8 @@ Write an algorithm to determine the minimum distance required for the demolition
 Assumptions:
 
 The lot is flat, except the trenches and can be represented by a 2D grid.
-The demolition robot must start at the top left corner of the lot, which is always flat, and can move on block up, down, right, left
+The demolition robot must start at the top left corner of the lot, which is always flat,
+and can move on block up, down, right, left
 The demolition robot cannot enter trenches and cannot leave the lot.
 The flat areas are indicated by 1, areas with trenches are indicated by 0, and the obstacle is indicated by 9
 Input: The input of the function has 3 arguments:
@@ -70,8 +71,8 @@ if __name__ == "__main__":
     num_rows = 3
     num_cols = 3
     lot = [
-            [1, 0, 0],
-            [0, 0, 0],
-            [1, 1, 9]
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 9, 1]
         ]
     print(Solution().minDistanceToRemoveObstacle(num_rows, num_cols, lot))

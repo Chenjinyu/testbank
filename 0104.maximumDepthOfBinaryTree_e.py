@@ -1,5 +1,5 @@
 """
-Maximum Depth of Binary Tree
+0104. Maximum Depth of Binary Tree
 
 Given a binary tree, find its maximum depth.
 
@@ -63,7 +63,7 @@ class Solution:
             stack.append((1, root))
 
         depth = 0
-        while stack is not []:
+        while stack:
             current_depth, root = stack.pop()
             if root is not None:
                 depth = max(depth, current_depth)
@@ -71,7 +71,6 @@ class Solution:
                 stack.append((current_depth + 1, root.right))
 
         return depth
-
 
 
 if __name__ == "__main__":

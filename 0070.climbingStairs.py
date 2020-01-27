@@ -44,7 +44,7 @@ class Solution:
         dp = [1, 2]
         for i in range(3, n + 1):
             dp[0], dp[1] = dp[1], dp[0] + dp[1]
-        return dp[1]
+        return dp[i]
 
     def climbStairsIteration(self, n: int) -> int:
         # has Time Limit Execeeded issue
@@ -60,4 +60,4 @@ class Solution:
 
 if __name__ == "__main__":
     n = 3
-    print(Solution().climbStairsIteration(n))
+    print(Solution().climbStairsFib(n))
