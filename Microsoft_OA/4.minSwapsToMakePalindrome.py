@@ -21,4 +21,23 @@ Input: "ntiin"
 Output: 1
 Explanation: swap 't' with 'i' => "nitin"
 """
+from collections import Counter
 
+def minSwapToPalin(S):
+    min_swap = 0
+    str_counter = Counter(S)
+    odd_item = [(k, v) for k, v in str_counter.items() if v % 2]
+    if len(odd_item) > 1:
+        return -1
+    elif len(odd_item) == 1:
+        # it's odd.
+        pass
+    else:
+        # it's even
+        pass
+
+
+
+
+S = "mamaddd"
+minSwapToPalin(S)
