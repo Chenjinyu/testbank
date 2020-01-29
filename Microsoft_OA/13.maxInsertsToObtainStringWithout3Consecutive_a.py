@@ -18,3 +18,18 @@ Write an efficient algorithm for the following assumptions:
     * string S consists only of lowercase letter (a-z).
 """
 
+def MaxInsert(S):
+    pass
+
+
+S = "aabab"
+print(MaxInsert(S))
+
+S = "dog"
+print(MaxInsert(S))
+
+S = "aa"
+print(MaxInsert(S))
+
+S = "baaaa"
+print(MaxInsert(S))
