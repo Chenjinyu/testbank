@@ -17,9 +17,34 @@ Write an efficient algorithm for the following assumptions:
     * N is an integer within the range [1, 200,000]
     * string S consists only of lowercase letter (a-z).
 """
+from itertools import groupby
+
+def MaxInsert2(S):
+    max_insert = 0
+    for c, g in groupby(S):
+        group_len = len(list(g))
+        if c == 'a':
+            if group_len >= 3:
+                return -1
+            else:
+                count_a = S.count('a')
+                rest_count = len(S) - count_a
+                return (rest_count + 1) * 2 - count_a
+        else:
+            max_insert += 2
+    if S[-1] != 'a':
+        max_insert += 2
+
+    return max_insert
+
 
 def MaxInsert(S):
-    pass
+    count_a = S.count('a')
+    if count_a >= 3:
+        if S.find('aaa') == 1:
+            return -1
+    rest_count = len(S) - count_a
+    return (rest_count + 1) * 2 - count_a
 
 
 S = "aabab"
@@ -33,3 +58,5 @@ print(MaxInsert(S))
 
 S = "baaaa"
 print(MaxInsert(S))
+
+# print("aabab".find('aaa'))

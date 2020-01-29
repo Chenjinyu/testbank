@@ -16,3 +16,16 @@ Related problems:
 
 https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/
 """
+
+def unique_character(A):
+    pass
+
+
+A = ["co","dil","ity"]
+print(unique_character(A))
+
+A = ["abc","kkk","def","csv"]
+print(unique_character(A))
+
+A = ["abc","ade","akl"]
+print(unique_character(A))
