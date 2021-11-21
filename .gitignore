@@ -1,4 +1,9 @@
 .idea/
 testbank_env/
-test.py
 .DS_Store
+
+venv
+venv/*
+log/*
+__pycache__/
+test*.py

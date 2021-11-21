@@ -14,7 +14,6 @@ Example 2:
 Input: "race a car"
 Output: false
 """
-import string
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
@@ -23,7 +22,7 @@ class Solution:
         # return s[:pos] == s[len(s) - pos:len(s)][::-1]
         # s = [val.lower() for val in s if val not in string.punctuation and val not in string.whitespace]
         s = [val.lower() for val in s if val.isalnum()]
-        return s[:] == s[::-1]
+        return s == s[::-1]
 
 if __name__ == "__main__":
     s = "A man, a plan, a canal: Panama"

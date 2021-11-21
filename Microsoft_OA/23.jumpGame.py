@@ -6,8 +6,6 @@ When you are at index i, you can jump to i + arr[i] or i - arr[i], check if you 
 
 Notice that you can not jump outside of the array at any time.
 
- 
-
 Example 1:
 
 Input: arr = [4,2,3,0,3,1,2], start = 5
@@ -29,3 +27,23 @@ Input: arr = [3,0,2,1,2], start = 2
 Output: false
 Explanation: There is no way to reach at index 1 with value 0.
 """
+from typing import List
+from collections import deque
+
+
+class Solution:
+    def canReach(self, arr: List[int], start: int) -> bool:
+        queue = deque([start])
+        visited = set()
+        while queue:
+            index = queue.popleft()
+            if arr[index] == 0:
+                return True
+            else:
+                if 0 <= arr[index] + index < len(arr) and arr[index] + index not in visited:
+                    queue.append(arr[index] + index)
+                    visited.add(arr[index] + index)
+                if 0 <= index - arr[index] < len(arr) and index - arr[index] not in visited:
+                    queue.append(index - arr[index])
+                    visited.add(index - arr[index])
+        return False

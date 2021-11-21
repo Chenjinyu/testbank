@@ -28,6 +28,7 @@ class Solution:
         """
         INF = float('inf')
         dp = [0] + [INF] * amount
+
         for i in range(amount + 1):
             for coin in coins:
                 if i >= coin:
@@ -35,7 +36,8 @@ class Solution:
         return dp[amount] if dp[amount] != INF else -1
 
     def coinChangeDSF(self, coins, amount):
-        coins = sorted(coins)[::-1]
+        # DFS + Greedy
+        coins = sorted(coins, reverse=True)
         min_number = float('inf')
 
         min_number = self.change_helper(coins, 0, amount, 0, min_number)

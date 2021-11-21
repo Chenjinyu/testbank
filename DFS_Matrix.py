@@ -24,7 +24,7 @@ def dfs_deque(test):
 
         ans += " " + str(test[r][c])
         visited[r][c] = True
-        stack.appendleft((r, c - 1))  # left
+        # stack.appendleft((r, c - 1))  # left
         stack.appendleft((r, c + 1))  # right
         stack.appendleft((r - 1, c))  # up
         stack.appendleft((r + 1, c))  # down

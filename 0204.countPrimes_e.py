@@ -45,3 +45,4 @@ class Solution:
 
 if __name__ == "__main__":
     print(Solution().countPrimes(10))
+    print(math.sqrt(10))

@@ -10,11 +10,25 @@ Explanation: These arrays also are accepted [-5,-1,1,2,3] , [-3,-1,2,-2,4].
 Example 2:
 Input: n = 3
 Output: [-1,0,1]
-Example 3:
 
+Example 3:
 Input: n = 1
 Output: [0]
  
 Constraints:
 1 <= n <= 1000
 """
+
+def findNUniqueIntSumTOZero(n):
+    if n == 1:
+        return [0]
+    ans = []
+    if n % 2 == 1:
+        ans.append(0)
+
+    for i in range(n // 2):
+        ans.extend([i, -i])
+
+    return ans
+
+print(findNUniqueIntSumTOZero(10))

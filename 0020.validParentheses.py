@@ -88,7 +88,7 @@ class Solution:
         return False if len(stack) > 0 else True
 
     def isValidEfficientMore(self, s: str) -> bool:
-        # very good solution. 
+        # the front brocket will be inserted first, otherwise return False
         mapping = {')': '(', '}': '{', ']': '['}
         if not s: return True
         stack = []
@@ -101,12 +101,14 @@ class Solution:
             else:
                 stack.append(char)
         return len(stack) == 0
-        
+
+
+
 
 if __name__ == "__main__":
     s = "{{{[()]}}}"
     # s = "{[[]()]}"
     # s = "[{(})]"
     # s = "){"
-    print(Solution().isValidEfficientMore(s))
+    print(Solution().isValidForCapitalOne(s))
 

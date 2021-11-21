@@ -1,4 +1,4 @@
-### Summary of Top Interview Question - Easy
+sort### Summary of Top Interview Question - Easy
 
 #### 1. Array
 * in-place: `nums[:] = equation`, `list.sort()`
@@ -17,6 +17,7 @@
   - Set(list).intersection(list or set)
 * `List[~i] = List[length - 1 - i]`. 
   - eg. `P = [0,1,2,3,4,5]`, `P[~1] = 4`.
+* `List[-1] = List[len(List)]` get last one item.
 * create one-dimensional List simple way
   - `new_list = 5 * [0]` == `[0,0,0,0,0] `
   - `maxtrix = 5 * [None for _ in range(5)]`
@@ -45,6 +46,8 @@
         
         funcs = [multiply, add]
         for i in range(5):
+            # map(fun, iter)
+            # map(fun, iter) with x + y, needs two iters. eg: result = map(lambda x, y: x + y, numbers1, numbers2)
             value = list(map(lambda x: x(i), funcs))
             print(value)
         

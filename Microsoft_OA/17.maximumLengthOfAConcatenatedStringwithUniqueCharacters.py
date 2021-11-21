@@ -45,38 +45,52 @@ class Solution:
 
 
     def maxLength2(self, arr: List[str]) -> int:
+        """
+        bit wise: eg: abc --> 0b000111
+                      efg --> 0b111000
+                    abc & efg = 00000000, abc | efg = 00111111
+                    so, abc & efg = 0, means there is not duplicate char.
+        """
         if not arr: return 0
-        end_state = (1 << 27) - 1
 
         def get_state(w):
-            state = 0
+            bit_state = 0
             for c in w:
                 idx = ord(c) - ord('a')
-                if state & 1 << idx != 0:
-                    return end_state
-                state = state | 1 << idx
-            return state
+                # if bit_state & 1 << idx != 0:
+                #     return end_state
+                bit_state |= 1 << idx
+            return bit_state
 
         states = [get_state(w) for w in arr]
-
-        memo = dict()
 
         def recur(i, state):
             if state & states[i] != 0:
                 return 0
-            elif states[i] == end_state:
-                return 0
-            if (i, state) in memo: return memo[i, state]
 
             state = state | states[i]
             if i != len(arr) - 1:
                 max_value = max(recur(j, state) for j in range(i + 1, len(arr)))
             else:
                 max_value = 0
+
             return max_value + len(arr[i])
 
         return max(recur(i, 0) for i in range(len(arr)))
 
 
+def get_state(w):
+    bit_state = 0
+    for c in w:
+        idx = ord(c) - ord('a')
+        if bit_state & 1 << idx != 0:
+            return "-1"
+        bit_state |= 1 << idx
+    return bit_state
+
 arr = ["cha","r","act","ers"]
-print(Solution().maxLength(arr))
+arr = ["un","iq","ue"]
+# arr = ["abcdefghijklmnopqrstuvwxyz"]
+print(Solution().maxLength2(arr))
+# print(1 << 2)
+# print(get_state("cha"))
