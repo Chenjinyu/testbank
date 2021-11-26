@@ -35,4 +35,8 @@ def change_helper(coins, start_pos, amount, count, min_number, min_arr):
 
 coins = [1, 2, 5]
 amount = 11
-print(coinChangeDSF(coins, amount))
+# print(coinChangeDSF(coins, amount))
+#
+#
+# for i in range(10, -1, -1):
+#     print(i)

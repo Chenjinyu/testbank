@@ -32,4 +32,8 @@ if __name__ == "__main__":
     x = -123
     print(Solution().reverse(x))
 
+    import sys
+    print(sys.maxsize)
+    print(2**31-1)
+
 

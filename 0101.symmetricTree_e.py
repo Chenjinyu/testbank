@@ -35,7 +35,8 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def isSymmetric(self, root: TreeNode) -> bool:
+
+    def isSymmetricRecur(self, root: TreeNode) -> bool:
         def isMirror(node1: TreeNode, node2: TreeNode):
             if node1 == node2 is None:
                 return True

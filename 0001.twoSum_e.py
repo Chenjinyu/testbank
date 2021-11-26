@@ -7,7 +7,7 @@ You may assume that each input would have exactly one solution, and you may not 
 
 Example:
 
-Given nums = [2, 7, 11, 15], target = 9,
+Given nums = [2, 3, 6, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
@@ -45,8 +45,18 @@ class Solution:
                 if result_idx != idx:
                     return [idx, result_idx]
 
+    # def towSum3rd(self, nums: List[int], target: int) -> List[int]:
+    #     # return multi list, return the vault not the index. 11/22/2021
+    #     nums = sorted(nums)
+    #     res_arr = []
+    #     for i in range(len(nums)):
+    #         tmp_arr = []
+    #         if nums[i] < target:
+    #             tmp_arr.append(nums[i])
+    #         target = target - nums[i]
+
 
 if __name__ == "__main__":
-    nums1 = [2, 11, 15, 7]
+    nums1 = [15, 2, 3, 6, 7, 11]
     target = 9
-    print(Solution().twoSum(nums1, target))
+    print(Solution().twoSumRedo(nums1, target))
