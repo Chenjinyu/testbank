@@ -25,12 +25,15 @@ The above arrows point to positions where the corresponding bits are different.
 &: 按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0
 
 """
+
+
 class Solution:
+
     def hammingDistance(self, x: int, y: int) -> int:
         # bin(n) convert integer to binary string. which starts with '0b'
         # which idenfied it is binary.
-        return bin(x^y).count('1')
-       
+        return bin(x ^ y).count('1')
+
     def hammingDistanceIDid(self, x: int, y: int) ->int:
         # bin() return string, and treat them as a string to compare.
         x1 = bin(x)[2:]
@@ -43,5 +46,6 @@ class Solution:
                 h += 1
         return h
 
+
 if __name__ == "__main__":
-    print(Solution().hammingDistance(3,2))
+    print(Solution().hammingDistance(3, 2))

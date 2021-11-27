@@ -48,7 +48,8 @@ bottomLeft: T
 bottomRight: F
 
 
-Your task is to implement a function that will take two quadtrees and return a quadtree that represents the logical OR (or union) of the two trees.
+Your task is to implement a function that will take two quadtrees
+and return a quadtree that represents the logical OR (or union) of the two trees.
 
 A:                 B:                 C (A or B):
 +-------+-------+  +-------+---+---+  +-------+-------+
@@ -96,6 +97,7 @@ class Solution:
             # the NodeC value should be false as well.
             sub_node_val = all([tl.val, tr.val, bl.val, br.val])
             if tl.isLeaf and tr.isLeaf and bl.isLeaf and br.isLeaf and sub_node_val:
+                #  the tl, tr, bl and br have not leaf, so the leaves are None.
                 return Node(sub_node_val, True, *[None] * 4)
             else:
                 return Node(sub_node_val, False, tl, tr, bl, br)

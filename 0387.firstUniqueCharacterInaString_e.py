@@ -52,11 +52,12 @@ class Solution:
         matched_index = []
         for k, v in s_counter.items():
             if v == 1:
-                matched_index.append(s.find(k))
+                return k
+                # matched_index.append(s.find(k))
 
-        return min(matched_index)
+        # return min(matched_index)
 
 
 if __name__ == "__main__":
-    s = "leetcode"
+    s = "loveleetcode"
     print(Solution().firstUniqChar(s))

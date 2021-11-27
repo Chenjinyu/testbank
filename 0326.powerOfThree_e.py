@@ -55,3 +55,5 @@ class Solution:
 
 if __name__ == "__main__":
     print(Solution().isPowerOfThreeLoopLoop2(45))
+
+    print(log10(100))

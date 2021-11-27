@@ -1,11 +1,11 @@
 """
 509. Fibonacci Number
-The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
+The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
+such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
 
 F(0) = 0,   F(1) = 1
 F(N) = F(N - 1) + F(N - 2), for N > 1.
 Given N, calculate F(N).
-
 
 
 Example 1:
@@ -25,6 +25,7 @@ Output: 3
 Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 """
 
+
 class Solution:
     def fib(self, n: int) -> int:
         if n <= 1: return n
@@ -32,3 +33,19 @@ class Solution:
         for i in range(1, n):
             a, b = b, a + b
         return b
+
+    # too many depth recursive
+    def fib2(self, n: int) -> int:
+        if n == 0: return 0
+        elif n == 1: return 1
+        else:
+            return self.fib2(n - 1) + self.fib2(n - 2)
+
+
+import datetime
+date1 = datetime.datetime.now().timestamp()
+print(Solution().fib(35))
+date2 = datetime.datetime.now().timestamp()
+print(date2 - date1)
+print(Solution().fib2(35))
+print(datetime.datetime.now().timestamp() - date2)
