@@ -33,7 +33,7 @@ class Solution:
     Amazon OA Problem
     Facebook OA Problem
     """
-    def hasPathSumBFS(self, root: TreeNode, sum: int) -> bool:
+    def hasPathSumBFSIter(self, root: TreeNode, sum: int) -> bool:
         """
         since the data should be read from the top.
         the order should be root, left and right.

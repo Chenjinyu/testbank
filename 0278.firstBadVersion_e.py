@@ -62,6 +62,7 @@ class Solution:
                 right = mid
             else:
                 left = mid + 1
+        # left position get the answer first, so return the version of the left position.
         return left
 
 

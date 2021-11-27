@@ -38,5 +38,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    input_list = [1,2]
+    input_list = [7,1,5,3,6,4]
     print(Solution().maxProfit(input_list))
