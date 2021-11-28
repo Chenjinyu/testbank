@@ -84,8 +84,8 @@ class Solution:
         if nums[0] > 0:
             return []
         for idx in range(len(nums) - 1):
-            if idx > 0 and nums[idx] == nums[idx - 1]:
-                continue
+            # if idx > 0 and nums[idx] == nums[idx - 1]:
+            #     continue
 
             left, right = idx + 1, len(nums) - 1
             while left < right:
@@ -98,6 +98,18 @@ class Solution:
                     ans.append([nums[idx], nums[left], nums[right]])
                     left += 1
                     right -= 1
+                    # the same value has to be skipped once find the combination.
+
+                    #  ------------  interesting ------------
+                    #  single condition cause more time to execution. with below comment out to run,
+                    #  it consumes the time much longer than the second one when the data is large.
+                    #  ------------  interesting ------------
+                    # while left < right:
+                    #     if nums[left] == nums[left - 1]:
+                    #         left += 1
+                    #     elif nums[right] == nums[right + 1]:
+                    #         right -= 1
+
                     # must left - 1, coz must compare with the old one.
                     while left < right and nums[left] == nums[left - 1]:
                         left += 1

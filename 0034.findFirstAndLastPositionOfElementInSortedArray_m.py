@@ -16,7 +16,7 @@ Input: nums = [5,7,7,8,8,10], target = 6
 Output: [-1,-1]
 """
 from typing import List
-import numpy as np
+# import numpy as np
 
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
@@ -116,14 +116,14 @@ class Solution:
         Time complexity : O(log N)
         Space complexity : O(1)
         """
-        left_idx = self.extreme_insertion_index(nums, target, True)
+        idx = self.extreme_insertion_index(nums, target, True)
 
         # assert that `left_idx` is within the array bounds and that `target`
         # is actually in `nums`.
-        if left_idx == len(nums) or nums[left_idx] != target:
+        if idx == len(nums) or nums[idx] != target:
             return [-1, -1]
 
-        return [left_idx, self.extreme_insertion_index(nums, target, False) - 1]
+        return [idx, self.extreme_insertion_index(nums, target, False) - 1]
 
 
 if __name__ == "__main__":
