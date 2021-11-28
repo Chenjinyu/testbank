@@ -47,6 +47,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 """
 
 
+
 class Solution:
     """
     Amazon OA Problem
@@ -70,6 +71,9 @@ class Solution:
             1000: 'M'
         }
         res = ""
+        # print(roman_dict)
+        # print(dict(sorted(roman_dict.items(), key=lambda v: v[0])))
+        # print(dict(sorted(roman_dict.items(), reverse=True)))
         num_list = list(roman_dict.keys())
         while num:
             for idx in range(len(roman_dict) - 1, -1, -1):

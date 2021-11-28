@@ -60,12 +60,12 @@ class Solution:
         result = ListNode(None)
         # normal, we call dummy.
         dummy = result
-        dicimal_mark = 0
+        decimal_mark = 0
 
-        while l1 or l2 or dicimal_mark:
+        while l1 or l2 or decimal_mark:
             # the () must be there. and check if l1 or l2 None, coz, two ListNode has different length
-            sum_val = (l1.val if l1 else 0) + (l2.val if l2 else 0) + dicimal_mark
-            dicimal_mark, sum_val = divmod(sum_val, 10)
+            sum_val = (l1.val if l1 else 0) + (l2.val if l2 else 0) + decimal_mark
+            decimal_mark, sum_val = divmod(sum_val, 10)
 
             if dummy.val is None:
                 # the condition is used for the first node get the value.
@@ -75,9 +75,11 @@ class Solution:
                 dummy.next = ListNode(sum_val)
                 dummy = dummy.next
                
-            #check if l1 or l2 None, coz, two ListNode has different length
-            if l1: l1 = l1.next
-            if l2: l2 = l2.next
+            # check if l1 or l2 None, coz, two ListNode has different length
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
 
         return result
 

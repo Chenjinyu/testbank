@@ -51,6 +51,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = "ccc"
+    s = "cccddd"
     print(Solution().longestPalindrome(s))
 

@@ -92,9 +92,13 @@ if __name__ == "__main__":
         {'s': "dvdf", 'e': '3'},
         {'s': "tmmzuxt", 'e': '5'},
     ]
-    for case in testcases:
-        actual_result = str(Solution().lengthOfLongestSubstring(case['s']))
-        print("Input: {}\nExpected: {}\nAcutal: {}\nis_Passed: {}".format(case['s'],
-                                                                          case['e'],
-                                                                          actual_result,
-                                                                          actual_result == case['e']))
+    # for case in testcases:
+    #     actual_result = str(Solution().lengthOfLongestSubstringRound2(case['s']))
+    #     print("Input: {}\nExpected: {}\nAcutal: {}\nis_Passed: {}".format(case['s'],
+    #                                                                       case['e'],
+    #                                                                       actual_result,
+    #                                                                       actual_result == case['e']))
+
+    print(4 ^ 2)
+    print(pow(4, 2))
+    print(4 ** 2)
