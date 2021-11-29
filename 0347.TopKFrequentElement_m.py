@@ -30,7 +30,11 @@ class Solution:
 
         nums_counter = Counter(nums)
         nums_list = [(k, v) for k, v in nums_counter.items()]
+        nums_list.sort(key=lambda x: x[1], reverse=True)
         nums_list.sort(key=lambda x: -x[1])
+        print(nums_list)
+        res = list(dict(sorted(nums_counter.items(), key=lambda x: x[1])[:k]).values())
+        print(res)
         return [ans[0] for ans in nums_list[:k]]
 
     def topKFrequentImprove(self, nums: List[int], k: int) -> List[int]:
@@ -53,4 +57,4 @@ class Solution:
 if __name__ == "__main__":
     nums = [1, 1, 1, 2, 2, 3]
     k = 2
-    print(Solution().topKFrequentImprove(nums, k))
+    print(Solution().topKFrequent(nums, k))

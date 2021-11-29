@@ -62,3 +62,7 @@ Constraints:
 Number of Nodes will not exceed 1000.
 1 <= Node.val <= 10^5
 """
+
+class Solution:
+    def Jinyu(self):
+        pass

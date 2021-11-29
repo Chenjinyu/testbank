@@ -20,13 +20,6 @@ Input:
 00011
 Output: 3
 
-Example 3:
-Input:
-11000
-11100
-00100
-00111
-Output: 3
 """
 from typing import List
 from collections import deque
@@ -157,9 +150,13 @@ if __name__ == "__main__":
     testcases = [
         {'s': [["1", "1", "1", "1", "0"], ["1", "1", "0", "1", "0"], ["1", "1", "0", "0", "0"],
                ["0", "0", "0", "0", "0"]], 'e': 1},
-        {'s': [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"],
+        {'s': [["1", "1", "0", "0", "0"],
+               ["1", "1", "0", "0", "0"],
+               ["0", "0", "1", "0", "0"],
                ["0", "0", "0", "1", "1"]], 'e': 5},
-        {'s': [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"],
+        {'s': [["1", "1", "0", "0", "0"],
+               ["1", "1", "0", "0", "0"],
+               ["0", "0", "1", "0", "0"],
                ["0", "0", "0", "1", "1"]], 'e': 3},
     ]
     is_pass = True
@@ -174,3 +171,10 @@ if __name__ == "__main__":
 
     if not is_pass:
         print("!!!!-----FAILED------!!!!")
+
+
+# ------------------------------------------------------------
+# deque: (double Ended Queue) is implemented using the module "collections".
+# Deque is preferred over list where we need quicker append and pop operations from both the ends of container
+# as deque provides O(1) time complexity for append and pop operations compared to list provides O(n).
+# ------------------------------------------------------------

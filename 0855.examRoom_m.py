@@ -23,7 +23,6 @@ seat() -> 4, the student sits at the last seat number 4.
 seat() -> 2, the student sits at the last seat number 2.
 leave(4) -> null
 seat() -> 5, the student sits at the last seat number 5.
-​​​​​​​
 
 Note:
 
@@ -43,27 +42,31 @@ class ExamRoom:
     def __init__(self, N: int):
         self.N = N
         self.students = []
-        self.dist = 0
+        self.distance = 0
 
     def seat(self) -> int:
         if not self.students:
             self.students = [0]
             return 0
 
-        self.dist, student = self.students[0], 0
+        # initial the room and the student
+        self.distance, student = self.students[0], 0
 
         for idx in range(1, len(self.students)):
             left, right = self.students[idx - 1], self.students[idx]
-            if (right - left) // 2 > self.dist:
-                self.dist, student = (right - left) // 2, (right + left) // 2
+            if (right - left) // 2 > self.distance:
+                self.distance, student = (right - left) // 2, (right + left) // 2
 
         if self.students[-1] != self.N - 1:
-            if self.N - 1 - self.students[-1] > self.dist:
+            if self.N - 1 - self.students[-1] > self.distance:
                 student = self.N - 1
 
         # This module provides support for maintaining a list in sorted order
         # without having to sort the list after each insertion
-        # O(log n)
+        # ------------------------------------------------------------------------
+        # The purpose of Bisect algorithm is to find a position in list
+        # where an element needs to be inserted to keep the list sorted.
+        # O(n)
         bisect.insort(self.students, student)
         return student
 
@@ -123,3 +126,75 @@ class ExamRoomSolution:
 # obj = ExamRoom(N)
 # param_1 = obj.seat()
 # obj.leave(p)
+
+"""
+------------------------------------------------------------
+bisect maintain the list.
+------------------------------------------------------------
+"""
+
+# initializing list
+li = [1, 3, 4, 4, 4, 6, 7]
+# ----- Search: O(log(n)) -> Bisect method works on the concept of binary search
+# using bisect() to find index to insert new element
+# returns 5 ( right most possible index )
+print("The rightmost index to insert, so list remains sorted is", end=" - ")
+print(bisect.bisect(li, 4))
+print(bisect.bisect_right(li, 4))
+
+# using bisect_left() to find index to insert new element
+# returns 2 ( left most possible index )
+print("The leftmost index to insert, so list remains sorted is", end=" - ")
+print(bisect.bisect_left(li, 4))
+
+# using bisect_right() to find index to insert new element
+# returns 4 ( right most possible index )
+print("The rightmost index to insert, so list remains sorted is", end=" - ")
+print(bisect.bisect_right(li, 4, 0, 4))
+
+#  ----- insert: O(n) -> Inserting an element in sorted array requires traversal
+# initializing list
+li1 = [1, 3, 4, 4, 4, 6, 7]
+
+# initializing list
+li2 = [1, 3, 4, 4, 4, 6, 7]
+
+# initializing list
+li3 = [1, 3, 4, 4, 4, 6, 7]
+
+# using insort() to insert 5 at appropriate position
+# inserts at 6th position
+bisect.insort(li1, 5)
+
+print("The list after inserting new element using insort() is : ")
+for i in range(0, 7):
+    print(li1[i], end=" ")
+
+# using insort_left() to insert 5 at appropriate position
+# inserts at 6th position
+bisect.insort_left(li2, 5)
+
+print("\r")
+
+print("The list after inserting new element using insort_left() is : ")
+for i in range(0, 7):
+    print(li2[i], end=" ")
+
+print("\r")
+
+# using insort_right() to insert 5 at appropriate position
+# inserts at 5th position
+bisect.insort_right(li3, 5, 0, 4)
+
+print("The list after inserting new element using insort_right() is : ")
+for i in range(0, 7):
+    print(li3[i], end=" ")
+
+
+"""
+------------------------------------------------------------
+heapq:  the property of this data structure in Python is that each time the smallest of heap element is popped(min heap)
+whenever elements are pushed or popped, the heap structure in maintained. the heap[0] element also returns the smallest
+element each time
+------------------------------------------------------------
+"""

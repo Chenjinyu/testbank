@@ -30,12 +30,13 @@ class Solution:
         from bottom to top traversal.
         """
         def containsOne(node):
-            if not node: return False  # travers to the end of node's right or left, returns False.
+            if not node: return None  # travers to the end of node's right or left, returns False.
             left_node = containsOne(node.left)
             right_node = containsOne(node.right)
             if not left_node: node.left = None
             if not right_node: node.right = None
-            return node.val == 1 or left_node or right_node
+
+            return 1 if (node.val == 1 or left_node or right_node) else 0
 
         return root if containsOne(root) else None
 

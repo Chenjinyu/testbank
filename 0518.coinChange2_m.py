@@ -30,8 +30,7 @@ the answer is guaranteed to fit into signed 32-bit integer
 """
 from typing import List
 
-
 class Solution:
-    def change(self, amount: int, coins: List[int]) -> int:
+    def Jinyu(self, amount: int, coins: List[int]) -> int:
         pass
 
