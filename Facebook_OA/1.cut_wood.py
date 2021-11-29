@@ -5,7 +5,7 @@ What is the longest len you can get?
 
 Example 1:
 
-Input: wood = [5, 20, 7], k = 3
+Input: wood = [5, 9, 7], k = 3
 Output: 5
 Explanation:
 5 -> 5
@@ -57,4 +57,6 @@ def cut_wood(wood, k):
 
 wood = [5, 9, 7]
 k = 3
-print(cut_wood(wood, k))
+# print(cut_wood(wood, k))
+
+print(9 // 4)

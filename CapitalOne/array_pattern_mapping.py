@@ -40,6 +40,6 @@ list1 = ["cat", "dog", "dog"]
 list2 = ["a", "b", "b"]
 print(set(zip(list1,list2)))
 # print(array_pattern_mapping(list1, list2))
-
+print('a' in 'abc')
 
 

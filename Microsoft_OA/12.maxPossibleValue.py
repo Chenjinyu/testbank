@@ -52,4 +52,6 @@ def max_possible_value(N):
 
 N = [268, 670, 0, -999]
 for n in N:
+    print([(k, v) for k, v in enumerate(str(n))])
     print(max_possible_value(n))
+
