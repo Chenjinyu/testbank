@@ -21,7 +21,7 @@ class ListNode:
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         # faster than 10.88%. not efficient.
-        # because it speed time to read tow listNodes, and create new list node.
+        # because it speed time to read two listNodes, and create new list node.
         def getListAsNum(list_node: ListNode):
             n = ""
             while list_node:
@@ -35,6 +35,7 @@ class Solution:
         sum_two_str = str(n_l_1 + n_l_2)
         sum_two_str = sum_two_str[::-1]
         head = ListNode(0)
+        # dump here is a buoy(浮标)
         dump = head
         i = 0
         while i < len(sum_two_str):
@@ -95,9 +96,11 @@ if __name__ == "__main__":
     a1 = ListNode(5)
     a2 = ListNode(6)
     a3 = ListNode(4)
+    a4 = ListNode(4)
 
     a1.next = a2
     a2.next = a3
+    a3.next = a4
     head = Solution().addTwoNumbersEfficient(a, a1)
     print("-----")
     while head:

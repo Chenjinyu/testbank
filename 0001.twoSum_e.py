@@ -56,7 +56,21 @@ class Solution:
     #         target = target - nums[i]
 
 
+import unittest
+class MyTestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        self.solution = Solution()
+
+    def test_twoSumRedo(self):
+        nums = [1, 2, 3, 4, 5]
+        tgt = 6
+        result = self.solution.twoSumRedo(nums, tgt)
+        expect = [0,4]
+        self.assertEqual(result, expect)
+        
+
 if __name__ == "__main__":
-    nums1 = [15, 2, 3, 6, 7, 11]
-    target = 9
-    print(Solution().twoSumRedo(nums1, target))
+    # nums1 = [15, 2, 3, 6, 7, 11]
+    # target = 9
+    # print(Solution().twoSumRedo(nums1, target))
+    unittest.main()
