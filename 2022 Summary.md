@@ -10,3 +10,10 @@
 - list.pop(index=optional), pop up the last one.
 - zip(*iterable) -> zip object need to convert to set(zip()), the set order is randomly.
 - zip(*zippedList) -> unzip. The * operator can be used in conjunction with zip() to unzip the set.
+
+### 11/29/2022
+- list[0:num] -> does not include the num. 
+- str.replace vs ''.join(str.split('?'))
+- set.add -> won't add duplicate value.
+- str.split('@') -> if does not exist, return the original str in list, otherwise return the list split by the @ 
+
