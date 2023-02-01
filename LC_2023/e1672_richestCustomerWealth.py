@@ -34,4 +34,8 @@ from typing import List
 
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
-        pass
+        richest = -1
+        for acc in accounts:
+            richest = max(sum(acc), richest)
+            
+        return richest
