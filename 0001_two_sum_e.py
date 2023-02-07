@@ -44,6 +44,28 @@ class Solution:
                 result_idx = nums.index(result)
                 if result_idx != idx:
                     return [idx, result_idx]
+                
+                
+    def twoSumWithTwoPointers(self, nums: List[int], target: int) -> List[int]:
+        """
+        Given a sorted of array of unqiue integers and a target integer. 
+        """
+        left, right = 0, len(nums) - 1
+        while left < right:
+            curr_val = nums[right] + nums[left]
+            if curr_val == target:
+                return True
+            elif curr_val > target:
+                # since it's orded array, curr_val > target, only can move the right to the left
+                # otherwise, moving left to right, the curr_val keeps bigger than target.
+                right -= 1
+            else:
+                left += 1
+            
+        return False
+            
+            
+            
 
     # def towSum3rd(self, nums: List[int], target: int) -> List[int]:
     #     # return multi list, return the vault not the index. 11/22/2021
