@@ -21,4 +21,11 @@ Follow up: Suppose there are lots of incoming s, say s1, s2, ..., sk where k >= 
 """
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        pass
+        """ Using the Two Pointers """
+        i = j = 0
+        while i < len(s) and j < len(t): # since we cannot sure if the length of t > s
+            if s[i] == t[j]:
+                i += 1
+            # if s[i] != t[j], the j += 1, and the s[i] = t[j], both i and j += 1.
+            j += 1
+        return i == len(s) # if last char equals char of t, the i += 1.
