@@ -67,3 +67,58 @@ For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The
 Key idea: Whenever you see a problem asking for the number of subarrays, think of this: at each index, how many valid subarrays end at this index? Let's split the 8 subarrays by their ending indices:
 ```
 [713. Subarray Product Less Than K](../../LC_2023/m0713_SubarrayProductLessThanK.py)Solution
+Again, the work done in each loop iteration is constant, so this algorithm has a runtime of **O(n)**, where **n** is the length of nums, and **O(1)** space.
+
+
+#### Fixed Window Size
+In the examples we looked at above, our window size was variable. We tried to expand it as much as we could while keeping the window within some constraint, and removed elements from the left when it violated the constraint. Sometimes, a problem will specify a fixed subarray length. These questions are easy because the criteria are usually the same - just make sure the window size remains the same. To build the initial window (from index 0 to k - 1), you can either build it outside of the main loop or you can factor the logic inside your main loop to only consider the window for the answer once it reaches size k. Here's some pseudocode for both methods:
+
+```java
+// first approach
+function fn(arr, k):
+    curr = some data type to track the window
+
+    // build the first window
+    for i in [0, k - 1]:
+        Do something with curr or other variables to build first window
+
+    ans = answer variable, might be equal to curr here depending on the problem
+    for i in [k, arr.length - 1]:
+        Add arr[i] to window
+        Remove arr[i - k] from window
+        Update ans
+
+    return ans
+
+// second approach
+function fn(arr, k):
+    curr = some data type to track the window
+    ans = answer variable
+    for i in range(len(arr)):
+        if i >= k:
+            Update ans
+            Remove arr[i - k] from window
+        Add arr[i] to window
+
+    Update ans    
+    return ans // Alternatively, you could do something like return max(ans, curr) if the problem is asking for a maximum value and curr is tracking that.
+```
+
+>Example 4: Given an integer array nums and an integer k, find the sum of the subarray with the largest sum whose length is k.
+
+```python
+def find_best_subarray(nums, k):
+    curr = 0
+    for i in range(k):
+        curr += nums[i]
+    
+    ans = curr
+    for i in range(k, len(nums)):
+        curr += nums[i] - nums[i - k]
+        ans = max(ans, curr)
+    
+    return ans
+```
+
+#### Closing Notes
+>Sliding window is extremely common and versatile as a pattern. We only scratched the surface here because many sliding window problems will also need to use a hashmap, which we will talk about in the hashing chapter. After learning about hashmaps, we'll look at some more sliding window problems. In the meantime, test your knowledge by solving the upcoming practice problems.
