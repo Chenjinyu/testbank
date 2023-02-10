@@ -33,4 +33,43 @@ Constraints:
 from typing import List
 class Solution:
     def waysToSplitArray(self, nums: List[int]) -> int:
-        pass
+        """ Time Limit Exceeded due to 3 for loop with large nums of list """
+        nums_len = len(nums)
+        prefix_sum = [nums[0]]
+        back_prefix_sum = [nums[-1]]
+        ans = 0
+        for n in range(1, nums_len):
+            prefix_sum.append(nums[n] + prefix_sum[-1])
+        
+        for m in range(nums_len - 2, -1, -1):
+            back_prefix_sum.insert(0, (nums[m] + back_prefix_sum[0]))
+
+        for idx in range(0, nums_len - 1):
+            if prefix_sum[idx] >= back_prefix_sum[idx + 1]:
+                ans += 1
+        
+        return ans
+            
+            
+    def waysToSplitArray2(self, nums: List[int]) -> int:
+        """ 
+        eg:
+        nums = [10, 4, -8, 7] -> prefix_sum = [10, 14, 6, 13]
+        so, the 13 is the sum of nums, 13(nums[-1]) - 10(nums[0]) is the rest of item[4, -8, 7]
+        13 - 14 (sum of [10, 4]) is sum of [-8, 7]
+        """
+        prefix_sum = [nums[0]]
+        nums_len = len(nums)
+        ans = 0
+        for n in range(1, nums_len):
+            prefix_sum.append(nums[n] + prefix_sum[-1])
+        
+        for idx in range(nums_len - 1):
+            left_section = prefix_sum[idx]
+            right_section = prefix_sum[-1] - prefix_sum[idx]
+            if left_section >= right_section:
+                ans += 1
+                
+        return ans        
+        
+            

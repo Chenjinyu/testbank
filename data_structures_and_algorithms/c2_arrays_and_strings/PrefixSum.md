@@ -27,7 +27,8 @@ Let's build a prefix sum and then use the method described above to answer each 
 def answer_queries(nums, queries, limit):
     prefix = [nums[0]]
     for i in range(1, len(nums)):
-        prefix.append(nums[i] + prefix[i-1])
+        # the prefix[-1] always is the last one item from the prefix array which be appended as below.
+        prefix.append(nums[i] + prefix[-1])
     
     ans = []
     for x, y in queries:
