@@ -39,3 +39,5 @@ def answer_queries(nums, queries, limit):
 ```
 
 Without the prefix sum, answering each query would be **O(n)** in the worst case, where n is the length of nums. If **m = queries.length**, that would give a time complexity of **O(n∗m)**. With the prefix sum, it costs **O(n)** to build, but then answering each query is **O(1)**. This gives a much better time complexity of **O(n+m)**. We use O(n) space to build the prefix sum.
+
+[2270. Number of Ways to Split Array](../../LC_2023/m2270_NumberOfWaysToSplitArray.py)

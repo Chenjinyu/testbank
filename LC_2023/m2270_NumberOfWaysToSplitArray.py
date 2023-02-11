@@ -57,6 +57,8 @@ class Solution:
         nums = [10, 4, -8, 7] -> prefix_sum = [10, 14, 6, 13]
         so, the 13 is the sum of nums, 13(nums[-1]) - 10(nums[0]) is the rest of item[4, -8, 7]
         13 - 14 (sum of [10, 4]) is sum of [-8, 7]
+        
+        --> O(n)
         """
         prefix_sum = [nums[0]]
         nums_len = len(nums)
@@ -72,4 +74,17 @@ class Solution:
                 
         return ans        
         
-            
+    
+    def waysToSplitArrayO1(self, nums: List[int]) -> int:
+        """
+        """
+        ans = left_section = 0
+        total = sum(nums)
+        
+        for i in range(len(nums) - 1):
+            left_section += nums[i]
+            right_section = total - left_section
+            if left_section >= right_section:
+                ans += 1
+                
+        return ans
