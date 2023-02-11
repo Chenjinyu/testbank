@@ -14,7 +14,7 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 from typing import Optional
 import math
 
-from LC_2023.model import ListNode
+from lc_2023.model import ListNode
 # Definition for singly-linked list.
 
         

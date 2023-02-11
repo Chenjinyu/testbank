@@ -86,4 +86,4 @@ class Solution:
         return i == len(s)
 ```
 
-1. [392. Is Subsequence.](../../LC_2023/e0392_isSubsequence.py)
+1. [392. Is Subsequence.](../../lc_2023/e0392_isSubsequence.py)

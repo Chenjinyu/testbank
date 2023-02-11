@@ -66,7 +66,7 @@ For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The
 
 Key idea: Whenever you see a problem asking for the number of subarrays, think of this: at each index, how many valid subarrays end at this index? Let's split the 8 subarrays by their ending indices:
 ```
-[713. Subarray Product Less Than K](../../LC_2023/m0713_SubarrayProductLessThanK.py)Solution
+[713. Subarray Product Less Than K](../../lc_2023/m0713_SubarrayProductLessThanK.py)Solution
 Again, the work done in each loop iteration is constant, so this algorithm has a runtime of **O(n)**, where **n** is the length of nums, and **O(1)** space.
 
 
