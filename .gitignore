@@ -6,4 +6,3 @@ venv
 venv/*
 log/*
 __pycache__/
-test*.py
