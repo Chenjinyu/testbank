@@ -112,10 +112,10 @@ from data_structures_and_algorithms.c2_arrays_and_strings.e0283_MoveZeroes impor
 from data_structures_and_algorithms.c2_arrays_and_strings.e2000_ReversePrefixOfWord import Solution as Sol2000
 from data_structures_and_algorithms.c2_arrays_and_strings.m0209_MinimumSizeSubarraySum import Solution as Sol0209
 from data_structures_and_algorithms.c2_arrays_and_strings.m1456_MaximumNumberofVowelsInASubstringOfGivenLength import Solution as Sol1456
-from data_structures_and_algorithms.c2_arrays_and_strings.m1208_GetEqualSubstringsWithinBudget import Solution as Sol1228
+from data_structures_and_algorithms.c2_arrays_and_strings.m1208_GetEqualSubstringsWithinBudget import Solution as Sol1208
 from data_structures_and_algorithms.c2_arrays_and_strings.e1732_FindTheHighestAltitude import Solution as Sol1732
 from data_structures_and_algorithms.c2_arrays_and_strings.e0724_FindPivotIndex import Solution as Sol0724
-from data_structures_and_algorithms.c2_arrays_and_strings.e0303_RangeSumQuery_Immutable import Solution as Sol0303
+from data_structures_and_algorithms.c2_arrays_and_strings.e0303_RangeSumQuery_Immutable import NumArray
 
 @pytest.mark.parametrize("test_input, excepted_output", [([3,1,2,10,1], [3,4,6,16,17])])    
 def test_runningsum1480(test_input, excepted_output):
@@ -320,7 +320,6 @@ def test_moveZeroes(test_input1, excepted_output):
     
     
 @pytest.mark.c2_arrays_and_strings 
-@pytest.mark.current_test
 @pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
     ("abcdefd", "d", "dcbaefd"),
     ("xyxzxe", "z", "zxyxxe"),
@@ -328,3 +327,67 @@ def test_moveZeroes(test_input1, excepted_output):
 ])    
 def test_moveZeroes(test_input1, test_input2, excepted_output):
     assert Sol2000().reversePrefix(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.in_progress
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+    (7, [2,3,1,2,4,3], 2),
+    (4, [1,4,4], 1),
+    (11, [1,1,1,1,1,1,1,1], 0)
+])    
+def test_minSubArrayLen(test_input1, test_input2, excepted_output):
+    assert Sol0209().minSubArrayLen(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.in_progress
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+    ("abciiidef", 3, 3),
+    ("aeiou", 2, 2),
+    ("leetcode", 3, 2)
+])    
+def test_maxVowels(test_input1, test_input2, excepted_output):
+    assert Sol1456().maxVowels(test_input1, test_input2) == excepted_output
+    
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.in_progress
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    (["NumArray", "sumRange", "sumRange", "sumRange"][[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]], [None, 1, -1, -3]),
+])    
+def test_sumRange(test_input1, excepted_output):
+    assert NumArray().sumRange(test_input1) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.in_progress
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+    ("abcd", "bcdf", 3),
+    ("abcd", "cdef", 3),
+    ("abcd", "acde", 0)
+])    
+def test_equalSubstring(test_input1, test_input2, excepted_output):
+    assert Sol1208().equalSubstring(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.in_progress
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([-5,1,5,0,-7], 1),
+    ([-4,-3,-2,-1,4,3,2], 0)
+])    
+def test_largestAltitude(test_input1, excepted_output):
+    assert Sol1732().largestAltitude(test_input1) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.in_progress
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([1,7,3,6,5,6], 3),
+    ([1,2,3], -1),
+    ([2,1,-1], 0)
+])    
+def test_pivotIndex(test_input1, excepted_output):
+    assert Sol0724().pivotIndex(test_input1) == excepted_output
