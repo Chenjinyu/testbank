@@ -87,3 +87,19 @@ class Solution:
 ```
 
 1. [392. Is Subsequence.](../../lc_2023/e0392_isSubsequence.py)
+
+
+#### Python Only Numbers or Letters
+```html
+letter.isnumeric() -> returns true if all characters in a string are numbers. function supports Digits, Vulgar Fractions, Subscripts, Superscripts, Roman Numerals, and Currency Numerators.
+letter.isdigit() -> accepts only decimals, subscripts, and superscripts.
+
+<p>
+val = '⅓'<br/>
+print(val.isdigit()) -> <b>False</b> <br/>
+print(val.isnumeric()) -> <b>True</b> <br/>
+</p>
+
+letter.isalnum() -> method returns True if all the characters are alphanumeric, meaning alphabet letter (a-z) and numbers (0-9)
+letter.isalpha() -> method returns true if a string only contains letters
+```

@@ -7,6 +7,10 @@ py.test or
 pytest
 python3 -m pytest
 
+# Test marked as current_test test cases
+pytest -m current_test
+
+
 To show durations < 10 and these detail durations
 `pytest --durations=10 --durations-min=1.0 -vv`
 
@@ -102,8 +106,16 @@ from data_structures_and_algorithms.c2_arrays_and_strings.e0643_MaximumAverageSu
 from data_structures_and_algorithms.c2_arrays_and_strings.m1004_MaxConsecutiveOnesIII import Solution as Sol1004
 from data_structures_and_algorithms.c2_arrays_and_strings.m2270_NumberOfWaysToSplitArray import Solution as Sol2270
 from data_structures_and_algorithms.c2_arrays_and_strings.e1413_MinValueToGetPositiveStepByStepSum import Solution as Sol1413
-
-
+from data_structures_and_algorithms.c2_arrays_and_strings.e0557_ReverseWordsInAStringIII import Solution as Sol0557
+from data_structures_and_algorithms.c2_arrays_and_strings.e0917_ReverseOnlyLetters import Solution as Sol0917
+from data_structures_and_algorithms.c2_arrays_and_strings.e0283_MoveZeroes import Solution as Sol0283
+from data_structures_and_algorithms.c2_arrays_and_strings.e2000_ReversePrefixOfWord import Solution as Sol2000
+from data_structures_and_algorithms.c2_arrays_and_strings.m0209_MinimumSizeSubarraySum import Solution as Sol0209
+from data_structures_and_algorithms.c2_arrays_and_strings.m1456_MaximumNumberofVowelsInASubstringOfGivenLength import Solution as Sol1456
+from data_structures_and_algorithms.c2_arrays_and_strings.m1208_GetEqualSubstringsWithinBudget import Solution as Sol1228
+from data_structures_and_algorithms.c2_arrays_and_strings.e1732_FindTheHighestAltitude import Solution as Sol1732
+from data_structures_and_algorithms.c2_arrays_and_strings.e0724_FindPivotIndex import Solution as Sol0724
+from data_structures_and_algorithms.c2_arrays_and_strings.e0303_RangeSumQuery_Immutable import Solution as Sol0303
 
 @pytest.mark.parametrize("test_input, excepted_output", [([3,1,2,10,1], [3,4,6,16,17])])    
 def test_runningsum1480(test_input, excepted_output):
@@ -249,7 +261,6 @@ def test_waysToSplitArrayO1(test_input1, excepted_output):
     
       
 @pytest.mark.c2_arrays_and_strings 
-@pytest.mark.current_test
 @pytest.mark.parametrize("test_input1, excepted_output", [
     ([-3, 2, -3, 4, 2], 5),
     ([1, 2], 1),
@@ -258,3 +269,62 @@ def test_waysToSplitArrayO1(test_input1, excepted_output):
 ])   
 def test_minStartValue(test_input1, excepted_output):
     assert Sol1413().minStartValue(test_input1) == excepted_output
+    
+
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ("Let's take LeetCode contest", "s'teL ekat edoCteeL tsetnoc"),
+    ("God Ding", "doG gniD"),
+])   
+def test_reverseWords(test_input1, excepted_output):
+    assert Sol0557().reverseWords(test_input1) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ("Let's take LeetCode contest", "s'teL ekat edoCteeL tsetnoc"),
+    ("God Ding", "doG gniD"),
+])   
+def test_reverseWordsSimple(test_input1, excepted_output):
+    assert Sol0557().reserseWordsSimple(test_input1) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ("ab-cd", "dc-ba"),
+    ("a-bC-dEf-ghIj", "j-Ih-gfE-dCba"),
+    ("Test1ng-Leet=code-Q!", "Qedo1ct-eeLg=ntse-T!"),
+])    
+def test_reverseOnlyLetters(test_input1, excepted_output):
+    assert Sol0917().reverseOnlyLetters(test_input1) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ("ab-cd", "dc-ba"),
+    ("a-bC-dEf-ghIj", "j-Ih-gfE-dCba"),
+    ("Test1ng-Leet=code-Q!", "Qedo1ct-eeLg=ntse-T!"),
+])    
+def test_reverseOnlyLettersWithSplitStr(test_input1, excepted_output):
+    assert Sol0917().reverseOnlyLettersWithSplitStr(test_input1) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([0,1,0,3,12], [1,3,12,0,0]),
+    ([0], [0]),
+    ([0,0,1], [1,0,0])
+])    
+def test_moveZeroes(test_input1, excepted_output):
+    assert Sol0283().moveZeroes(test_input1) == excepted_output
+    
+    
+@pytest.mark.c2_arrays_and_strings 
+@pytest.mark.current_test
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+    ("abcdefd", "d", "dcbaefd"),
+    ("xyxzxe", "z", "zxyxxe"),
+    ("abcd", "z", "abcd")
+])    
+def test_moveZeroes(test_input1, test_input2, excepted_output):
+    assert Sol2000().reversePrefix(test_input1, test_input2) == excepted_output

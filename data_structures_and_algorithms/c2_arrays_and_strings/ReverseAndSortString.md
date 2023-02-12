@@ -1,7 +1,7 @@
 ### Reverse String/List
 - list.reverse() reverse list in place 
 - reversed(list) returns an iterator that yields items in reverse order. 
-
+- list[::-1] equals to list[:None:-1] and list[:len(list)-1: -1] reverse list to a new list
 O(N) -> switch items pair with begin and end, and move close to center. 
 the worse case is O(N)
 ```python

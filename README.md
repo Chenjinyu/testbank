@@ -166,3 +166,14 @@ for such problems**:
 ![greedy](./img/greedy.png)
 
 1. [Maximum Subarray](0053.maximumSubarray.py)
+
+
+## 2023
+### str.split() vs str.split("")
+```python 
+>>> s = " A  B "
+>>> s.split()
+['A', 'B']
+>>> s.split(" ")
+['', 'A', '', 'B', '']
+```
