@@ -94,13 +94,15 @@ from lc_2023.e1672_richestCustomerWealth import Solution as Sol1672
 from lc_2023.e0412_fizzBuzz import Solution as Sol0412
 from lc_2023.e1342_NumberofStepsToReduceANumberToZero import Solution as Sol1342
 from lc_2023.e0876_MiddleOfTheLinkedList import Solution as Sol0876
-from lc_2023.e0383_Ranson_Note import Solution as Sol0383
-from lc_2023.e0392_isSubsequence import Solution as Sol0392
-from lc_2023.m0713_SubarrayProductLessThanK import Solution as Sol0713
-from lc_2023.e0643_MaximumAverageSubarryI import Solution as Sol0643
-from lc_2023.m1004_MaxConsecutiveOnesIII import Solution as Sol1004
-from lc_2023.m2270_NumberOfWaysToSplitArray import Solution as Sol2270
-from lc_2023.e1413_MinValueToGetPositiveStepByStepSum import Solution as Sol1413
+
+from data_structures_and_algorithms.c2_arrays_and_strings.e0383_Ranson_Note import Solution as Sol0383
+from data_structures_and_algorithms.c2_arrays_and_strings.e0392_isSubsequence import Solution as Sol0392
+from data_structures_and_algorithms.c2_arrays_and_strings.m0713_SubarrayProductLessThanK import Solution as Sol0713
+from data_structures_and_algorithms.c2_arrays_and_strings.e0643_MaximumAverageSubarryI import Solution as Sol0643
+from data_structures_and_algorithms.c2_arrays_and_strings.m1004_MaxConsecutiveOnesIII import Solution as Sol1004
+from data_structures_and_algorithms.c2_arrays_and_strings.m2270_NumberOfWaysToSplitArray import Solution as Sol2270
+from data_structures_and_algorithms.c2_arrays_and_strings.e1413_MinValueToGetPositiveStepByStepSum import Solution as Sol1413
+
 
 
 @pytest.mark.parametrize("test_input, excepted_output", [([3,1,2,10,1], [3,4,6,16,17])])    
