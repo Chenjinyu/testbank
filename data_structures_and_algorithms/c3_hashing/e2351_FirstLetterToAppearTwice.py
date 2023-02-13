@@ -32,7 +32,26 @@ class Solution:
     def repeatedCharacter(self, s: str) -> str:
         s_dict = {}
         for idx, val in enumerate(s):
-            if val not in s_dict.keys():
+            # val in s_dict equals val in s_dict.keys()
+            if val not in s_dict:
                 s_dict[val] = 1
             else:
                 return val
+            
+    def repeatedCharacterSet(self, s: str) -> str:
+        """
+        Time Complexity: O(N)
+        Space Complexity: O(M)
+        The space complexity is a more interesting topic of discussion. Many people will argue that the space complexity is O(1) because the input can only have characters from the English alphabet, which is bounded by a constant (26). This is very common with string problems and technically correct. In an interview setting, this is probably a safe answer, but you should also note that the space complexity could be O(m), where m is the number of allowable characters in the input.
+        """
+        seen = set()
+        for c in s:
+            if c in seen:
+                return c
+            seen.add(c)
+        return " "
+            
+            
+test_dict = {'Jinyu': 'Chen', 'Yuning': 'Chen'}
+print("Chen" in test_dict) # False
+print("Jinyu" in test_dict) # True

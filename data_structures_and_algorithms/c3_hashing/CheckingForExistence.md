@@ -30,3 +30,5 @@ Example 2: 2351. First Letter to Appear Twice
 
 Given a string s, return the first character to appear twice. It is guaranteed that the input will have a duplicate character.
 ```
+
+>Anytime you find your algorithm running if ... in ..., then consider using **a hash map or set to store elements to have these operations run in O(1)**. Try these upcoming practice problems with what was learned here.
