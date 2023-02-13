@@ -18,6 +18,7 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # runtime: 1200ms
         pos_list = []
         start = 0
         while start < len(nums):
@@ -38,12 +39,14 @@ class Solution:
     Amazon OA Problem.
     """
     def twoSumRedo(self, nums: List[int], target: int) -> List[int]:
+        # runtime: 824ms
         for idx in range(len(nums)):
             result = target - nums[idx]
             if result in nums:
                 result_idx = nums.index(result)
                 if result_idx != idx:
                     return [idx, result_idx]
+        return [-1, -1]
                 
                 
     def twoSumWithTwoPointers(self, nums: List[int], target: int) -> List[int]:
@@ -65,17 +68,18 @@ class Solution:
         return False
             
             
+    def twoSumWithHaskMap(self, nums: List[int], target: int) -> List[int]:
+        # Runtime 59ms
+        dict_nums = {}
+        for i in range(len(nums)):
+            num = nums[i]
+            complement = target - num
+            if complement in dict_nums: # This Operation is O(1)
+                return [dict_nums[complement], i]
             
-
-    # def towSum3rd(self, nums: List[int], target: int) -> List[int]:
-    #     # return multi list, return the vault not the index. 11/22/2021
-    #     nums = sorted(nums)
-    #     res_arr = []
-    #     for i in range(len(nums)):
-    #         tmp_arr = []
-    #         if nums[i] < target:
-    #             tmp_arr.append(nums[i])
-    #         target = target - nums[i]
+            dict_nums[num] = i
+            
+        return [-1, -1]
 
 
 import unittest
@@ -92,7 +96,7 @@ class MyTestCase(unittest.TestCase):
         
 
 if __name__ == "__main__":
-    # nums1 = [15, 2, 3, 6, 7, 11]
-    # target = 9
-    # print(Solution().twoSumRedo(nums1, target))
-    unittest.main()
+    nums1 = [2,7,11,15]
+    target = 9
+    print(Solution().twoSumWithHaskMap(nums1, target))
+    # unittest.main()
