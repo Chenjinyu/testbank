@@ -23,4 +23,7 @@ n == gain.length
 from typing import List
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
-        pass
+        prefix_sums = [gain[0]]
+        for g in range(1, len(gain)):
+            prefix_sums.append(gain[g] + prefix_sums[-1])
+        return max(prefix_sums) if max(prefix_sums) > 0 else 0

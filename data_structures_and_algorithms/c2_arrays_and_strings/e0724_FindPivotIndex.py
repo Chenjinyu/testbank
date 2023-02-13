@@ -41,4 +41,5 @@ Note: This question is the same as 1991: https://leetcode.com/problems/find-the-
 from typing import List
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
+        """ Skip easy questions """
         pass

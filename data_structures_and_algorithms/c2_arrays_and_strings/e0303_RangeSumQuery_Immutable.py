@@ -30,6 +30,7 @@ At most 104 calls will be made to sumRange.
 """
 from typing import List
 class NumArray:
+    """ Skip easy questions """
     
     def __init__(self, nums: List[int]):
         pass

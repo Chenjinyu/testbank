@@ -31,4 +31,4 @@ s and t consist of only lowercase English letters.
 
 class Solution:
     def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
-        pass
+        """Might be will do it, since the logic is the same with sliding window """

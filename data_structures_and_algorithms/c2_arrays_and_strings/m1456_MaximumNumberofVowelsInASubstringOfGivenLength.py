@@ -27,4 +27,5 @@ s consists of lowercase English letters.
 
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
+        """ Reported the description or examples are unclear or incorrect. """
         pass
