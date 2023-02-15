@@ -133,4 +133,33 @@ Declare a hash map that maps keys to integers.
 Example 4: 560. Subarray Sum Equals K
 Given an integer array nums and an integer k, find the number of subarrays whose sum is equal to k.
 ```
+Let's talk about the intuition behind why the algorithm above works for this problem. Let's say we have nums = [1, 2, 1, 2, 1], k = 3. There are four subarrays with sum 3 - [1, 2] twice and [2, 1] twice.
 
+Remember prefix sums? We learned that with a prefix sum, we can find the sum of any subarray from left to right by looking at the difference between their indices in the prefix sum. The prefix sum for this input, which is what curr represents, is [1, 3, 4, 6, 7]. **_Any difference between elements that is equal to 3 represents a subarray whose sum is equal to 3_**.
+>中文解释：在prefixsum里的每个子集，如果子集-k的值存在于prefixsum的子集里，就说明了当前的子集集合== k.
+
+At any index, **_if curr - k existed earlier as a prefix, then the subarray from that point and the current index has a sum of curr - (curr - k) = k_**. If we store all the prefixes in a hash map counts, we can query counts[curr - k] to find subarrays with sum equal to k.
+
+We said there were four subarrays with sum 3, but there's only three differences in [1, 3, 4, 6, 7] of 3: 4 - 1, 6 - 3, and 7 - 4. What's wrong? Well, at the second index, the prefix is equal to 3, which is a valid subarray, but we are missing the 0. This is why in the first step of the general algorithm above, we need to initialize the hash map with 0: 1. Because technically, the empty subarray [] is a subarray with sum 0.
+
+You may be thinking, if curr is only increasing, then no value in the hash map is greater than 1, couldn't we just use a set? This would be true if the array only had non-negative numbers - however, the constraints say -1000 <= nums[i] <= 1000. Let's think about an example: nums = [1, -1, 1, -1], k = 0. There are four valid subarrays: [1, -1] twice, [-1, 1] once, and the entire array [1, -1, 1, -1].
+
+The prefix sum is [1, 0, 1, 0]. There are two subarrays ending on the final index - [1, -1] and the entire array. Remember that we initialize counts[0] = 1, so after the second index, we have counts[0] = 2. So when we reach the final index and do ans += counts[curr - k] = ans += counts[0], we are adding both subarrays to our answer. When there are negative numbers in the input, the same prefix can occur multiple times, and a hash map is needed to count the frequency.
+
+
+To summarize:
+- We use curr to track the prefix sum.
+- At any index i, the sum up to i is curr. If there is an index j whose prefix is curr - k, then the sum of the subarray with elements from j + 1 to i is curr - (curr - k) = k.
+- Because the array can have negative numbers, the same prefix can occur multiple times. We use a hash map counts to track how many times a prefix has occurred.
+- At every index i, the frequency of curr - k is equal to the number of subarrays whose sum is equal to k that end at i. Add it to the answer.
+The time and space complexity of this algorithm are both O(n), where n is the length of nums. Each for loop iteration runs in constant time and the hash map can grow to a size of n elements
+
+>中文解释：在prefixsum里的每个子集，如果子集-k的值存在于prefixsum的子集里，就说明了当前的子集集合== k.
+
+```html
+Example 5: 1248. Count Number of Nice Subarrays
+
+Given an array of positive integers nums and an integer k. Find the number of subarrays with exactly k odd numbers in them.
+
+For example, given nums = [1, 1, 2, 1, 1], k = 3, the answer is 2. The subarrays with 3 odd numbers in them are [1, 1, 2, 1, 1] and [1, 1, 2, 1, 1].
+```
