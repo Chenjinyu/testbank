@@ -133,6 +133,22 @@ Declare a hash map that maps keys to integers.
 Example 4: 560. Subarray Sum Equals K
 Given an integer array nums and an integer k, find the number of subarrays whose sum is equal to k.
 ```
+```python
+from collections import defaultdict
+
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        counts = defaultdict(int)
+        counts[0] = 1
+        ans = curr = 0
+
+        for num in nums:
+            curr += num
+            ans += counts[curr - k]
+            counts[curr] += 1
+    
+        return ans
+```
 Let's talk about the intuition behind why the algorithm above works for this problem. Let's say we have nums = [1, 2, 1, 2, 1], k = 3. There are four subarrays with sum 3 - [1, 2] twice and [2, 1] twice.
 
 Remember prefix sums? We learned that with a prefix sum, we can find the sum of any subarray from left to right by looking at the difference between their indices in the prefix sum. The prefix sum for this input, which is what curr represents, is [1, 3, 4, 6, 7]. **_Any difference between elements that is equal to 3 represents a subarray whose sum is equal to 3_**.
@@ -163,3 +179,24 @@ Given an array of positive integers nums and an integer k. Find the number of su
 
 For example, given nums = [1, 1, 2, 1, 1], k = 3, the answer is 2. The subarrays with 3 odd numbers in them are [1, 1, 2, 1, 1] and [1, 1, 2, 1, 1].
 ```
+
+```python
+from collections import defaultdict
+from typing import List
+class Solution:
+    def numberOfSubarrays(self, nums: List[int], k: int) -> int:
+        counts = defaultdict(int)
+        counts[0] = 1
+        ans = curr = 0
+        
+        for num in nums:
+            curr += num % 2
+            ans += counts[curr - k]
+            counts[curr] += 1
+
+        return ans
+```
+
+In the previous example, the constraint metric was a sum, so we had curr record a prefix sum. In this problem, the constraint metric is odd number count. Therefore, let's have curr track the number of odd numbers. At every element, we can query curr - k again. In the example test case, at the final index, curr = 4 because there are 4 odd numbers in the array. At the first index, curr = 1. 4 - 1 = 3, and you can see that the subarray from index 1 to 4 is one of the answers ([1, 1, 2, 1, 1]).
+
+>We can check if a number is odd by taking it mod 2. If x is odd, then x % 2 = 1.
