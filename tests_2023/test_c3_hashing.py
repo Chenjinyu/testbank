@@ -15,6 +15,9 @@ from data_structures_and_algorithms.c3_hashing.e2248_IntersectionOfMultipleArray
 from data_structures_and_algorithms.c3_hashing.e1941_CheckIfAllCharactersHaveEqualNumberOfOccurences import Solution as Sol1941
 from data_structures_and_algorithms.c3_hashing.m0560_SubarraySumEqualsK import Solution as Sol0560
 from data_structures_and_algorithms.c3_hashing.m1248_CountNumberOfNiceSubarrays import Solution as Sol1248
+from data_structures_and_algorithms.c3_hashing.m2225_FindPlayersWithZeroOrOneLosses import Solution as Sol2225
+from data_structures_and_algorithms.c3_hashing.e1133_LargestUniqueNumber import Solution as Sol1133
+from data_structures_and_algorithms.c3_hashing.e1189_MaximumNumberOfBalloons import Solution as Sol1189
 
 
 @pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
@@ -88,3 +91,30 @@ def test_subarraySum(test_input1, test_input2, excepted_output):
 ])
 def test_numberOfSubarrays(test_input1, test_input2, excepted_output):
     assert Sol1248().numberOfSubarrays(test_input1, test_input2) == excepted_output
+
+
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]], [[1,2,10],[4,5,7,8]]),
+    ([[2,3],[1,3],[5,4],[6,4]], [[1,2,5,6],[]]),
+])
+def test_findWinners(test_input1, excepted_output):
+    assert Sol2225().findWinners(test_input1) == excepted_output
+    assert Sol2225().findWinnersCounter(test_input1) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([5,7,3,9,4,9,8,3,1], 8),
+    ([9,9,8,8], -1),
+])
+def test_findWinners(test_input1, excepted_output):
+    assert Sol1133().largestUniqueNumber(test_input1) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ("nlaebolko", 1),
+    ("loonbalxballpoon", 2),
+    ("leetcode", 0),
+    ("balon", 0),
+])
+def test_maxNumberOfBalloons(test_input1, excepted_output):
+    assert Sol1189().maxNumberOfBalloons(test_input1) == excepted_output
