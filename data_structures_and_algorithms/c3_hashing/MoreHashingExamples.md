@@ -32,3 +32,32 @@ class Solution:
 Given n as the length of strs and m as the average length of the strings, we iterate over each string sort it, which costs logO(n⋅m⋅logm). Then, we need to iterate over the keys. In the worst case scenario, when there are no matching anagrams, there will be n groups, which means this will cost O(n), giving an overall time complexity of logO(n⋅m⋅logm) (the final +n is dominated). The space complexity is O(n⋅m) as each string will be placed in an array within the hash map.
 
 >Another way to solve this problem is to use a tuple of length 26 representing the count of each character as the key instead of the sorted string. This would technically solve the problem in O(n⋅m) because the 26 is a constant defined by the problem, but for test cases with smaller strings it would be slower due to the constant factor which is hidden by big O.
+
+```html
+Example 2: 2260. Minimum Consecutive Cards to Pick Up
+
+Given an integer array cards, find the length of the shortest subarray that contains at least one duplicate. If the array has no duplicates, return -1.
+```
+
+The time complexity is still O(n) even though we have a nested loop in the algorithm. This is because the inner loop in the nested loop can only iterate n times in total, since it's iterating over indices of elements from the array,where n is the length of the input array.
+```python
+from collections import defaultdict
+
+class Solution:
+    def minimumCardPickup(self, cards: List[int]) -> int:
+        dic = defaultdict(int)
+        ans = float("inf")
+        for i in range(len(cards)):
+            if cards[i] in dic:
+                ans = min(ans, i - dic[cards[i]] + 1)
+            
+            dic[cards[i]] = i
+
+        return ans if ans < float("inf") else -1
+```
+
+```html
+Example 3: 2342. Max Sum of a Pair With Equal Sum of Digits
+
+Given an array of integers nums, find the maximum value of nums[i] + nums[j], where nums[i] and nums[j] have the same digit sum (the sum of their individual digits). Return -1 if there is no pair of numbers with the same digit sum.
+```

@@ -20,6 +20,8 @@ from data_structures_and_algorithms.c3_hashing.e1133_LargestUniqueNumber import 
 from data_structures_and_algorithms.c3_hashing.e1189_MaximumNumberOfBalloons import Solution as Sol1189
 from data_structures_and_algorithms.c3_hashing.m0049_GroupAnagrams import Solution as Sol0049
 from data_structures_and_algorithms.c3_hashing.m2260_MinumumConsecutiveCardsToPickUp import Solution as Sol2260
+from data_structures_and_algorithms.c3_hashing.m2342_MaxSumOfAPairWithEqualSumOfDigits import Solution as Sol2342
+
 
 @pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
     ([2,7,11,15], 9, [0, 1]),
@@ -132,10 +134,18 @@ def test_groupAnagrams(test_input1, excepted_output):
     
 @pytest.mark.parametrize("test_input1, excepted_output", [
     ([3,4,2,3,4,7], 4),
+    ([3,4,2,3,3,4,7], 2),
     ([1,0,5,3], -1),
 ])
 def test_minimumCardPickup(test_input1, excepted_output):
     assert Sol2260().minimumCardPickup(test_input1) == excepted_output
     
+    
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([18,43,36,13,7], 54),
+    ([10,12,19,14], -1),
+])
+def test_maximumSum(test_input1, excepted_output):
+    assert Sol2342().maximumSum(test_input1) == excepted_output
     
     
