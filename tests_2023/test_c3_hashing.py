@@ -21,6 +21,7 @@ from data_structures_and_algorithms.c3_hashing.e1189_MaximumNumberOfBalloons imp
 from data_structures_and_algorithms.c3_hashing.m0049_GroupAnagrams import Solution as Sol0049
 from data_structures_and_algorithms.c3_hashing.m2260_MinumumConsecutiveCardsToPickUp import Solution as Sol2260
 from data_structures_and_algorithms.c3_hashing.m2342_MaxSumOfAPairWithEqualSumOfDigits import Solution as Sol2342
+from data_structures_and_algorithms.c3_hashing.m2352_EqualRowAndColumnPairs import Solution as Sol2352
 
 
 @pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
@@ -149,3 +150,9 @@ def test_maximumSum(test_input1, excepted_output):
     assert Sol2342().maximumSum(test_input1) == excepted_output
     
     
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]], 3),
+    ([[3,2,1],[1,7,6],[2,7,7]], 1),
+])
+def test_equalPairs(test_input1, excepted_output):
+    assert Sol2352.equalPairs(test_input1) == excepted_output
