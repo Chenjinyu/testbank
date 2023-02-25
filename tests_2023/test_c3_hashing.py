@@ -145,6 +145,7 @@ def test_minimumCardPickup(test_input1, excepted_output):
 @pytest.mark.parametrize("test_input1, excepted_output", [
     ([18,43,36,13,7], 54),
     ([10,12,19,14], -1),
+    ([279,169,463,252,94,455,423,315,288,64,494,337,409,283,283,477,248,8,89,166,188,186,128], 872)
 ])
 def test_maximumSum(test_input1, excepted_output):
     assert Sol2342().maximumSum(test_input1) == excepted_output
@@ -155,4 +156,4 @@ def test_maximumSum(test_input1, excepted_output):
     ([[3,2,1],[1,7,6],[2,7,7]], 1),
 ])
 def test_equalPairs(test_input1, excepted_output):
-    assert Sol2352.equalPairs(test_input1) == excepted_output
+    assert Sol2352().equalPairs(test_input1) == excepted_output
