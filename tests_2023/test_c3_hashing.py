@@ -25,8 +25,26 @@ from data_structures_and_algorithms.c3_hashing.m2352_EqualRowAndColumnPairs impo
 from data_structures_and_algorithms.c3_hashing.e0771_JewelsAndStones import Solution as Sol0771
 from data_structures_and_algorithms.c3_hashing.m0003_LongestSubstringWithoutRepeatingCharacters import Solution as Sol0003
 # bonus problems, hashing
+
+# Checking for existence
 from data_structures_and_algorithms.c3_hashing.e0217_ContainsDuplicate import Solution as Sol0217
 from data_structures_and_algorithms.c3_hashing.e1436_DestinantionCity import Solution as Sol1436
+from data_structures_and_algorithms.c3_hashing.e1496_PathCrossing import Solution as Sol1496
+# Counting
+from data_structures_and_algorithms.c3_hashing.e1748_SumOfUniqueElements import Solution as Sol1748
+from data_structures_and_algorithms.c3_hashing.e1394_FindLuckyIntegerInAnArray import Solution as Sol1394
+from data_structures_and_algorithms.c3_hashing.e1207_UnqiueNumberOfOccurrences import Solution as Sol1207
+from data_structures_and_algorithms.c3_hashing.m0451_SortCharactersByFrequency import Solution as Sol0451
+from data_structures_and_algorithms.c3_hashing.e1512_NumberOfGoodPairs import Solution as Sol1512
+from data_structures_and_algorithms.c3_hashing.m0930_BinarySubarraysWithSum import Solution as Sol0930
+from data_structures_and_algorithms.c3_hashing.m1695_MaximumErasureValue import Solution as Sol1695
+from data_structures_and_algorithms.c3_hashing.m0567_PermutationInString import Solution as Sol0567
+
+# General
+from data_structures_and_algorithms.c3_hashing.e0205_IsomorphicStrings import Solution as Sol0205
+from data_structures_and_algorithms.c3_hashing.m791_CustomSortString import Solution as Sol791
+from data_structures_and_algorithms.c3_hashing.m1657_DetermineIfTwoStringsAreClose import Solution as Sol1657
+from data_structures_and_algorithms.c3_hashing.e0290_WordPattern import Solution as Sol0290
 
 
 @pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
@@ -197,3 +215,14 @@ def test_containsDuplicate(test_input1, excepted_output):
 ])
 def test_destCity(test_input1, excepted_output):
     assert Sol1436().destCity(test_input1) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ("NES", False),
+    ("NESWW", True),
+])
+def test_isPathCrossing(test_input1, excepted_output):
+    assert Sol1496().isPathCrossing(test_input1) == excepted_output
+    
+    
+    

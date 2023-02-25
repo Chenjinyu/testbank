@@ -24,4 +24,4 @@ s consists of English letters, digits, symbols and spaces.
 """
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        pass
+        return

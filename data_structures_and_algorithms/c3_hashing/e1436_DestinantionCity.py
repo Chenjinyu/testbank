@@ -33,4 +33,5 @@ All strings consist of lowercase and uppercase English letters and the space cha
 from typing import List
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
-        pass
+        return
+    
