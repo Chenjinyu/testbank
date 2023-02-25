@@ -22,6 +22,11 @@ from data_structures_and_algorithms.c3_hashing.m0049_GroupAnagrams import Soluti
 from data_structures_and_algorithms.c3_hashing.m2260_MinumumConsecutiveCardsToPickUp import Solution as Sol2260
 from data_structures_and_algorithms.c3_hashing.m2342_MaxSumOfAPairWithEqualSumOfDigits import Solution as Sol2342
 from data_structures_and_algorithms.c3_hashing.m2352_EqualRowAndColumnPairs import Solution as Sol2352
+from data_structures_and_algorithms.c3_hashing.e0771_JewelsAndStones import Solution as Sol0771
+from data_structures_and_algorithms.c3_hashing.m0003_LongestSubstringWithoutRepeatingCharacters import Solution as Sol0003
+# bonus problems, hashing
+from data_structures_and_algorithms.c3_hashing.e0217_ContainsDuplicate import Solution as Sol0217
+from data_structures_and_algorithms.c3_hashing.e1436_DestinantionCity import Solution as Sol1436
 
 
 @pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
@@ -157,3 +162,38 @@ def test_maximumSum(test_input1, excepted_output):
 ])
 def test_equalPairs(test_input1, excepted_output):
     assert Sol2352().equalPairs(test_input1) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+    ("aA", "aAAbbbb", 3),
+    ("z", "ZZ", 0),
+])
+def test_numJewelsInStones(test_input1, test_input2, excepted_output):
+    assert Sol0771().numJewelsInStones(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ("abcabcbb", 3),
+    ("bbbbb", 1),
+    ("pwwkew", 3),
+])
+def test_lengthOfLongestSubstring(test_input1, excepted_output):
+    assert Sol0003().lengthOfLongestSubstring(test_input1) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+    ([1,2,3,1], True),
+    ([1,2,3,4], False),
+    ([1,1,1,3,3,4,3,2,4,2], True),
+])
+def test_containsDuplicate(test_input1, excepted_output):
+    assert Sol0217().containsDuplicate(test_input1) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+    ([["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]], "Sao Paulo"),
+    ([["B","C"],["D","B"],["C","A"]], "A"),
+    ([["A","Z"]], "Z"),
+])
+def test_destCity(test_input1, excepted_output):
+    assert Sol1436().destCity(test_input1) == excepted_output
