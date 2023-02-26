@@ -20,5 +20,11 @@ All the characters of jewels are unique.
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
         jest = set(jewels)
+        test = list(s in jest for s in stones)
+        print(test)
         return sum(s in jest for s in stones)
     
+
+    
+print(Solution().numJewelsInStones('aA', 'aAAbbbb'))
+print(sum([True, True, True, False, False, False, False])) # True is equal to 1

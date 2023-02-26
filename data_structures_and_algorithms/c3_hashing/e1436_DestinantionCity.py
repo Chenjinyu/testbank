@@ -33,5 +33,18 @@ All strings consist of lowercase and uppercase English letters and the space cha
 from typing import List
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
-        return
+        """
+        Check if the 2nd item in each row cannot find in the 1st place in the each row
+        """
+        start_city = set()
+        end_city = set()
+        for path in paths:
+            start_city.add(path[0])
+            end_city.add(path[1])
+            
+        return end_city.difference(start_city).pop()
+        # return list(end_city - start_city)[0]
+    
+    
+print(Solution().destCity([["B","C"],["D","B"],["C","A"]]))
     

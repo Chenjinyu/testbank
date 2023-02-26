@@ -1,4 +1,5 @@
 """
+https://leetcode.com/problems/binary-subarrays-with-sum/
 Given a binary array nums and an integer goal, return the number of non-empty subarrays with a sum goal.
 A subarray is a contiguous part of the array.
 
@@ -23,4 +24,4 @@ nums[i] is either 0 or 1.
 from typing import List
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        passs
+        pass

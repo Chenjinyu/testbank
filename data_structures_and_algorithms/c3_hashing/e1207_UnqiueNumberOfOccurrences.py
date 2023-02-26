@@ -21,7 +21,10 @@ Constraints:
 1 <= arr.length <= 1000
 -1000 <= arr[i] <= 1000
 """
+from collections import Counter
 from typing import List
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
-        pass
+        arr_counter = Counter(arr)
+        return len(set(arr_counter.keys())) == len(set(arr_counter.values()))
+    

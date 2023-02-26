@@ -23,7 +23,14 @@ Constraints:
 1 <= arr.length <= 500
 1 <= arr[i] <= 500
 """
+from collections import Counter
 from typing import List
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        pass
+        ans = -1
+        arr_counter = Counter(arr)
+        for idx, val in arr_counter.items():
+            if idx == val:
+                ans = max(ans, val)
+        return ans
+        

@@ -22,6 +22,19 @@ Constraints:
 0 <= s.length <= 5 * 104
 s consists of English letters, digits, symbols and spaces.
 """
+from collections import defaultdict
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        return
+        ans = left = 0
+        sub_str_dic = defaultdict(int)
+        for right in range(len(s)):
+            if s[right] in sub_str_dic:
+                # getting the max one since the new substring window starts
+                left = max(left, sub_str_dic[s[right]] + 1)
+            sub_str_dic[s[right]] = right    
+            ans = max(ans, right - left + 1)
+        return ans
+            
+
+print(Solution().lengthOfLongestSubstring("pwwkew"))
+            

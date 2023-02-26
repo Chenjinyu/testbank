@@ -24,7 +24,11 @@ Constraints:
 1 <= nums.length <= 100
 1 <= nums[i] <= 100
 """
+from collections import Counter
 from typing import List
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
-        pass
+        nums_counter = Counter(nums)
+        return sum(key for key, val in nums_counter.items() if val == 1)
+        
+    

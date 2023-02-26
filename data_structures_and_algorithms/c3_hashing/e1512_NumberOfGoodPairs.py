@@ -24,7 +24,17 @@ Constraints:
 1 <= nums.length <= 100
 1 <= nums[i] <= 100
 """
+from itertools import product, permutations, combinations
+from collections import Counter
 from typing import List
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        pass
+        num_counter = Counter(nums)
+        return int(sum( val * (val - 1) / 2 for val in num_counter.values()))
+    
+
+print(Solution().numIdenticalPairs([1,2,3,1,1,3]))
+    
+print(list(product('1234')))
+for e in combinations('12345', 2):
+    print(''.join(e), end=", ")

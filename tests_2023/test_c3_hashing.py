@@ -42,7 +42,7 @@ from data_structures_and_algorithms.c3_hashing.m0567_PermutationInString import 
 
 # General
 from data_structures_and_algorithms.c3_hashing.e0205_IsomorphicStrings import Solution as Sol0205
-from data_structures_and_algorithms.c3_hashing.m791_CustomSortString import Solution as Sol791
+from data_structures_and_algorithms.c3_hashing.m0791_CustomSortString import Solution as Sol0791
 from data_structures_and_algorithms.c3_hashing.m1657_DetermineIfTwoStringsAreClose import Solution as Sol1657
 from data_structures_and_algorithms.c3_hashing.e0290_WordPattern import Solution as Sol0290
 
@@ -199,7 +199,7 @@ def test_lengthOfLongestSubstring(test_input1, excepted_output):
     assert Sol0003().lengthOfLongestSubstring(test_input1) == excepted_output
     
     
-@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+@pytest.mark.parametrize("test_input1, excepted_output", [
     ([1,2,3,1], True),
     ([1,2,3,4], False),
     ([1,1,1,3,3,4,3,2,4,2], True),
@@ -208,7 +208,7 @@ def test_containsDuplicate(test_input1, excepted_output):
     assert Sol0217().containsDuplicate(test_input1) == excepted_output
     
     
-@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+@pytest.mark.parametrize("test_input1, excepted_output", [
     ([["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]], "Sao Paulo"),
     ([["B","C"],["D","B"],["C","A"]], "A"),
     ([["A","Z"]], "Z"),
@@ -225,4 +225,129 @@ def test_isPathCrossing(test_input1, excepted_output):
     assert Sol1496().isPathCrossing(test_input1) == excepted_output
     
     
+@pytest.mark.parametrize("test_input1, excepted_output", [
+    ([1,2,3,2], 4),
+    ([1,1,1,1,1], 0),
+    ([1,2,3,4,5], 15),
+])
+def test_sumOfUnique(test_input1, excepted_output):
+    assert Sol1748().sumOfUnique(test_input1) == excepted_output
     
+    
+@pytest.mark.parametrize("test_input, excepted_output", [
+  ([2,2,3,4], 2),
+  ([1,2,2,3,3,3], 3),
+  ([2,2,2,3,3], -1)
+])
+def test_findLucky(test_input, excepted_output):
+    assert Sol1394().findLucky(test_input) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input, excepted_output", [
+    ([1,2,2,1,1,3], True),
+    ([1,2], False),
+    ([-3,0,1,-3,1,1,1,-3,10,0], True)
+])
+def test_uniqueOccurrences(test_input, excepted_output):
+    assert Sol1207().uniqueOccurrences(test_input) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input, excepted_output", [
+    ("tree", "eert"),
+    ("cccaaa", "aaaccc"),
+    ("Aabb", "bbAa"),
+])
+def test_frequencySort(test_input, excepted_output):
+    assert Sol0451().frequencySort(test_input) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input, excepted_output", [
+    ([1,2,3,1,1,3], 4),
+    ([1,1,1,1], 6),
+    ([1,2,3], 0),
+])
+def test_numIdenticalPairs(test_input, excepted_output):
+    assert Sol1512().numIdenticalPairs(test_input) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+  ("egg", "add", True),  
+  ("foo", "bar", False),
+  ("paper", "title", True),
+])
+def test_isIsomorphic(test_input1, test_input2, excepted_output):
+    assert Sol0205().isIsomorphic(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+  ("abba", "dog cat cat dog", True),  
+  ("abba", "dog cat cat fish", False),
+  ("aaaa", "dog cat cat dog", True),
+])
+def test_wordPattern(test_input1, test_input2, excepted_output):
+    assert Sol0290().wordPattern(test_input1, test_input2) == excepted_output
+    
+@pytest.mark.todo
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+  ([1,0,1,0,1], 2, 4),  
+  ([0,0,0,0,0], 0, 15),
+])
+def test_numSubarraysWithSum(test_input1, test_input2, excepted_output):
+    assert Sol0930().numSubarraysWithSum(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.todo
+@pytest.mark.parametrize("test_input, excepted_output", [
+    ("tree", "eert"),
+    ("cccaaa", "aaaccc"),
+    ("Aabb", "bbAa"),
+])
+def test_frequencySort(test_input, excepted_output):
+    assert Sol0451().frequencySort(test_input) == excepted_output
+    
+
+@pytest.mark.todo
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+  ("cba", "abcd", "cbad"),  
+  ("cbafg", "abcd", "cbad"),
+])
+def test_customSortString(test_input1, test_input2, excepted_output):
+    assert Sol0791().customSortString(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.todo
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+  ("abc", "bca", True),  
+  ("a", "aa", False),
+  ("cabbba", "abbccc", True),
+])
+def test_closeStrings(test_input1, test_input2, excepted_output):
+    assert Sol1657().closeStrings(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.todo
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+  ("abc", "bca", True),  
+  ("a", "aa", False),
+  ("cabbba", "abbccc", True),
+])
+def test_closeStrings(test_input1, test_input2, excepted_output):
+    assert Sol1657().closeStrings(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.todo
+@pytest.mark.parametrize("test_input1, test_input2, excepted_output", [
+  ("ab", "eidbaooo", True),  
+  ("ab", "eidboaoo", False),
+])
+def test_checkInclusion(test_input1, test_input2, excepted_output):
+    assert Sol1657().checkInclusion(test_input1, test_input2) == excepted_output
+    
+    
+@pytest.mark.todo
+@pytest.mark.parametrize("test_input, excepted_output", [
+    ([4,2,4,5,6], 17),
+    ([5,2,1,2,5,2,1,2,5], 8),
+])
+def test_maximumUniqueSubarray(test_input, excepted_output):
+    assert Sol1695().maximumUniqueSubarray(test_input) == excepted_output
