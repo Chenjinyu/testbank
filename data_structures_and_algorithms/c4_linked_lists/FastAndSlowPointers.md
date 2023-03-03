@@ -52,3 +52,25 @@ def get_middle(head):
     
     return head.val
 ```
+
+The most elegant solution comes from using the fast and slow pointer technique. If we have one pointer moving twice as fast as the other, then by the time it reaches the end, the slow pointer will be halfway through since it is moving at half the speed.
+
+```python
+def get_middle(head):
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    
+    return slow.val
+```
+The pointers use O(1) space, and if there are n nodes in the linked list, the time complexity is O(n) for the traversals.
+
+```html
+Example 2: 141. Linked List Cycle
+
+Given the head of a linked list, determine if the linked list has a cycle.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer.
+```
