@@ -35,4 +35,33 @@ from typing import Optional
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        pass
+        slow = head
+        fast = head
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+            if slow == fast:
+                return True
+        return False
+    
+    
+    def hasCycle2019(self, head: ListNode) -> bool:
+        walked_node_ip_list = []
+        while head:
+            if id(head) in walked_node_ip_list:
+                return True
+            walked_node_ip_list.append(id(head))
+            head = head.next
+        return False
+    
+    
+    def hasCycleOtherApproache(self, head: Optional[ListNode]) -> bool:
+        seen = set()
+        while head:
+            if head in seen:
+                return True
+            seen.add(head)  # store the head ip address
+            head = head.next
+        return False

@@ -74,3 +74,69 @@ Given the head of a linked list, determine if the linked list has a cycle.
 
 There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer.
 ```
+
+If a linked list has a cycle, you can imagine some group of nodes forming a circle, and traversal never ends as it moves around that circle infinitely. One way to try to solve this problem would be to just iterate through the list for an arbitrarily large amount of iterations. If there isn't a cycle, then we will eventually reach the end of the list. If there is a cycle, then we will never reach an end and after a huge amount of iterations, we can conclude that there is probably a cycle.
+
+The problem with this approach is that it isn't an actual general solution. What if there is no cycle, but there just happens to be more nodes than the iteration cutoff? If we increase the iteration cutoff, we can always argue that we could pass in a longer linked list. If we make the cutoff too large, it becomes impractical, and we are hard coding which is a terrible practice.
+
+The better approach is to use a fast and slow pointer. Imagine having two athletes running around a circular racetrack. If they run at different speeds, then the faster runner will eventually pass the slower one. We can apply this same logic here - if the fast and slow pointer ever point to the same node (except at the start), then we know there is a cycle. If there is no cycle, then the slow pointer will never catch up to the fast one before it reaches the end.
+
+>Why will the pointers always meet, and the fast pointer won't "skip" over the slow pointer? After looping around the cycle, if the fast pointer is one position behind, then the pointers will meet on the next iteration. If the fast pointer is two positions behind, then it will be one position behind on the next iteration. This pattern continues - after looping around once, the fast pointer moves exactly one step closer to the slow pointer at each iteration.
+
+```python
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+
+        return False
+```
+This approach gives us a time complexity of O(n) and a space complexity of O(1), where n is the number of nodes in the linked list. Note that this problem can also be solved using hashing, although it would require O(n) space.
+
+
+The hashing solution: if you continuously iterate using the next pointer, there are two possibilities:
+1. If the linked list doesn't have a cycle, you will eventually reach null and finish.
+2. If the linked list has a cycle, you will eventually visit a node twice. We can use a set to detect this.
+
+```python
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        seen = set()
+        while head:
+            if head in seen:
+                return True
+            seen.add(head)
+            head = head.next
+        return False
+```
+This solution is added for the sake of brevity - the first one is better as it uses less space.
+
+```html
+Example 3: Given the head of a linked list and an integer k, return the kth node from the end.
+
+For example, given the linked list that represents 1 -> 2 -> 3 -> 4 -> 5 and k = 2, return the node with value 4, as it is the 2nd node from the end.
+```
+
+```python
+def find_node(head, k):
+    slow = head
+    fast = head
+
+    for _ in range(k):
+        fast = head.next
+
+    while fast:
+        slow = slow.next
+        fast = fast.next
+
+    return slow.val
+```
+
+For the same reasons as in the first example, the time complexity of this algorithm O(n) and the space complexity is O(1), where n is the number of nodes in the linked list.
+
+Try solving these upcoming practice problems using the fast and slow pointer technique.
