@@ -117,3 +117,26 @@ Steps:
 ![Step22](./imgs/22.jpg)
 ![Step23](./imgs/23.jpg)
 ![Step24](./imgs/24.jpg)
+
+
+## Reversal as only part of an algorithm
+We mentioned that reversing a linked list is "also a technique that can be a step in solving different problems". Before we move on, let's quickly see an example of this.
+
+[2130. Maximum Twin Sum of a Linked List](./m2130_MaximumTwinSumOfALinkedList.py) asks for the maximum pair sum. The pairs are the first and last node, second and second last node, third and third last node, etc.
+
+The trivial solution would be to convert the linked list into an array, that way you can access the pairs easily by indexing. The more elegant O(1) space solution is as follows:
+1. Find the middle of the linked list using the fast and slow pointer technique from the previous article.
+2. Once at the middle of the linked list, perform a reversal. Basically, reverse only the second half of the list.
+3. After reversing the second half, every node is spaced n / 2 apart from its pair node, where n is the number of nodes in the list found from step 1.
+4. With that in mind, start another fast pointer n / 2 from the head. Now, just iterate n / 2 times from head to find every pair sum slow.val + head.val.
+
+>Try to implement the code for this algorithm yourself as an exercise.
+
+Unlike the previous examples, the reversal is not the entire point of the problem, but just a tool used to arrive at a better solution. Notice how we also used the fast and slow pointers from the previous article.
+
+### More common patterns
+There are a few more patterns and things to know about linked lists.
+
+For example, when we talked about hashing, we mentioned that collisions can be handled using a technique called chaining, which makes use of linked lists. Later, we'll talk about a data structure called a deque, which can be implemented with a linked list. In the meantime, try these practice problems using the same process that we used in this chapter: break down what you need to do and how you can do it, step by step.
+
+Most linked list problems don't have tricks, you just need a strong understanding of how to move pointers around. The best way to train this skill is to practice.
