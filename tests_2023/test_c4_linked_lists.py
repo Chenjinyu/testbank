@@ -3,6 +3,7 @@ import pytest
 from data_structures_and_algorithms.c4_linked_lists.de0141_LinkedListCycle import Solution as Sol0141
 from data_structures_and_algorithms.c4_linked_lists.e0876_MiddleOfTheLinkedList import Solution as Sol0876
 from data_structures_and_algorithms.c4_linked_lists.e0083_RemoveDuplicatesFromSortedList import Solution as Sol0083
+from data_structures_and_algorithms.c4_linked_lists.m0024_SwapNodesInParis import Solution as Sol0024
 
 @pytest.mark.parametrize("test_input1, excepted_output", [
     ([3,2,0,-4], True),
