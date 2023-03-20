@@ -92,7 +92,9 @@ class Solution:
         return dummy
 ```
 more detail check [m0024_SwapNodesInParis.py](./m0024_SwapNodesInParis.py)
+
 Steps:
+
 ![Step1](./imgs/1.jpg)
 ![Step2](./imgs/2.jpg)
 ![Step3](./imgs/3.jpg)
