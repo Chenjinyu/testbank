@@ -1,6 +1,6 @@
 # used for LeetCode
 
-from typing import Optional, Union, List
+from typing import Optional, Union, List, Boolean
 class ListNode:
     def __init__(self, x, next=None):
         self.val = x

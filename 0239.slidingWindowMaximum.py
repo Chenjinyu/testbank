@@ -25,6 +25,7 @@ Could you solve it in linear time?
 
 """
 from typing import List
+from collections import deque
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
@@ -43,6 +44,30 @@ class Solution:
             left += 1
 
         return max_slide_window_list
+
+    def maxSlidingWindow2(self, nums: List[int], k: int) -> List[int]: # does not work
+        if len(nums) <= 1:
+            return nums
+        answer = []
+        my_deque = deque()
+        max_sliding_wind_num = 0
+        for idx in range(len(nums) - k):
+            len_k = 0
+            if len(answer) == 0:
+                while len_k <= k:
+                    cur_num = nums[idx + len_k]
+                    max_sliding_wind_num += cur_num
+                    my_deque.append(cur_num)
+                    len_k += 1
+            else:
+                old_val = my_deque.popleft()
+                max_sliding_wind_num -= old_val
+                new_val = nums[idx + k - 1]
+                my_deque.append(new_val)
+                max_sliding_wind_num += new_val
+            answer.append(max_sliding_wind_num)
+            
+        return answer
 
 
 if __name__ == "__main__":

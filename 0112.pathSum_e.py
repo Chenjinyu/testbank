@@ -19,7 +19,7 @@ Given the below binary tree and sum = 22,
 return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 """
 
-
+from typing import Optional, List
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
@@ -78,6 +78,30 @@ class Solution:
                 return True
 
         return False
+    
+
+    def hasPathSum2024(self, root: Optional[TreeNode], sum:int) -> bool:
+        if not root:
+            return False
+        
+        stack = [(root, 0)]
+        
+        while stack:
+            node, prev_val = stack.pop()
+            if node.left == None and node.right == None:
+                if (node.val + prev_val) == sum:
+                    return True
+            
+            prev_val += node.val
+            
+            if node.left:
+                stack.append((node.left, prev_val))
+            if node.right:
+                stack.append((node.right, prev_val))
+            
+            
+        return False
+        
 
 # case 1
 # [5,4,8,11,null,13,4,7,2,null,null,null,1]

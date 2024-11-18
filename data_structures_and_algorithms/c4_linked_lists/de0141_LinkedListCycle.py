@@ -57,7 +57,7 @@ class Solution:
         return False
     
     
-    def hasCycleOtherApproache(self, head: Optional[ListNode]) -> bool:
+    def hasCycleOtherApproach(self, head: Optional[ListNode]) -> bool:
         seen = set()
         while head:
             if head in seen:
@@ -65,3 +65,6 @@ class Solution:
             seen.add(head)  # store the head ip address
             head = head.next
         return False
+    
+    
+    
