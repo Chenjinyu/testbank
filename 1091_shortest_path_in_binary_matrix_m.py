@@ -1,9 +1,6 @@
 """
 1091. Shortest Path in Binary Matrix
-Medium
-Topics
-Companies
-Hint
+
 Given an n x n binary matrix grid, return the length of the shortest clear path in the matrix. If there is no clear path, return -1.
 
 A clear path in a binary matrix is a path from the top-left cell (i.e., (0, 0)) to the bottom-right cell (i.e., (n - 1, n - 1)) such that:
@@ -52,7 +49,7 @@ class Solution:
                 
         return -1
     
-    def shortestPathBinaryMatrixWithQueueWithAddiSpaceForSeeningStorage(self, grid: List[List[int]]) -> int:
+    def shortestPathBinaryMatrixWithQueueWithAddiSpaceForSeenStorage(self, grid: List[List[int]]) -> int:
         matrix_len = len(grid)
         if grid[0][0] == 1 or grid[matrix_len-1][matrix_len-1] == 1: # there is no path could start or no ends
             return -1

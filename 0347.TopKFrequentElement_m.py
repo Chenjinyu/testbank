@@ -18,7 +18,7 @@ Your algorithm's time complexity must be better than O(n log n), where n is the 
 """
 from collections import Counter
 from typing import List
-
+import heapq
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         """
@@ -52,7 +52,29 @@ class Solution:
 
         return ans
 
+    def topKFrequentWithHeap(self, nums: List[int], k: int) -> List[int]:
+        """
+        96 ms, faster than 96.43% of Python3
+        Time Complexity: O(n log k)
+        """
+        if not nums:
+            return []
+        nums_counter = Counter(nums)
+        ans = []
+        for key, val in nums_counter.items():
+            heapq.heappush(ans, (val, key))
+            if len(ans) > k:
+                heapq.heappop(ans)
+           
+        return [x[1] for x in ans]
+    
 
+    def topKFrequentWithHeapNLargest(self, nums: List[int], k: int) -> List[int]:
+        if not nums:
+            return []
+        frequency = Counter(nums)
+        return heapq.nlargest(k, frequency.keys(), key=frequency.get)
+    
 
 if __name__ == "__main__":
     nums = [1, 1, 1, 2, 2, 3]
