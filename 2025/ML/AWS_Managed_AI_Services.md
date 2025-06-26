@@ -300,7 +300,75 @@ print("\nRAG-based answer:\n", output['content'][0]['text'])
 
 ---
 
-Would you like this in a Flask API or Lambda function, or integrated with OpenSearch?
+## Bedrock RAG API
+```py
+# app.py - Flask RAG API using Amazon Bedrock
+
+from flask import Flask, request, jsonify
+import boto3
+import json
+import numpy as np
+from numpy.linalg import norm
+
+app = Flask(__name__)
+
+REGION = "us-east-1"
+EMBED_MODEL = "amazon.titan-embed-text-v1"
+GEN_MODEL = "anthropic.claude-3-sonnet-20240229-v1:0"
+
+bedrock = boto3.client("bedrock-runtime", region_name=REGION)
+
+doc_chunks = [
+    "SageMaker JumpStart provides pretrained models and solution templates.",
+    "It helps users start with machine learning quickly and with minimal code.",
+    "You can use models for text, vision, tabular, and more."
+]
+
+def get_embedding(text):
+    response = bedrock.invoke_model(
+        modelId=EMBED_MODEL,
+        contentType="application/json",
+        accept="application/json",
+        body=json.dumps({"inputText": text})
+    )
+    return json.loads(response["body"].read())["embedding"]
+
+def cosine_similarity(a, b):
+    return float(np.dot(a, b) / (norm(a) * norm(b)))
+
+@app.route("/rag", methods=["POST"])
+def rag():
+    data = request.get_json()
+    query = data.get("query")
+    if not query:
+        return jsonify({"error": "Missing 'query' field"}), 400
+
+    query_embed = get_embedding(query)
+    
+    scores = [cosine_similarity(query_embed, get_embedding(doc)) for doc in doc_chunks]
+    best_doc = doc_chunks[np.argmax(scores)]
+
+    prompt = f"Using the following document:\n\n{best_doc}\n\nAnswer this: {query}"
+    response = bedrock.invoke_model(
+        modelId=GEN_MODEL,
+        contentType="application/json",
+        accept="application/json",
+        body=json.dumps({
+            "anthropic_version": "bedrock-2023-05-31",
+            "max_tokens": 300,
+            "temperature": 0.7,
+            "messages": [
+                {"role": "user", "content": prompt}
+            ]
+        })
+    )
+    result = json.loads(response['body'].read())
+    return jsonify({"response": result['content'][0]['text']})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+```
 
 
 ## Amazon Q Business
