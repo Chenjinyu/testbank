@@ -1,3 +1,31 @@
+## Table of Contents
+- [AWS Managed AI Services](#aws-managed-ai-services)
+- [SageMaker JumpStart](#sagemaker-jumpstart)
+- [What is Amazon Bedrock](#-what-is-amazon-bedrock)
+- [Here’s a complete Python example that uses Amazon Bedrock to:](#heres-a-complete-python-example-that-uses-amazon-bedrock-to)
+- [Bedrock RAG API Example](#bedrock-rag-api-example)
+- [Amazon Q Business](#amazon-q-business)
+- [Amazon Q Developer](#amazon-q-developer)
+- [Text and Documnets](#text-and-documnets)
+  - [Amazon Comprehend](#amazon-comprehend)
+  - [Amazon Translate](#amazon-translate)
+  - [Aamazon Textract](#aamazon-textract)
+- [Vision](#vision)
+  - [Amazon Rekognition](#amazon-rekognition)
+- [Search](#search)
+  - [Amazon Kendra](#amazon-kendra)
+- [Chatbots](#chatbots)
+  - [Amazon Lex](#amazon-lex)
+- [Speech](#speech)
+  - [Amazon Polly](#amazon-polly)
+  - [Amazon Transcribe](#amazon-transcribe)
+- [Recommendations](#recommendations)
+  - [Amazon Personalize](#amazon-personalize)
+- [What is Amazon SageMaker](#-what-is-amazon-sagemaker)
+
+
+
+## AWS Managed AI Services
 - AWS AI services are pre-trained ML services for your use case
 - Responsiveness and Availability
 - Redundancy and Regional Coverage: Deployed access multiple avaiable zones and aws regions
@@ -300,7 +328,7 @@ print("\nRAG-based answer:\n", output['content'][0]['text'])
 
 ---
 
-## Bedrock RAG API
+## Bedrock RAG API Example
 ```py
 # app.py - Flask RAG API using Amazon Bedrock
 
