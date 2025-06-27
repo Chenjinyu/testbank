@@ -1,5 +1,5 @@
 
-
+Batch size, epochs, and iterations are all classic examples of hyperparameters.
 ---
 
 ## 🧠 1. **Epoch**
@@ -11,7 +11,6 @@
   * Your model will see **all 10,000 samples** 5 times
 * Training for multiple epochs helps the model learn better
 
----
 
 ## 📦 2. **Batch** and **Batch Size**
 
@@ -26,7 +25,6 @@
 * Batch size: 100
 * → Each epoch = 10,000 ÷ 100 = **100 batches**
 
----
 
 ## 🔁 3. **Iteration**
 
@@ -48,7 +46,6 @@ If you train for 5 epochs:
 
 * → 5 × 100 = **500 iterations total**
 
----
 
 ## 🔁 Visualizing the Relationship
 
@@ -72,8 +69,6 @@ Epoch 2
   └─ ...
 ```
 
----
-
 ## 🎯 TL;DR
 
 | Term           | Definition                                       |
@@ -85,3 +80,66 @@ Epoch 2
 
 ---
 
+
+**Batch size**, **epochs**, and **iterations** are all classic examples of **hyperparameters**.
+
+Let’s break them down:
+
+
+### 📦 1. **Batch Size**
+
+* How many training samples are used **in one forward/backward pass**
+* Affects memory usage and training speed
+
+**Example:**
+
+* Dataset size = 10,000
+* Batch size = 100 → each epoch has 100 steps
+
+✅ Hyperparameter — you choose it before training
+
+
+### 🔁 2. **Epoch**
+
+* One complete pass over the entire dataset
+* If you train for 10 epochs, your model sees the entire dataset 10 times
+
+✅ Hyperparameter — you choose how many epochs to train for
+
+---
+
+### 🔄 3. **Iterations (a.k.a. steps)**
+
+* One **iteration = one batch update**
+* Total iterations per epoch = `dataset_size / batch_size`
+* Total iterations = `epochs × (dataset_size / batch_size)`
+
+✅ Not always manually set, but it’s derived from batch size and epochs — still treated as a tuning lever
+
+---
+
+### 🧠 Visual Summary
+
+| Term          | What It Means                  | Hyperparameter? |
+| ------------- | ------------------------------ | --------------- |
+| Batch Size    | # of samples per training step | ✅ Yes           |
+| Epoch         | Full pass over dataset         | ✅ Yes           |
+| Iteration     | One weight update (per batch)  | 🔄 Derived      |
+| Learning Rate | How big each weight update is  | ✅ Yes           |
+
+---
+
+### 🧪 Real Example (PyTorch)
+
+```python
+for epoch in range(epochs):              # Hyperparameter: epochs
+    for batch in DataLoader(dataset, batch_size=64):  # Hyperparameter: batch_size
+        output = model(batch)
+        loss = loss_fn(output, target)
+        loss.backward()
+        optimizer.step()
+```
+
+---
+
+Want to see how these hyperparameters affect training quality or speed (e.g., with XGBoost or a neural net)?

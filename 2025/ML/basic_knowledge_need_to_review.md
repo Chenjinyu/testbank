@@ -1,7 +1,7 @@
 ## Table of Contents
 - [Embedding](#embedding)
 - [Top-K, Top-P, and Temperature](#top-k-top-p-and-temperature)
-
+- [XGBoost, Keras, and PyTorch](#xgboost-keras-and-pytorch)
 
 ## Embedding
 
@@ -184,4 +184,45 @@ So in **image generation**, the "temperature" equivalent is more about **diffusi
 | Summarization    | ⚠️ Sometimes             | Depends on style                 |
 | Classification   | ❌ No                    | Use deterministic settings       |
 | Image generation | ❌ No (different method) | Uses guidance scale, steps, seed |
+
+
+## XGBoost, Keras, and PyTorch
+**XGBoost, Keras, and PyTorch** are **frameworks/tools** that help developers, data scientists, and ML engineers **build, train, and deploy different types of models** to solve specific problems.
+
+#### 🧰 Think of them like Toolkits:
+
+Each one gives you different **tools** to build **models** that fit your data and goals.
+
+| Tool / Framework | Helps You Build...               | Best For...                        |
+| ---------------- | -------------------------------- | ---------------------------------- |
+| **XGBoost**      | Gradient boosting decision trees | Tabular data (CSV), fast accuracy  |
+| **Keras**        | Neural networks (via TensorFlow) | Quick prototyping, images, text    |
+| **PyTorch**      | Custom deep learning models      | Research, NLP, vision, flexibility |
+
+
+#### 🧠 They Let You “Leverage Models” To:
+
+* **Classify** spam vs. not spam
+* **Predict** house prices or stock trends
+* **Generate** images or text
+* **Summarize** documents
+* **Translate** languages
+* **Detect** objects in images
+* **Forecast** future values (time series)
+
+
+#### 🔍 Which to Use When?
+
+| Your Goal                              | Use This Framework         |
+| -------------------------------------- | -------------------------- |
+| Predict values from a table (CSV)      | ✅ **XGBoost**              |
+| Build a quick image classifier         | ✅ **Keras**                |
+| Fine-tune a large language model       | ✅ **PyTorch**              |
+| Experiment with new ML ideas           | ✅ **PyTorch**              |
+| Build and deploy a production DL model | ✅ **Keras** or **PyTorch** |
+
+
+#### 📌 Summary:
+
+> These frameworks don't *do the work for you*, but they give you the tools to **define**, **train**, **tune**, and **run** machine learning models — each suited for different data types and use cases.
 
