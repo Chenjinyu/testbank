@@ -106,7 +106,6 @@ Let’s break them down:
 
 ✅ Hyperparameter — you choose how many epochs to train for
 
----
 
 ### 🔄 3. **Iterations (a.k.a. steps)**
 
@@ -116,7 +115,6 @@ Let’s break them down:
 
 ✅ Not always manually set, but it’s derived from batch size and epochs — still treated as a tuning lever
 
----
 
 ### 🧠 Visual Summary
 
@@ -127,7 +125,6 @@ Let’s break them down:
 | Iteration     | One weight update (per batch)  | 🔄 Derived      |
 | Learning Rate | How big each weight update is  | ✅ Yes           |
 
----
 
 ### 🧪 Real Example (PyTorch)
 
@@ -139,7 +136,3 @@ for epoch in range(epochs):              # Hyperparameter: epochs
         loss.backward()
         optimizer.step()
 ```
-
----
-
-Want to see how these hyperparameters affect training quality or speed (e.g., with XGBoost or a neural net)?
