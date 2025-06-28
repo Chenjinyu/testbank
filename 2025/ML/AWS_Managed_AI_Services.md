@@ -1,6 +1,5 @@
 ## Table of Contents
 - [AWS Managed AI Services](#aws-managed-ai-services)
-- [SageMaker JumpStart](#sagemaker-jumpstart)
 - [What is Amazon Bedrock](#-what-is-amazon-bedrock)
 - [Here’s a complete Python example that uses Amazon Bedrock to:](#heres-a-complete-python-example-that-uses-amazon-bedrock-to)
 - [Bedrock RAG API Example](#bedrock-rag-api-example)
@@ -22,6 +21,18 @@
 - [Recommendations](#recommendations)
   - [Amazon Personalize](#amazon-personalize)
 - [What is Amazon SageMaker](#-what-is-amazon-sagemaker)
+  - [SageMaker Studio](#sagemaker-studio)
+  - [SageMaker Data Wrangler](#sagemaker-data-wrangler)
+  - [SageMaker Feature Store](#sagemaker-feature-store)
+  - [SageMaker Clarify](#sagemaker-clarify)
+  - [SageMaker Ground Truth](#sagemaker-ground-truth)
+  - [SageMaker ML Governance](#sagemaker-ml-governance)
+  - [SageMaker Model Registry](#sagemaker-model-registry)
+  - [SageMaker Canvas](#sagemaker-canvas)
+  - [SageMaker JumpStart](#sagemaker-jumpstart)
+  - [SageMaker Pipeline](#sagemaker-pipelines)
+  - [MLFlow on Amazon SageMaker](#mlflow-on-amazon-sagemaker)
+  - [SageMaker - Summary](#sagemaker---summary)
 
 
 
@@ -33,95 +44,6 @@
 - Token-based pricing: pay for what you use
 - Provisioned throughtput: for predictable workloads, cost saving and predictable performance
 
-
-## SageMaker JumpStart
-### 🚀 What is **Amazon SageMaker JumpStart**?
-
-**SageMaker JumpStart** is a feature in Amazon SageMaker Studio that provides **pre-built ML solutions**, **models**, and **notebooks** so you can start machine learning projects quickly—without having to build everything from scratch.
-
-It's like an **ML app store** for:
-
-* Pre-trained models (e.g., image classification, text summarization)
-* Example notebooks
-* Fully-built ML solutions (fraud detection, churn prediction, etc.)
-* Foundation models (e.g., Falcon, Claude, Mistral, etc.) you can deploy with a few clicks
-
-#### 🎯 Key Benefits
-
-| Benefit                         | Description                                                               |
-| ------------------------------- | ------------------------------------------------------------------------- |
-| ✅ **No ML expertise needed**    | Start with ready-made solutions for common business problems              |
-| ⚙️ **Pre-built & customizable** | Modify code, hyperparameters, or data as needed                           |
-| ⚡ **Fast prototyping**          | Go from idea → deployed model/API in minutes                              |
-| 📚 **Learning resource**        | Great for learning best practices (preprocessing, deployment, evaluation) |
-| 🧠 **Foundation models**        | Easily deploy HuggingFace, Falcon, LLaMA, Claude, etc.                    |
-| 🔌 **Integration ready**        | Works out of the box with SageMaker Pipelines, Feature Store, and Studio  |
-| 💰 **Cost-effective**           | Pay only for compute/storage you use — the JumpStart UI itself is free    |
-
-#### 🔍 What Can You Do With JumpStart?
-
-##### 🧠 1. Use Pre-trained Models
-
-* **Text classification**
-* **Object detection**
-* **Sentiment analysis**
-* **Text generation**
-* **Image segmentation**
-* **Embedding models** for search and vector DBs
-
-➡️ Models from **Hugging Face**, **TensorFlow Hub**, **PyTorch Hub**, and **SageMaker built-ins**.
-
-##### 💡 2. Launch End-to-End Solutions
-
-With just a few clicks, you can deploy:
-
-* **Churn prediction**
-* **Fraud detection**
-* **Credit risk scoring**
-* **Anomaly detection**
-* **Customer segmentation**
-* **Document summarization**
-
-These solutions include:
-
-* Notebook + sample data
-* Preprocessing logic
-* Model training + evaluation
-* Inference endpoint
-
-##### 🌐 3. Access to Foundation Models (FMs)
-
-JumpStart lets you easily **deploy FMs** from Amazon Bedrock or Hugging Face for:
-
-* Text generation (Falcon, Mistral, Claude)
-* Embedding generation
-* Chatbot integration
-
-
-#### 🧪 Example Use Case: Churn Prediction
-
-You can launch the "Customer Churn Prediction" solution in SageMaker JumpStart:
-
-1. Modify the notebook with your data
-2. Run training with built-in XGBoost
-3. Deploy model to endpoint
-4. Call endpoint via API to predict churn
-
-🧠 No need to write model logic or infrastructure.
-
-
-#### ✅ Summary
-
-| Feature                | SageMaker JumpStart                    |
-| ---------------------- | -------------------------------------- |
-| Use case templates     | ✅ Yes                                  |
-| Pre-trained models     | ✅ Yes                                  |
-| Foundation models      | ✅ Yes                                  |
-| Requires coding skills | ❌ Not required                         |
-| Customizable           | ✅ Yes                                  |
-| Cost                   | Free to browse, pay for resources used |
-
----
 
 ## 🌐 What is **Amazon Bedrock**?
 
@@ -785,3 +707,117 @@ linear.fit({'train': train_data})
 # Deploy model
 predictor = linear.deploy(initial_instance_count=1, instance_type='ml.t2.medium')
 ```
+### SageMaker Studio
+### SageMaker Data Wrangler
+### SageMaker Feature Store
+### SageMaker Clarify
+### SageMaker Ground Truth
+### SageMaker ML Governance
+### SageMaker Model Registry
+### SageMaker Canvas
+
+
+### SageMaker JumpStart
+### 🚀 What is **Amazon SageMaker JumpStart**?
+
+**SageMaker JumpStart** is a feature in Amazon SageMaker Studio that provides **pre-built ML solutions**, **models**, and **notebooks** so you can start machine learning projects quickly—without having to build everything from scratch.
+
+It's like an **ML app store** for:
+
+* Pre-trained models (e.g., image classification, text summarization)
+* Example notebooks
+* Fully-built ML solutions (fraud detection, churn prediction, etc.)
+* Foundation models (e.g., Falcon, Claude, Mistral, etc.) you can deploy with a few clicks
+
+#### 🎯 Key Benefits
+
+| Benefit                         | Description                                                               |
+| ------------------------------- | ------------------------------------------------------------------------- |
+| ✅ **No ML expertise needed**    | Start with ready-made solutions for common business problems              |
+| ⚙️ **Pre-built & customizable** | Modify code, hyperparameters, or data as needed                           |
+| ⚡ **Fast prototyping**          | Go from idea → deployed model/API in minutes                              |
+| 📚 **Learning resource**        | Great for learning best practices (preprocessing, deployment, evaluation) |
+| 🧠 **Foundation models**        | Easily deploy HuggingFace, Falcon, LLaMA, Claude, etc.                    |
+| 🔌 **Integration ready**        | Works out of the box with SageMaker Pipelines, Feature Store, and Studio  |
+| 💰 **Cost-effective**           | Pay only for compute/storage you use — the JumpStart UI itself is free    |
+
+#### 🔍 What Can You Do With JumpStart?
+
+##### 🧠 1. Use Pre-trained Models
+
+* **Text classification**
+* **Object detection**
+* **Sentiment analysis**
+* **Text generation**
+* **Image segmentation**
+* **Embedding models** for search and vector DBs
+
+➡️ Models from **Hugging Face**, **TensorFlow Hub**, **PyTorch Hub**, and **SageMaker built-ins**.
+
+##### 💡 2. Launch End-to-End Solutions
+
+With just a few clicks, you can deploy:
+
+* **Churn prediction**
+* **Fraud detection**
+* **Credit risk scoring**
+* **Anomaly detection**
+* **Customer segmentation**
+* **Document summarization**
+
+These solutions include:
+
+* Notebook + sample data
+* Preprocessing logic
+* Model training + evaluation
+* Inference endpoint
+
+##### 🌐 3. Access to Foundation Models (FMs)
+
+JumpStart lets you easily **deploy FMs** from Amazon Bedrock or Hugging Face for:
+
+* Text generation (Falcon, Mistral, Claude)
+* Embedding generation
+* Chatbot integration
+
+
+#### 🧪 Example Use Case: Churn Prediction
+
+You can launch the "Customer Churn Prediction" solution in SageMaker JumpStart:
+
+1. Modify the notebook with your data
+2. Run training with built-in XGBoost
+3. Deploy model to endpoint
+4. Call endpoint via API to predict churn
+
+🧠 No need to write model logic or infrastructure.
+
+
+#### ✅ Summary
+
+| Feature                | SageMaker JumpStart                    |
+| ---------------------- | -------------------------------------- |
+| Use case templates     | ✅ Yes                                  |
+| Pre-trained models     | ✅ Yes                                  |
+| Foundation models      | ✅ Yes                                  |
+| Requires coding skills | ❌ Not required                         |
+| Customizable           | ✅ Yes                                  |
+| Cost                   | Free to browse, pay for resources used |
+
+---
+
+### SageMaker Pipelines
+
+### MLFlow on Amazon SageMaker
+
+### SageMaker - Summary
+| Services                | Descritption                         |
+| ---------------------- | -------------------------------------- |
+| SageMakder    |  end-to-end ML Service.|
+| SageMakder Automatic Model Tuning     | Tune hyperparameters|
+| SageMakder Deployment & Inference      | Real-time, Serverless, batch, async|
+| SageMakder Studio | unified interface for SageMaker|
+| SageMakder Data Wrangler           | Explore and prepare datasets, create features|
+| SageMakder Feature Store                   | store features metadata in a central place|
+| SageMakder Clarify                  | Compare models, explain model outputs, detect bais|
+| SageMakder Ground Truth                   | RLFH, humans for model grading and data labeling|
