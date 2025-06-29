@@ -1,6 +1,8 @@
 ## Table of Contents
 - [AWS Managed AI Services](#aws-managed-ai-services)
 - [What is Amazon Bedrock](#-what-is-amazon-bedrock)
+  - [RAG](#rag)
+  - [Knowledge Base](#knowledge-base)
 - [Here’s a complete Python example that uses Amazon Bedrock to:](#heres-a-complete-python-example-that-uses-amazon-bedrock-to)
 - [Bedrock RAG API Example](#bedrock-rag-api-example)
 - [Amazon Q Business](#amazon-q-business)
@@ -250,7 +252,7 @@ print("\nRAG-based answer:\n", output['content'][0]['text'])
 
 ---
 
-## Bedrock RAG API Example
+##### Bedrock RAG API Example
 ```py
 # app.py - Flask RAG API using Amazon Bedrock
 
@@ -319,6 +321,144 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 ```
+---
+
+### RAG
+**RAG** stands for **Retrieval-Augmented Generation** — it's an AI architecture pattern that combines **information retrieval** with **language generation**, so your LLM (e.g., Claude, GPT-4, Titan) can give answers **based on real documents**, not just its training data.
+
+##### 🧠 Why Use RAG?
+
+LLMs like GPT or Claude are powerful but:
+
+* They **forget** your company-specific knowledge
+* They can **hallucinate** answers if they don’t know something
+
+👉 **RAG fixes this** by letting you feed the model with relevant internal documents at query time.
+
+
+##### ✅ How RAG Works (Step-by-Step)
+
+1. **User asks a question**
+
+   > “How do I deploy our backend service?”
+
+2. **Embed the question into a vector**
+
+   > Turns the question into a mathematical representation
+
+3. **Search a vector database** (your indexed documents)
+
+   > Find relevant content from GitHub, Confluence, PDFs, etc.
+
+4. **Send the question + top documents to the LLM**
+
+   > LLM answers based on retrieved content
+
+5. **Return the answer**
+
+   > “To deploy the backend service, run `make deploy` after merging to `main`…”
+
+##### 📦 Key Components of RAG
+
+| Component           | Description                          | Examples                                     |
+| ------------------- | ------------------------------------ | -------------------------------------------- |
+| **Embedding Model** | Converts text → vector               | Amazon Titan Embeddings, OpenAI, HuggingFace |
+| **Vector Store**    | Stores searchable document vectors   | Amazon OpenSearch, Pinecone, FAISS           |
+| **Retriever**       | Finds relevant chunks for a question | LangChain Retriever                          |
+| **LLM**             | Generates answers from context       | Claude (via Bedrock), GPT-4, Mistral         |
+| **Orchestrator**    | Manages the flow (optional)          | LangChain, LlamaIndex, Haystack              |
+
+##### ✅ RAG vs Fine-Tuning
+
+| Feature        | RAG                            | Fine-Tuning                               |
+| -------------- | ------------------------------ | ----------------------------------------- |
+| Updates easily | ✅ Yes, just re-embed documents | ❌ No, retrain required                    |
+| Cost-efficient | ✅ Embed once, reuse            | ❌ Expensive, slow                         |
+| Accurate       | ✅ Grounded in real documents   | ⚠️ Can still hallucinate                  |
+| Use case       | Dynamic knowledge, QA          | Style-specific generation, classification |
+
+##### 🧰 Example Use Cases
+
+* Internal knowledge assistants (GitHub, Confluence)
+* Customer support bots with product manuals
+* Legal document QA
+* Healthcare policy answers
+
+Would you like:
+
+* A **simple diagram of RAG**?
+* A **real example using your own docs**?
+* Code to implement one in **AWS / Python / Streamlit**?
+
+Let me know how you'd like to proceed.
+
+---
+
+
+### Knowledge Base
+A **knowledge base** is a **structured collection of information** that a system can search, reference, or reason over — usually to answer questions, assist decision-making, or automate responses.
+
+In the context of AI and **RAG (Retrieval-Augmented Generation)**, a **knowledge base** refers to:
+
+> A set of your own documents (text, PDFs, web pages, code, etc.) that has been **processed, embedded, and stored** so that an LLM can **retrieve relevant pieces** and generate accurate, grounded answers.
+
+##### 📦 What Does a Knowledge Base Contain?
+
+* **Sources**: GitHub README files, Confluence pages, PDFs, Word docs, manuals, code comments, logs, etc.
+* **Metadata**: Title, author, tags, timestamps, source URL
+* **Embeddings**: Each text chunk is transformed into a vector (via an embedding model)
+
+##### 🧠 Why Use a Knowledge Base in AI?
+
+LLMs (e.g., Claude, GPT-4) don’t know your private info unless:
+
+* You hard-code it in the prompt (not scalable), or
+* You fine-tune (expensive), or
+* ✅ You build a **knowledge base** and let the model “look it up” when needed → **RAG**
+
+##### ✅ Components of an AI-Ready Knowledge Base
+
+| Step | Component             | Tool/Example                                    |
+| ---- | --------------------- | ----------------------------------------------- |
+| 1    | Data sources          | GitHub, Confluence, S3 docs                     |
+| 2    | Preprocessing         | Clean HTML/Markdown, chunk into pieces          |
+| 3    | Embedding model       | Titan Embeddings (Bedrock), OpenAI, HuggingFace |
+| 4    | Vector store          | OpenSearch, Pinecone, FAISS                     |
+| 5    | Retrieval interface   | Search based on similarity to a question        |
+| 6    | Generation (optional) | Send top results to Claude or GPT for response  |
+
+##### 🧰 Examples of Knowledge Base Use Cases
+
+| Use Case                 | Description                                                               |
+| ------------------------ | ------------------------------------------------------------------------- |
+| 🧑‍💼 Internal Assistant | Search across company docs (DevOps runbooks, HR policies, SOPs)           |
+| 🧑‍💻 Dev Knowledge Base | Ask: “How do I deploy the service?” — answer comes from GitHub/Confluence |
+| 🛠 Product Support       | Answer customer queries using manuals and guides                          |
+| ⚖ Legal/Healthcare       | Extract compliance info from structured policy documents                  |
+
+##### 🟨 Amazon Bedrock: Knowledge Base Support
+
+If you're using **Amazon Bedrock**, it lets you:
+
+* Create a **knowledge base** linked to an S3 bucket
+* Use **Titan Embeddings G1**
+* Query with models like **Claude 3, Mistral, Titan**
+
+And it handles:
+
+* Chunking
+* Embedding
+* Retrieval
+* Prompting the LLM
+
+Would you like:
+
+* An example **Bedrock Knowledge Base setup**?
+* A **local version using FAISS or Pinecone**?
+* A **comparison of Bedrock vs LangChain knowledge base setup**?
+
+Let me know your tools/environment and I’ll guide you step by step.
+
 ---
 
 ## Amazon Q Business
