@@ -2,6 +2,7 @@
 - [Embedding](#embedding)
 - [Top-K, Top-P, and Temperature](#top-k-top-p-and-temperature)
 - [XGBoost, Keras, and PyTorch](#xgboost-keras-and-pytorch)
+- [Bias and Variance](#bias-and-variance)
 
 ## Embedding
 
@@ -226,3 +227,8 @@ Each one gives you different **tools** to build **models** that fit your data an
 
 > These frameworks don't *do the work for you*, but they give you the tools to **define**, **train**, **tune**, and **run** machine learning models — each suited for different data types and use cases.
 
+
+## Bias and Variance
+
+
+![Bias and Variance](./imgs/bias_and_variance.png)

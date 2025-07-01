@@ -35,7 +35,7 @@
   - [SageMaker Pipeline](#sagemaker-pipelines)
   - [MLFlow on Amazon SageMaker](#mlflow-on-amazon-sagemaker)
   - [SageMaker - Summary](#sagemaker---summary)
-
+- [Amazon Augmented AI (A2I)](#amazon-augmented-ai-a2i)
 
 
 ## AWS Managed AI Services
@@ -2445,5 +2445,58 @@ Here’s a clear and complete **summary of Amazon SageMaker and its core service
 > **Amazon SageMaker is an all-in-one platform** for building production-ready ML systems, offering everything from **no-code AutoML** to **custom deep learning training** to **enterprise-grade governance and monitoring** — all tightly integrated with AWS services.
 
 Would you like a **diagram of all these components**, or a **recommendation for which to use in your project (e.g., NLP, tabular data, forecasting, etc.)**?
+
+---
+
+
+## Amazon Augmented AI (A2I)
+
+#### 🧠 What Is Amazon A2I?
+
+**Amazon Augmented AI (A2I)** is a fully-managed AWS service that helps you **seamlessly integrate human review into your machine learning workflows**—no need to build and manage human-in-the-loop systems from scratch ([aws.amazon.com][1]).
+
+It sets up a “human review loop”:
+
+1. Your ML model (like Rekognition, Textract, SageMaker, or custom models) makes predictions.
+2. If the prediction falls below your confidence threshold—or you want random audits—it **automatically routes the task to human reviewers**.
+3. Reviewers (your team, Mechanical Turk, or third-party vendors) inspect, correct, or verify outputs.
+4. The final result is stored and can be used to improve your model over time ([docs.aws.amazon.com][2], [aws.amazon.com][3]).
+
+#### ⚙️ Core Features & Benefits
+
+* **Built-in workflows**: Predefined templates for text extraction, image moderation, content classification, etc. ([aws.amazon.com][3])
+* **Flexible reviewer types**: Choose from internal teams, Amazon Mechanical Turk’s 500K+ global workforce, or vetted vendors via AWS Marketplace ([aws.amazon.com][3]).
+* **Customizable logic**: Use Lambda or your own code to define what triggers a human review—confidence thresholds, specific conditions, or random sampling ([aws.amazon.com][4]).
+* **Instruction-driven review UI**: Provide reviewers with clear guidance and examples directly in their interface ([aws.amazon.com][3]).
+* **Quality control**: Option to route tasks to multiple reviewers to reach consensus ([aws.amazon.com][3]).
+* **Improved model accuracy**: Use human-reviewed outputs to retrain and enhance your ML models work over time ([aws.amazon.com][1]).
+
+#### 👀 Visual Demo
+
+[Amazon Augmented AI Overview and Demo](https://www.youtube.com/watch?v=tdQPMdkXul4&utm_source=chatgpt.com)
+
+##### 🧩 When to Use A2I
+
+* **Uncertain or low-confidence predictions** in areas like OCR, content moderation, medical data, legal forms
+* **Need compliance or audit trails** where manual review is required
+* **Fast time-to-market** by leveraging built-in UI workflows and managed reviewer pools
+* **Iterative model improvements** based on real human corrections
+
+###### ✅ Quick Take
+
+A2I acts as the **middleware** between your ML model and human judgment—**automating when and how** to invoke human review. You get:
+
+* A scalable, managed review interface
+* Multiple workforce options
+* Easy integration via console, SDKs, or APIs
+
+Ideal for scenarios where **accuracy matters**, model outputs have **uncertainty**, or you need **auditable human oversight**.
+
+Would you like example code to set up a human loop using the A2I SDK, or help building a workflow for your specific ML pipeline?
+
+[1]: https://aws.amazon.com/augmented-ai/?utm_source=chatgpt.com "Amazon Augmented AI - Machine Learning - AWS"
+[2]: https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html?utm_source=chatgpt.com "Using Amazon Augmented AI for Human Review"
+[3]: https://aws.amazon.com/augmented-ai/features/?utm_source=chatgpt.com "Amazon A2I features – Amazon Web Services"
+[4]: https://aws.amazon.com/augmented-ai/faqs/?utm_source=chatgpt.com "Amazon Augmented AI FAQs - AWS"
 
 ---
