@@ -1,4 +1,12 @@
-Great question! **SHAP values** (Shapley Additive Explanations) and **Partial Dependence Plots (PDPs)** are two different techniques used to interpret machine learning models, especially **black-box models** like XGBoost, Random Forests, or deep learning.
+**SHAP values** (Shapley Additive Explanations) and **Partial Dependence Plots (PDPs)** are two different techniques used to interpret machine learning models, especially **black-box models** like XGBoost, Random Forests, or deep learning.
+
+
+From Youtube: https://www.youtube.com/watch?v=UJeu29wq7d0, 
+the Shapley value = expected marginal contribution
+                  = weighted average of a player's contributions
+
+![Coalition vaules](./imgs/Coalition%20values.jpg)
+![shapley formula](./imgs/shapley%20formula.jpg)
 
 ---
 

@@ -52,6 +52,14 @@ Sure! Here are the most **popular metrics** used to **evaluate machine learning 
 | **Adjusted Rand Index (ARI)** | Similarity to ground truth clusters                |
 | **Davies-Bouldin Index**      | Lower is better – compact, well-separated clusters |
 
+
+#### 6. **Correlation Matrix**
+
+![Correlation Matrix](./imgs/Coalition%20values.jpg)
+
+#### 7. **Confusion Matrix**
+![confusion Matrix](./imgs/confusion%20matrix.jpg)
+
 ##### ✅ TL;DR Summary Table
 
 | Task Type       | Top Metrics                              |
