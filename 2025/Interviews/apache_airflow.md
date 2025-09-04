@@ -181,3 +181,51 @@ without a borker, the scheulder has no scalable way to hand work to many workers
 ##### Managed options on AWS
 - Redis → Amazon ElastiCache for Redis (common choice, simple, fast).
 - RabbitMQ → Amazon MQ (RabbitMQ engine) (richer features, exchanges/queues).
+
+
+#### What is "The Celery"
+Celery is an **open-source distributed task queue system**. It’s mainly used for running Python functions in the background (asynchronously) or on multiple machines (distributed).
+
+Think of it like this:
+* Normally, your Python code runs line by line, and if something takes a long time (e.g., sending an email, generating a report, crunching data), the whole program might wait.
+* Celery lets you hand off those long-running or parallel tasks to a **worker process**. Your main program just queues the job and keeps going.
+
+##### Key Concepts
+
+1. **Tasks** – Python functions you decorate with `@app.task`. These are the jobs Celery will run.
+2. **Broker** – A message queue (e.g., Redis, RabbitMQ, Amazon SQS) that Celery uses to pass tasks from your app to workers.
+3. **Workers** – Processes that actually pick up tasks from the broker and execute them.
+4. **Result Backend** – Optional storage (Redis, database, S3, etc.) where Celery saves task results for you to check later.
+
+##### Typical Use Cases
+
+* Sending emails or push notifications without blocking the main app.
+* Image or video processing in the background.
+* Machine learning job orchestration.
+* Data ETL pipelines.
+* Any heavy computation that can be parallelized.
+
+##### Celery + Flower + Airflow
+
+* **Celery** = the engine that executes distributed background tasks.
+* **Flower** = the dashboard to monitor/manage Celery.
+* **Airflow (with CeleryExecutor)** = uses Celery workers to run DAG tasks in parallel, and Flower can then be used to watch those workers.
+
+👉 Without Airflow, you can still use Celery + Flower for any Python app. With Airflow, Celery is just one of the executors available.
+
+#### What is Flower"
+Flower is a **real-time monitoring and administration tool for Celery** (the distributed task queue system).
+
+##### What Flower Does
+* Provides a **web-based UI** where you can see task progress, queues, workers, and resource usage.
+* Lets you **monitor tasks in real time** (success, failure, retries).
+* Offers **worker management** (shutdown, restart, revoke tasks, etc.).
+* Exposes **metrics and APIs** for integration.
+
+##### Does it only work with Apache Airflow?
+* **No.** Flower is not tied to Apache Airflow.
+* Airflow can use **CeleryExecutor**, and when it does, Flower is often added to monitor the Celery workers that execute Airflow tasks.
+* But Flower itself is a **Celery-specific tool**: it works with any project that uses Celery, not just Airflow.
+* If you use Airflow with other executors (like **LocalExecutor**, **KubernetesExecutor**, or **SequentialExecutor**), Flower is not relevant because those do not rely on Celery.
+
+👉 In short: **Flower works with Celery, regardless of whether you’re using Airflow or not.**
