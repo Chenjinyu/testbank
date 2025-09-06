@@ -37,8 +37,6 @@
 * K-fold reduces variance by testing on multiple splits instead of one.
 * More computationally expensive.
 
-
-
 ### 🔹 3. **Stratified K-Fold Cross-Validation**
 
 **What it is**:
@@ -56,6 +54,50 @@
 
 * K-fold may create folds with skewed class ratios.
 * Stratified K-fold keeps class distribution balanced in every fold.
+
+#### More Detail Explaination for Stratified K-Fold Cross Validation
+##### 🔹 What Cross-Validation Really Does
+
+* **Yes**, we are **training** the model multiple times (once per fold).
+* But the **purpose** is **not** to get a final trained model — it’s to **evaluate** how well the model generalizes to unseen data.
+
+Each fold is like a **mini experiment**:
+
+1. Split the data into training (K–1 folds) and validation (1 fold).
+2. Train on training folds.
+3. Validate (evaluate) on the held-out fold.
+4. Repeat for every fold.
+5. Average the validation scores → this is your **cross-validation estimate of model performance**.
+
+##### 🔹 Why It Looks Like Training
+
+* During cross-validation, the model **is trained K times**.
+* But **those models are temporary** → they exist only to test performance on the validation folds.
+* At the end, you **throw them away**.
+
+Only after cross-validation do you typically:
+👉 Retrain one **final model** on the **entire dataset** (with tuned hyperparameters).
+
+##### 🔹 Analogy
+
+Think of cross-validation like **practice exams**:
+
+* You split your study material into K chunks.
+* Each time, you “train” on K–1 chunks and test yourself on the held-out chunk.
+* You’re not keeping those mini test scores for real life — but they tell you how prepared you are.
+* After practice, you take the **final exam** (train on all data, deploy the model).
+
+##### ✅ In Short
+
+* **Cross-validation is an evaluation technique**, not the final training.
+* The repeated training is just a **means to validate** performance fairly.
+* Final step = retrain the chosen model on **all the data** before using it in production.
+
+👉 Do you want me to extend the script to **show both parts** clearly:
+
+1. Cross-validation (for evaluation).
+2. Final training on the full dataset (for deployment)?
+
 
 ### 🔹 4. **Accuracy**
 

@@ -19,6 +19,16 @@ Example: Google BERT, OpenAI ChatGPT.
 -  XGBoost(eXtreme Gradient Boosting) - an implemntation of gradient boosting 
 
 
+### Gradient Boosting
+- a.k.a Gradient Boosting Machines (GBMs)
+- an ensemble learing algorithm which is widely used in industrial applications and machine learning competitions.
+- A supervised learning algorthem, which attempts to accurately predict a target by combing the estimate of a set of simpler and weaker learners
+  - Learners learn sequentially
+  - Convert many weak learners into a complex learner. 
+- It's called graident boosting because it uses a **gradient descent** procedure to minimize the loss when adding new learners to the ensemble.
+![XGBoost](https://i.imgur.com/e7MIgXk.png)
+(source from: https://www.kaggle.com/code/dansbecker/xgboost)
+
 ## ✅ What is **XGBoost**?
 
 **XGBoost** (e**X**treme **G**radient **Boost**ing) is a **high-performance machine learning algorithm** used primarily for:
@@ -26,6 +36,7 @@ Example: Google BERT, OpenAI ChatGPT.
 * **Classification** (e.g., spam detection, churn prediction)
 * **Regression** (e.g., price prediction)
 * **Ranking** (e.g., search engine results)
+
 
 It’s one of the most popular algorithms in data science competitions (like Kaggle) because it's:
 
