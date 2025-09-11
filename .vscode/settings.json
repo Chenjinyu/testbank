@@ -1,3 +1,4 @@
 {
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "python.defaultInterpreterPath": "/Users/jinyuchen/virtual_envs/web_restapi_venv/bin/python",
 }

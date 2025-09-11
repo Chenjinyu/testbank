@@ -7,7 +7,7 @@ from aws_lambda_powertools import Logger, Tracer, Metrics
 from aws_lambda_powertools.event_handler import APIGatewayRestResolver
 from aws_lambda_powertools.logging import correlation_paths
 from aws_lambda_powertools.metrics import MetricUnit
-from aws_lambda_powertools.utitlies.idempotency import DynamoDBPersistenceLayer, IdempotencyConfig, idempotent_function
+from aws_lambda_powertools.utilities.idempotency import DynamoDBPersistenceLayer, IdempotencyConfig, idempotent_function
 from aws_lambda_powertools.utilities import parameters
 from aws_lambda_powertools.utilities.parser import BaseModel, Field
 from aws_lambda_powertools.utilities.typing import LambdaContext
@@ -18,17 +18,16 @@ tracer = Tracer(service="items")
 metrics = Metrics(namespace="ItemsService", service="items")
 app = APIGatewayRestResolver()
 
-idempotency_storage = DynamoDBPersistenceLayer(table_name=os.getenv("IDEMPOTENCY_TABLE_NAME"))
+idempotency_storage = DynamoDBPersistenceLayer(table_name=os.environ["IDEMPOTENCY_TABLE_NAME"])
 idempotency_config = IdempotencyConfig(
     event_key_jmespath="body",
-    persistence_store=idempotency_storage,
     use_local_cache=True,
-    expiration_seconds=300,
+    expires_after_seconds=300,
 )   
 
 class Item(BaseModel):
     name: str = Field(..., min_length=3, max_length=50)
-    description: str = Field(None, max_length=500)
+    description: str = Field(..., max_length=500)
     price: float = Field(..., gt=0)
     tax: float = Field(..., gt=0)
     
@@ -53,7 +52,7 @@ def post_items():
 @idempotent_function(data_keyword_argument="item", config=idempotency_config, persistence_store=idempotency_storage)
 def create_item(item: Item):
     logger.info("Creating item in the database (simulated)")
-    API_KEY = parameters.get_secret_value(name="item-api-key", max_age=300)    
+    API_KEY = parameters.get_secret(name="item-api-key", max_age=300)    
     
     new_item: Response = requests.post("", data=item.dict(), headers={"x-api-key": API_KEY})
     # it uses the request libray, and it is part of the Response object,
@@ -70,7 +69,7 @@ def create_item(item: Item):
 
 
 @metrics.log_metrics(capture_cold_start_metric=True)
-@logger.inject_lambda_context(correlation_path=correlation_paths.API_GATEWAY_REST)
+@logger.inject_lambda_context(correlation_id_path=correlation_paths.API_GATEWAY_REST)
 @tracer.capture_method
 def lambda_handler(event: dict, context: LambdaContext) -> dict:
     return app.resolve(event, context)
