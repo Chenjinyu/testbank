@@ -49,12 +49,15 @@ def post_items():
         "message": "Item received successfully"
     }
 
+# idempotent function decorator ensure that if the function is called multiple times with the same idempotency key,the cached result is returned instead of executing the function again.
+# by default, the aws_lambda_powertools uses the entire event as the idempotency key. Here, we are using the body of the request as the idempotency key.
+# This means
 @idempotent_function(data_keyword_argument="item", config=idempotency_config, persistence_store=idempotency_storage)
 def create_item(item: Item):
     logger.info("Creating item in the database (simulated)")
     API_KEY = parameters.get_secret(name="item-api-key", max_age=300)    
     
-    new_item: Response = requests.post("", data=item.dict(), headers={"x-api-key": API_KEY})
+    new_item: Response = requests.post("", data=item.model_dump(), headers={"x-api-key": API_KEY})
     # it uses the request libray, and it is part of the Response object,
     # it checks the HTTP status code of the response, and if it is 4xx or 5xx,
     # it raises an HTTPError exception.
@@ -65,7 +68,7 @@ def create_item(item: Item):
     logger.info(" Item created successfully (simulated)")
     metrics.add_metric(name="ItemCreated", unit=MetricUnit.Count, value=1)
     
-    return item.json()
+    return new_item.json()
 
 
 @metrics.log_metrics(capture_cold_start_metric=True)
