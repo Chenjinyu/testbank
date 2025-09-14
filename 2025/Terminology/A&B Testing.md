@@ -1,70 +1,33 @@
-Awesome—let’s make A/B testing practical and usable.
+## A/B testing
+also known as split testing, is a method of comparing two versions of a digital asset—such as a website page, app, email, or advertisement—to determine which performs better. Users are randomly shown either the original version (A) or the variation (B), and their engagement and conversion rates are measured to identify which one achieves the desired business goal more effectively.  [1, 2, 3, 4]  
+How it works 
 
-# What A/B testing is (in one line)
+1. Identify a Goal: Define a specific, measurable objective, like increasing conversions, click-through rates, or customer engagement. [4, 5]  
+2. Create Variations: Make a single change to one element on the original asset to create a variation (B). This could be a new headline, image, call-to-action button, or page layout. [1, 2, 5, 6, 7, 8]  
+3. Split Traffic: Randomly divide your target audience into two groups. [1, 5]  
+4. Show Each Version: One group sees the control (A), while the other sees the new variation (B). [3]  
+5. Collect Data: Track key performance metrics for both versions. [4, 5]  
+6. Analyze Results: Statistically analyze the data to see which version performed better against your defined goal. [1, 5]  
+7. Implement the Winner: Deploy the version that yielded the best results and discard the underperforming one. [4, 5]  
 
-Run **two versions** (A = current, B = change), **randomly assign** users, and use statistics to decide if B improved your **primary metric** (conversion, revenue/user, etc.).
+What can be tested 
+A/B testing can be used for many digital assets, including: [2, 3, 9]  
 
----
+• Website pages, including landing pages and components 
+• Emails and newsletters 
+• Advertisements and social media posts 
+• Mobile app features and designs 
+• Call-to-action buttons and form designs 
 
-# A simple, correct workflow
-
-1. **Define the goal (OEC)**
-
-   * Pick **one primary metric** (e.g., checkout conversion). Add **guardrails(护栏)** (e.g., error rate, latency, refund rate).
-
-2. **Form a hypothesis**
-
-   * “Changing copy to X will increase conversion by **≥ 10% relative**.”
-
-3. **Choose MDE + power**
-
-   * **MDE** (minimum detectable effect) = smallest lift you care about (e.g., +10% relative).
-   * Typical settings: **α = 0.05** (5% false positive), **power = 0.8** (80% chance to detect MDE).
-
-4. **Compute sample size**
-
-   * For a **proportion metric** (conversion), per variant:
-
-     $$
-     n \approx \frac{2\,(z_{1-\alpha/2}+z_{1-\beta})^2 \; p(1-p)}{d^2}
-     $$
-
-     Where $p$ = baseline rate, $d$ = **absolute** MDE (e.g., from 5% to 5.5% → $d=0.005$).
-     Rule of thumb for α=0.05, power=0.8: $n \approx \frac{16\,p(1-p)}{d^2}$.
-
-   * **Example**: baseline $p=0.05$, want +10% relative → $d=0.005$.
-     $n \approx 16 \times 0.05 \times 0.95 / 0.005^2 \approx 30{,}400$ users **per group**.
-
-5. **Randomize & keep it sticky**
-
-   * Assign by a **stable hash** of user\_id (or cookie for anonymous):
-
-     ```python
-     def bucket(user_id: str) -> str:
-         import hashlib
-         h = int(hashlib.md5(user_id.encode()).hexdigest(), 16)
-         return "B" if (h % 100) < 50 else "A"  # 50/50 split
-     ```
-   * Ensure **stickiness** across sessions/releases; log the assignment.
-
-6. **Run the test (fixed horizon)**
-
-   * Don’t “peek and stop” early; plan duration from step 4.
-   * Freeze other big changes; avoid holidays/promos that skew traffic.
-
-7. **Analyze**
-
-   * For **conversion**: two-proportion **z-test**; report **absolute** and **relative** lift with a **95% CI**.
-   * For **revenue/user**: two-sample **t-test** (or bootstrap) on user-level means.
-   * Check **guardrails** (latency, error rate) and **SRM** (sample ratio mismatch ≠ expected 50/50).
-
-8. **Decide & ship**
-
-   * Ship B if it improves the primary metric and guardrails are clean. Otherwise keep A or iterate.
+Benefits of A/B testing 
+• Increased Conversions: Optimize elements to encourage more desired user actions. [4, 10, 11]  
+• Improved User Experience: Make data-driven decisions to enhance user satisfaction and engagement. [5, 12]  
+• Higher ROI: Make the most of your existing traffic and resources, leading to better business outcomes. [4]  
+• Reduced Risk: Test changes with a small portion of your audience before a full rollout, minimizing potential negative impacts. [12, 13, 14]  
 
 ---
 
-# What to instrument (FastAPI on ECS)
+## What to instrument (FastAPI on ECS)
 
 * Emit per-request events with: `user_id`, `variant`, `timestamp`, `endpoint`, and **conversion flag/value** (e.g., purchased? amount).
 * Store to your warehouse (Redshift/Snowflake/BigQuery) and build a small daily job:
