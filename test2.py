@@ -199,6 +199,15 @@ nums = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 #     else:
 #         right = mid_2 - 1 
     
-print(nums.pop())
-print(nums[-1])
-print(nums[-1])
+# print(nums.pop())
+# print(nums[-1])
+# print(nums[-1])
+
+# nums = [-4,-1,0,3,10]
+# def sortedSquares(nums: List[int]) -> List[int]:
+#     return sorted(list(map(lambda x: abs(x * x), nums)))
+
+# print(sortedSquares(nums))
+
+test = 80
+print(test // 10)

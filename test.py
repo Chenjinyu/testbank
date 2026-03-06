@@ -274,7 +274,6 @@ import math
 # print(5%2)
 # print(divmod(5,2))
 
-import logging
 
 
 def multiply(x):
